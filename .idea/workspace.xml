@@ -1,22 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a3a47232-d218-458a-b6ad-e68962551f0a" name="Default" comment="Updates to User Edits&#10;">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/partials/account/editAccountInfo.html" />
-      <change type="DELETED" beforePath="C:\Users\eric.mashlan\Documents\GitHub\woddiggity\npm-debug.log" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/img/favicon.ico" afterPath="$PROJECT_DIR$/public/img/favicon.ico" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/directives.js" afterPath="$PROJECT_DIR$/public/js/directives.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dictionaries/eric_mashlan.xml" afterPath="$PROJECT_DIR$/.idea/dictionaries/eric_mashlan.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/exercise.js" afterPath="$PROJECT_DIR$/routes/exercise.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/index.html" afterPath="$PROJECT_DIR$/public/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/partials/account/index.html" afterPath="$PROJECT_DIR$/public/partials/account/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/controllers/personController.js" afterPath="$PROJECT_DIR$/public/js/controllers/personController.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server.js" afterPath="$PROJECT_DIR$/server.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/models/user.js" afterPath="$PROJECT_DIR$/models/user.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/user.js" afterPath="$PROJECT_DIR$/routes/user.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/controllers/userController.js" afterPath="$PROJECT_DIR$/public/js/controllers/userController.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/weightWorkout.js" afterPath="$PROJECT_DIR$/routes/weightWorkout.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/wendlerWorkout.js" afterPath="$PROJECT_DIR$/routes/wendlerWorkout.js" />
+    <list default="true" id="a3a47232-d218-458a-b6ad-e68962551f0a" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Woddo.iws" />
@@ -560,7 +545,11 @@
       <created>1394657304313</created>
       <updated>1394657304313</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Updates to User Edits&#10;">
+      <created>1394657512996</created>
+      <updated>1394657512996</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="ToolWindowManager">
