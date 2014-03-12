@@ -43,43 +43,33 @@ exports.get = function(req, res){
 
 exports.create = function(req, res){
     var ObjectId = mongoose.Types.ObjectId;
-    var newId = ObjectId();
-
-    var data = new User({
-        _id: newId,
-        FirstName: req.body.FirstName,
-        LastName: req.body.LastName,
-        Email: req.body.Email,
-        password: req.body.password
-    });
+    var data = new User(res.body);
+    data._id = ObjectId();
 
     data.save(function(err, doc){
         if(err ){res.json(err);}
         else if(!doc){throw 'Error';}
         else{res.json(doc);}
     });
-}
+};
 
 exports.update = function(req, res){
-    var query = {_id: mongoose.Types.ObjectId(req.body._id)};
-    var data = new User({
-        FirstName: req.body.FirstName,
-        LastName: req.body.LastName,
-        BirthDate: req.body.BirthDate,
-        Sex: req.body.Sex
-    });
+    var id = mongoose.Types.ObjectId(req.body._id);
+    var query = {_id: id};
+    delete req.body._id;
 
-    User.findOneAndUpdate(query, data, function(err){
-        if(err){res.json(err);}
+    User.update(query, req.body, function(err, doc){
+        if(err ){res.json({error: err.message});}
+        else if(!doc){throw 'Error';}
         else{res.json({success: true});}
     });
-}
+};
 
 exports.delete = function(req, res){
     User.remove({_id: mongoose.Types.ObjectId(req.params.id)}, function(err){
         if(err ){res.json(err);}
         else{res.json({success: true});}
     });
-}
+};
 
 

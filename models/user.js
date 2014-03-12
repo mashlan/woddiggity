@@ -3,7 +3,7 @@ var crypto      = require('crypto');
 
 function validatePresenceOf(value) {
     return value && value.length;
-};
+}
 
 var User = new mongoose.Schema({
     _id: {type: mongoose.Schema.ObjectId },
@@ -11,7 +11,8 @@ var User = new mongoose.Schema({
     LastName: String,
     Email: { type: String, validate: [validatePresenceOf, 'an email is required'], index: { unique: true } },
     HashedPassword: String,
-    Salt: String
+    Salt: String,
+    IsAdmin: Boolean
 });
 
 User.virtual('id').get(function(){

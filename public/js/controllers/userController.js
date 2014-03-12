@@ -9,7 +9,6 @@ myControllers.controller('UserCtrl', ['$scope', '$location', 'User',
             FirstName: '',
             LastName: '',
             Email: '',
-            BirthDate: null,
             password: ''
         };
 
@@ -18,7 +17,7 @@ myControllers.controller('UserCtrl', ['$scope', '$location', 'User',
             name: '',
             direction: '',
             text: ''
-        }
+        };
 
         $scope.getListRecords = function(defaultSort){
             User.query(defaultSort);

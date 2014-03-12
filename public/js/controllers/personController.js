@@ -1,7 +1,7 @@
 'use strict';
 
-myControllers.controller('PersonalCtrl', ['$scope', '$rootScope', '$compile', 'Exercise', 'PersonalRecord',
-    function($scope,$rootScope, $compile, Exercise, PersonalRecord) {
+myControllers.controller('PersonalCtrl', ['$scope', '$rootScope', '$compile', 'Exercise', 'PersonalRecord', 'User',
+    function($scope,$rootScope, $compile, Exercise, PersonalRecord, User) {
         $scope.exerciseList = null;
         $scope.valuePlaceholder= 'Value';
         $scope.personalRecords = [];
@@ -24,9 +24,9 @@ myControllers.controller('PersonalCtrl', ['$scope', '$rootScope', '$compile', 'E
             PersonalRecord.query($rootScope.ActiveUser._id, "ExerciseName").then(function(data){
                 $.each(data, function(i, v){
                     sortByHistoryRecordDate(false, data[i].History);
-                })
+                });
                 $scope.personalRecords = data;
-            })
+            });
         };
 
         $scope.getNew = function(){
@@ -136,10 +136,10 @@ myControllers.controller('PersonalCtrl', ['$scope', '$rootScope', '$compile', 'E
             sortByHistoryRecordDate(false, $scope.exerciseHistory.History);
 
             $("#myModal").modal("show");
-        }
+        };
 
         $scope.editHistory = function(scope){
-            $scope.exerciseHistory = scope.pr
+            $scope.exerciseHistory = scope.pr;
             $("#exerciseGraph").html($('<edit-pr-records></edit-pr-records>'));
             $compile($("#exerciseGraph").contents())($scope);
             $("#myModal").modal("show");
@@ -150,7 +150,7 @@ myControllers.controller('PersonalCtrl', ['$scope', '$rootScope', '$compile', 'E
             $("#helpForm").html($('<pr-help></pr-help>'));
             $compile($("#helpForm").contents())($scope);
             $("#helpModal").modal("show");
-        }
+        };
 
         $scope.calculateOneRepMax = function(){
             var weight = parseFloat($("#weight_lifted").val());
@@ -158,7 +158,7 @@ myControllers.controller('PersonalCtrl', ['$scope', '$rootScope', '$compile', 'E
             var estimatedLift = weight * (1 + (reps /30));
             var roundedToFive = (Math.round(estimatedLift/5) * 5);
             $("#estimated_max").val(roundedToFive);
-        }
+        };
 
         function sortByHistoryRecordDate(asc, historyArray){
             if(asc){
@@ -171,5 +171,32 @@ myControllers.controller('PersonalCtrl', ['$scope', '$rootScope', '$compile', 'E
                 });
             }
         }
+
+        //editing personal information
+        $scope.editAccountInfo = function(){
+            $("#account_info").show();
+            $("#account_info_text").hide();
+            $scope.user = { };
+            $.extend($scope.user, $rootScope.ActiveUser);
+        };
+
+        $scope.saveAccountInfo = function(){
+            User.update($scope.user).then(function(data){
+                if(data.error){
+                    $scope.accountInfoError = data.error;
+                }else{
+                    $rootScope.ActiveUser = $scope.user;
+                    window.sessionStorage.setItem("woddo_user", JSON.stringify($rootScope.ActiveUser));
+                    $("#account_info_text").show();
+                    $("#account_info").hide();
+                }
+            })
+        };
+
+        $scope.cancelAccountInfo = function(){
+            $("#account_info_text").show();
+            $("#account_info").hide();
+            console.log("cancel edit account info");
+        };
     }
 ]);

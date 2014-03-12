@@ -32,18 +32,8 @@ exports.get = function(req, res){
 
 exports.create = function(req, res){
     var ObjectId = mongoose.Types.ObjectId;
-    var newId = ObjectId();
-
-    var data = new WeightWorkout({
-        _id: newId,
-        UserId: req.body.UserId,
-        Name: req.body.Name,
-        Description: req.body.Description,
-        Type: req.body.Type,
-        PlanDate: req.body.PlanDate,
-        ActualDate: req.body.ActualDate,
-        Days: req.body.Days
-    });
+    var data = new WeightWorkout(req.body);
+    data._id = ObjectId();
 
     data.save(function(err, doc){
         if(err ){res.json(err);}

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a3a47232-d218-458a-b6ad-e68962551f0a" name="Default" comment="">
+    <list default="true" id="a3a47232-d218-458a-b6ad-e68962551f0a" name="Default" comment="Updates to User Edits&#10;">
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/partials/account/editAccountInfo.html" />
       <change type="DELETED" beforePath="C:\Users\eric.mashlan\Documents\GitHub\woddiggity\npm-debug.log" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/img/favicon.ico" afterPath="$PROJECT_DIR$/public/img/favicon.ico" />
@@ -40,10 +40,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="user.js" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="user.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/routes/user.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="58" column="24" selection-start="1599" selection-end="1599" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1377">
+            <state line="72" column="2" selection-start="1995" selection-end="1995" vertical-scroll-proportion="1.1152648" vertical-offset="508" max-vertical-offset="1377">
               <folding />
             </state>
           </provider>
@@ -58,10 +58,60 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="wendlerWorkout.js" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="wendlerWorkout.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/routes/wendlerWorkout.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="39" column="1" selection-start="1167" selection-end="1167" vertical-scroll-proportion="1.0327103" vertical-offset="0" max-vertical-offset="782">
+            <state line="39" column="1" selection-start="1167" selection-end="1167" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="782">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/partials/account/index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="25" column="25" selection-start="1183" selection-end="1190" vertical-scroll-proportion="-7.3461537" vertical-offset="234" max-vertical-offset="2244">
+              <folding>
+                <element signature="n#style#0;n#h4#0;n#a#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#h4#0;n#a#1;n#div#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#h4#0;n#a#2;n#div#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#edit-account-info#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="user.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/models/user.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="5" column="1" selection-start="149" selection-end="149" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1003">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="5" column="34" selection-start="159" selection-end="159" vertical-scroll-proportion="-3.2692308" vertical-offset="0" max-vertical-offset="1445">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="directives.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/js/directives.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="5" column="36" selection-start="168" selection-end="168" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="901">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="userController.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/js/controllers/userController.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="19" column="10" selection-start="457" selection-end="457" vertical-scroll-proportion="0.0" vertical-offset="132" max-vertical-offset="918">
               <folding />
             </state>
           </provider>
@@ -70,43 +120,7 @@
       <file leaf-file-name="exercise.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/routes/exercise.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="52" column="40" selection-start="1534" selection-end="1534" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1343">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="personalRecord.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/routes/personalRecord.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="20" column="0" selection-start="737" selection-end="737" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1700">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="routes.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/js/routes.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="48" column="20" selection-start="2828" selection-end="2878" vertical-scroll-proportion="0.0" vertical-offset="253" max-vertical-offset="1122">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="loginToken.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/models/loginToken.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="680">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="exercise.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/models/exercise.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="7" column="3" selection-start="217" selection-end="217" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="221">
+            <state line="57" column="14" selection-start="1590" selection-end="1596" vertical-scroll-proportion="0.0" vertical-offset="769" max-vertical-offset="1343">
               <folding />
             </state>
           </provider>
@@ -115,28 +129,14 @@
       <file leaf-file-name="personController.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/js/controllers/personController.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="178" column="30" selection-start="5985" selection-end="5985" vertical-scroll-proportion="0.0" vertical-offset="474" max-vertical-offset="1343">
+            <state line="160" column="10" selection-start="5372" selection-end="5372" vertical-scroll-proportion="0.0" vertical-offset="1934" max-vertical-offset="2754">
               <folding>
-                <element signature="e#765#1068#0" expanded="false" />
-                <element signature="e#1105#1406#0" expanded="false" />
-                <element signature="e#1456#1522#0" expanded="false" />
-                <element signature="e#1682#2072#0" expanded="false" />
-                <element signature="e#2108#2474#0" expanded="false" />
-                <element signature="e#2521#4454#0" expanded="false" />
-                <element signature="e#4500#4740#0" expanded="false" />
-                <element signature="e#4781#5008#0" expanded="false" />
-                <element signature="e#5056#5366#0" expanded="false" />
-                <element signature="e#5427#5786#0" expanded="false" />
+                <element signature="e#1107#1408#0" expanded="false" />
+                <element signature="e#1458#1524#0" expanded="false" />
+                <element signature="e#1684#2074#0" expanded="false" />
+                <element signature="e#2110#2476#0" expanded="false" />
+                <element signature="e#5433#5792#0" expanded="false" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="userService.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/js/services/userService.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="50" column="60" selection-start="1827" selection-end="1827" vertical-scroll-proportion="0.0" vertical-offset="406" max-vertical-offset="1275">
-              <folding />
             </state>
           </provider>
         </entry>
@@ -194,17 +194,17 @@
         <option value="$PROJECT_DIR$/.idea/workspace.xml" />
         <option value="$PROJECT_DIR$/public/index.html" />
         <option value="$PROJECT_DIR$/server.js" />
-        <option value="$PROJECT_DIR$/models/user.js" />
         <option value="$PROJECT_DIR$/public/js/directives.js" />
         <option value="$PROJECT_DIR$/public/partials/account/index.html" />
-        <option value="$PROJECT_DIR$/public/js/controllers/userController.js" />
         <option value="$PROJECT_DIR$/public/partials/account/editAccountInfo.html" />
         <option value="$PROJECT_DIR$/public/js/services/userService.js" />
         <option value="$PROJECT_DIR$/routes/exercise.js" />
-        <option value="$PROJECT_DIR$/public/js/controllers/personController.js" />
-        <option value="$PROJECT_DIR$/routes/user.js" />
         <option value="$PROJECT_DIR$/routes/weightWorkout.js" />
         <option value="$PROJECT_DIR$/routes/wendlerWorkout.js" />
+        <option value="$PROJECT_DIR$/models/user.js" />
+        <option value="$PROJECT_DIR$/public/js/controllers/userController.js" />
+        <option value="$PROJECT_DIR$/public/js/controllers/personController.js" />
+        <option value="$PROJECT_DIR$/routes/user.js" />
       </list>
     </option>
   </component>
@@ -556,7 +556,11 @@
       <created>1394643846246</created>
       <updated>1394643846246</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Updates to User Edits&#10;">
+      <created>1394657304313</created>
+      <updated>1394657304313</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -596,7 +600,8 @@
       <TodoPanelSettings />
     </option>
     <MESSAGE value="update to home page" />
-    <option name="LAST_COMMIT_MESSAGE" value="update to home page" />
+    <MESSAGE value="Updates to User Edits&#10;" />
+    <option name="LAST_COMMIT_MESSAGE" value="Updates to User Edits&#10;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -792,13 +797,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="55" selection-start="341" selection-end="341" vertical-scroll-proportion="-5.8846154" vertical-offset="0" max-vertical-offset="1445">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/serverConfig/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="70" selection-start="64" selection-end="70" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1071">
@@ -813,37 +811,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/js/directives.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="26" column="44" selection-start="644" selection-end="644" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="901">
-          <folding>
-            <marker date="1394650360686" expanded="true" signature="-1:-1" placeholder="[...]" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/partials/register.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="43" column="0" selection-start="18" selection-end="1744" vertical-scroll-proportion="0.8671412" vertical-offset="0" max-vertical-offset="843">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/partials/account/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="35" column="0" selection-start="1749" selection-end="1749" vertical-scroll-proportion="-18.961538" vertical-offset="102" max-vertical-offset="2244">
-          <folding>
-            <element signature="n#style#0;n#h4#0;n#a#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#h4#0;n#a#1;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#h4#0;n#a#2;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#edit-account-info#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/js/controllers/userController.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="25" selection-start="260" selection-end="260" vertical-scroll-proportion="0.17606445" vertical-offset="0" max-vertical-offset="918">
           <folding />
         </state>
       </provider>
@@ -876,23 +846,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/models/user.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="47" column="44" selection-start="1348" selection-end="1348" vertical-scroll-proportion="0.7652474" vertical-offset="134" max-vertical-offset="1003">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/server.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="22" column="2" selection-start="667" selection-end="667" vertical-scroll-proportion="0.43037975" vertical-offset="0" max-vertical-offset="869">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/routes/exercise.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="52" column="40" selection-start="1534" selection-end="1534" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1343">
           <folding />
         </state>
       </provider>
@@ -925,31 +881,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/js/controllers/personController.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="178" column="30" selection-start="5985" selection-end="5985" vertical-scroll-proportion="0.0" vertical-offset="474" max-vertical-offset="1343">
-          <folding>
-            <element signature="e#765#1068#0" expanded="false" />
-            <element signature="e#1105#1406#0" expanded="false" />
-            <element signature="e#1456#1522#0" expanded="false" />
-            <element signature="e#1682#2072#0" expanded="false" />
-            <element signature="e#2108#2474#0" expanded="false" />
-            <element signature="e#2521#4454#0" expanded="false" />
-            <element signature="e#4500#4740#0" expanded="false" />
-            <element signature="e#4781#5008#0" expanded="false" />
-            <element signature="e#5056#5366#0" expanded="false" />
-            <element signature="e#5427#5786#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/routes/user.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="58" column="24" selection-start="1599" selection-end="1599" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1377">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/routes/weightWorkout.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="40" column="28" selection-start="1188" selection-end="1188" vertical-scroll-proportion="0.0" vertical-offset="281" max-vertical-offset="884">
@@ -959,7 +890,74 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/routes/wendlerWorkout.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="39" column="1" selection-start="1167" selection-end="1167" vertical-scroll-proportion="1.0327103" vertical-offset="0" max-vertical-offset="782">
+        <state line="39" column="1" selection-start="1167" selection-end="1167" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="782">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/partials/account/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="25" column="25" selection-start="1183" selection-end="1190" vertical-scroll-proportion="-7.3461537" vertical-offset="234" max-vertical-offset="2244">
+          <folding>
+            <element signature="n#style#0;n#h4#0;n#a#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#h4#0;n#a#1;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#h4#0;n#a#2;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#edit-account-info#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models/user.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="5" column="1" selection-start="149" selection-end="149" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1003">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="5" column="34" selection-start="159" selection-end="159" vertical-scroll-proportion="-3.2692308" vertical-offset="0" max-vertical-offset="1445">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/js/directives.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="5" column="36" selection-start="168" selection-end="168" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="901">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/js/controllers/userController.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="19" column="10" selection-start="457" selection-end="457" vertical-scroll-proportion="0.0" vertical-offset="132" max-vertical-offset="918">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/exercise.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="57" column="14" selection-start="1590" selection-end="1596" vertical-scroll-proportion="0.0" vertical-offset="769" max-vertical-offset="1343">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/js/controllers/personController.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="160" column="10" selection-start="5372" selection-end="5372" vertical-scroll-proportion="0.0" vertical-offset="1934" max-vertical-offset="2754">
+          <folding>
+            <element signature="e#1107#1408#0" expanded="false" />
+            <element signature="e#1458#1524#0" expanded="false" />
+            <element signature="e#1684#2074#0" expanded="false" />
+            <element signature="e#2110#2476#0" expanded="false" />
+            <element signature="e#5433#5792#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/user.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="72" column="2" selection-start="1995" selection-end="1995" vertical-scroll-proportion="1.1152648" vertical-offset="508" max-vertical-offset="1377">
           <folding />
         </state>
       </provider>

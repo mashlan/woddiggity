@@ -32,14 +32,8 @@ exports.get = function(req, res){
 //JSON API for creating a new exercise
 exports.create = function(req, res){
     var ObjectId = mongoose.Types.ObjectId;
-    var newId = ObjectId();
-
-    var ex = new Exercise({
-        _id: newId,
-        Name: req.body.Name,
-        Description: req.body.Description,
-        Type: req.body.Type
-    });
+    var ex = new Exercise(res.body);
+    ex._id = ObjectId();
 
     ex.save(function(err, doc){
         if(err ){res.json(err);}
@@ -50,10 +44,11 @@ exports.create = function(req, res){
 
 //JSON API for updating a new exercise
 exports.update = function(req, res){
-    var query = {_id: mongoose.Types.ObjectId(req.body._id)};
-    var ex ={ Name: req.body.Name, Description: req.body.Description, Type: req.body.Type };
+    var id = mongoose.Types.ObjectId(req.body._id);
+    var query = {_id: id};
+    delete req.body._id;
 
-    Exercise.findOneAndUpdate(query, ex, function(err){
+    Exercise.update(query, req.body, function(err){
         if(err){res.json(err);}
         else{res.json({success: true});}
     });

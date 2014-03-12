@@ -21,15 +21,16 @@
         </a>
         <a href="#account" class="list-group-item">
             <h4 class="text-primary" style="font-weight: bold">Preferences</h4>
-            <p class="list-group-item-text"> blaa blaa blaa</p>
+            <p class="list-group-item-text">Enter or update your preferred units of measure</p>
         </a>
-        <a href="#account" class="list-group-item">
+        <a href="#account" class="list-group-item" ng-click="editAccountInfo()">
             <h4 class="text-primary" style="font-weight: bold">Personal Info</h4>
-            <p class="list-group-item-text"> blaa blaa blaa</p>
+            <p id="account_info_text" class="list-group-item-text">Update name and email</p>
         </a>
+        <edit-account-info id="account_info" style="display: none"></edit-account-info>
         <a href="#account" class="list-group-item">
             <h4 class="text-primary" style="font-weight: bold">Your Box</h4>
-            <p class="list-group-item-text"> blaa blaa blaa</p>
+            <p class="list-group-item-text">Select or update your Box</p>
         </a>
     </div>
 

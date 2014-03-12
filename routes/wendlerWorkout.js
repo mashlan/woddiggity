@@ -29,14 +29,8 @@ exports.get = function(req, res){
 
 exports.create = function(req, res){
     var ObjectId = mongoose.Types.ObjectId;
-    var newId = ObjectId();
-
-    var data = new WendlerWorkout({
-        _id: newId,
-        Name: req.body.Name,
-        Description: req.body.Description,
-        Days: req.body.Days
-    });
+    var data = new WendlerWorkout(req.body);
+    data._id = ObjectId();
 
     data.save(function(err, doc){
         if(err ){res.json(err);}

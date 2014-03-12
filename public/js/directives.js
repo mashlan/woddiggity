@@ -32,6 +32,13 @@ angular.module('myApp.directives', [])
         };
     }])
 
+    .directive('editAccountInfo', [function(){
+       return{
+           restrict: 'E',
+           replace: false,
+           templateUrl: './partials/account/editAccountInfo.html'
+       };
+    }])
     .directive('prHelp', [function(){
         return {
             restrict: 'E',
