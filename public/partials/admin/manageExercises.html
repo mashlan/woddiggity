@@ -1,0 +1,70 @@
+<h2>Exercises</h2>
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog    ">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel">{{exercise.Name}}</h4>
+            </div>
+            <div class="modal-body">
+                <form class="form-horizontal">
+                    <div class="form-group">
+                        <label class="control-label" for="Name">Name</label>
+                        <input class="form-control" id="Name" type="text" ng-model="exercise.Name" placeholder="Name"/>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label" for="type">Exercise Type</label>
+                        <select class="form-control" id="type" ng-model="exercise.Type">
+                            <option ng-selected="exercise.Type == 'Distance'">Distance</option>
+                            <option ng-selected="exercise.Type == 'Weight'">Weight</option>
+                            <option ng-selected="exercise.Type == 'Reps'">Reps</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label" for="Description">Description</label>
+                        <textarea class="form-control" rows="10" id="Description" placeholder="Add optional description" ng-model="exercise.Description"></textarea>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-sm btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-sm btn-primary" ng-click="saveExercise()">Save</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<table ng-init="getListRecords('Name')" class="table table-condensed table-hover editTable" style="margin-bottom: 0">
+    <thead>
+        <tr>
+            <th id="th__id" style="display: none;" ng-click="sortByColumn('_id')">Id </th>
+            <th id="th_Name" style="width: 200px" ng-click="sortByColumn('Name')">Name</th>
+            <th id="th_Type" style="width: 200px;" ng-click="sortByColumn('Type')">Type</th>
+            <th id="th_Description" ng-click="sortByColumn('Description')">Description</th>
+        </tr>
+    </thead>
+</table>
+
+ <div class="table-container">
+    <table id="exerciseTable" class="table table-condensed table-hover editTable" style="margin-bottom: 0">
+        <tbody>
+            <tr id="{{exercise._id}}" ng-repeat="exercise in exerciseList" ng-click="setActiveRow(this)" ng-dblclick="editRecord(this)">
+                <td style="display: none">{{exercise._id}}</td>
+                <td id="Name_{{exercise._id}}}" title="{{exercise.Name}}" style="width: 200px">{{exercise.Name}}</td>
+                <td id="Type_{{exercise.Type}}" title="{{exercise.Type}}" style="width: 200px;">{{exercise.Type}}</td>
+                <td id="Description_{{exercise._id}}" title="{{exercise.Description}}" data-toggle="tooltip">{{exercise.Description}}</td>
+            </tr>
+        </tbody>
+    </table>
+ </div>
+
+<table class="table table-condensed table-footer" style="margin-top: 0;">
+    <tr>
+        <td>
+            <button class="btn btn-primary btn-xs" ng-click="newExercise()" data-toggle="modal" data-target="#myModal"><i class="glyphicon glyphicon-plus"></i></button>
+            <button class="btn btn-primary btn-xs" ng-click="editExercise()"><i class="glyphicon glyphicon-pencil"></i></button>
+            <button class="btn btn-danger btn-xs" ng-click="deleteExercise()"><i class="glyphicon glyphicon-remove"></i></button>
+        </td>
+    </tr>
+</table>

@@ -1,0 +1,126 @@
+
+
+<div class="form-group">
+    <div class="col-sm-6 list-group">
+        <a href="#account" class="list-group-item">
+            <h4 class="text-primary" style="font-weight: bold">Estimate One Rep Max</h4>
+            <div class="row">
+                <div class="col-sm-3">
+                    <input id="weight_lifted" type="number" class="form-control" placeholder="Weight"/>
+                </div>
+                <div class="col-sm-3">
+                    <input id="max_reps" class="form-control" type="number" placeholder="Reps"/>
+                </div>
+                <div class="col-sm-3">
+                    <button type="button" ng-click="calculateOneRepMax();" class="btn btn-primary">Calculate</button>
+                </div>
+                <div class="col-sm-3">
+                    <input id="estimated_max" disabled="disabled" class="form-control"/>
+                </div>
+            </div>
+        </a>
+        <a href="#account" class="list-group-item">
+            <h4 class="text-primary" style="font-weight: bold">Preferences</h4>
+            <p class="list-group-item-text"> blaa blaa blaa</p>
+        </a>
+        <a href="#account" class="list-group-item">
+            <h4 class="text-primary" style="font-weight: bold">Personal Info</h4>
+            <p class="list-group-item-text"> blaa blaa blaa</p>
+        </a>
+        <a href="#account" class="list-group-item">
+            <h4 class="text-primary" style="font-weight: bold">Your Box</h4>
+            <p class="list-group-item-text"> blaa blaa blaa</p>
+        </a>
+    </div>
+
+    <div class="col-sm-6 float-right">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                Personal Records
+                <a href="#/account" class="float-right" tooltip="Click for help" style="color: #ffffff;" ng-click="showPrHelp()">
+                    <i class="glyphicon glyphicon-question-sign"></i>
+                </a>
+            </div>
+
+            <div class="panel-body" ng-init="getNew()">
+                <!-- form loaded by directive from  partials/account/enterPr.html -->
+                <enter-pr-form></enter-pr-form>
+                <br/>
+                <table class="table table-hover table-striped">
+                    <tr ng-repeat="pr in personalRecords">
+                        <td>{{pr.ExerciseName}}</td>
+                        <td>{{pr.History[0].LocalFormat}}</td>
+                        <td>{{pr.History[0].Value}} {{pr.History[0].Units}}</td>
+                        <td><a href="#account" ng-click="showHistory(this)">Chart <span class="badge">{{pr.History.length}}</span></a></td>
+                        <td><a href="#account" ng-click="editHistory(this)" tooltip="Edit Records"><span class="glyphicon glyphicon-pencil"></span></a> </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                Ladies Records
+                <a href="#/account" class="float-right" style="color: #ffffff;" ng-click="showPrHelp()">
+                    <i class="glyphicon glyphicon-question-sign"></i>
+                </a>
+            </div>
+            <div class="panel-body">
+                <p>record the Ladies</p>
+            </div>
+        </div>
+
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                Heroes Records
+                <a href="#/account" class="float-right" style="color: #ffffff;" ng-click="showPrHelp()">
+                    <i class="glyphicon glyphicon-question-sign"></i>
+                </a>
+            </div>
+            <div class="panel-body">
+                <p>record the Heroes</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- PR History Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg ">
+            <div class="modal-content">
+                <div class="modal-header bg-primary">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true" style="color: #ffffff;">&times;</button>
+                    <h4 class="modal-title" id="myModalLabel">{{exerciseHistory.ExerciseName}} PR History</h4>
+                </div>
+                <div class="modal-body">
+                    <form class="form-horizontal">
+                        <div id="exerciseGraph"></div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Help Modal -->
+    <div class="modal fade" id="helpModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg ">
+            <div class="modal-content">
+                <div class="modal-header bg-primary">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true" style="color: #ffffff;">&times;</button>
+                    <h4 class="modal-title">{{help.title}}</h4>
+                </div>
+                <div class="modal-body">
+                    <form class="form-horizontal">
+                        <!-- form loaded dynamically from the controller -->
+                        <div id="helpForm"></div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

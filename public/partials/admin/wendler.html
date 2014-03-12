@@ -1,0 +1,176 @@
+<h2>Wendler Templates</h2>
+
+<table class="table table-condensed table-hover editTable" style="margin-bottom: 0">
+    <thead>
+    <tr>
+        <th id="th__id" style="display: none;" ng-click="sortByColumn('_id')">Id </th>
+        <th id="th_Name" style="width: 200px" ng-click="sortByColumn('Name')">Name</th>
+        <th id="th_Description" ng-click="sortByColumn('Description')">Description</th>
+    </tr>
+    </thead>
+</table>
+
+<div class="table-container">
+    <table id="wendlerTable" class="table table-condensed table-hover editTable" style="margin-bottom: 0">
+        <tbody>
+        <tr id="{{wendler._id}}" ng-repeat="wendler in existingWorkouts" ng-click="setActiveRow(this)">
+            <td style="display: none">{{wendler._id}}</td>
+            <td id="Name_{{wendler._id}}}" title="{{wendler.Name}}" style="width: 200px">{{wendler.Name}}</td>
+            <td id="Description_{{wendler._id}}" title="{{wendler.Description}}">{{wendler.Description}}</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+<table class="table table-condensed table-footer" style="margin-top: 0;">
+    <tr>
+        <td>
+            <button class="btn btn-primary btn-xs" ng-click="newWendler()"><i class="glyphicon glyphicon-plus"></i></button>
+            <button class="btn btn-primary btn-xs" ng-click="editWendler()"><i class="glyphicon glyphicon-pencil"></i></button>
+            <button class="btn btn-danger btn-xs" ng-click="deleteWendler()"><i class="glyphicon glyphicon-remove"></i></button>
+        </td>
+    </tr>
+</table>
+
+<div id="wendler_form" class="">
+    <div class="form-group">
+        <label class="control-label input-sm sr-only" for="name">Name</label>
+        <div class="">
+            <input class="form-control input-sm" id="name" placeholder="Name" type="text" ng-model="wendlerRecord.Name"/>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label input-sm sr-only" for="description">Description</label>
+        <div class="">
+            <textarea class="form-control input-sm" placeholder="Description" rows="5" id="description" ng-model="wendlerRecord.Description"></textarea>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class = col-sm-3>
+            <label class="control-label" for="program">Program</label>
+            <div class="input-group">
+                <select class="form-control input-sm"
+                        id="program"
+                        ng-options="program as program.name for program in programTypes"
+                        ng-model="ProgramType" ng-change="setProgramType(this)"></select>
+            </div>
+        </div>
+        <label class="control-label" for="days">Days</label>
+        <div class="">
+            <div class="input-group">
+                <select class="form-control input-sm"
+                        disabled="disabled"
+                        id="days"
+                        ng-options="weekday as weekday.name for weekday in workoutDays"
+                        ng-model="NumberOfDays" ng-change="setWorkoutDay(this)"></select>
+            </div>
+        </div>
+    </div>
+
+
+    <div style="margin-top: 15px; padding-left: 0; padding-right: 0;">
+        <ul class="nav nav-tabs" ng-show="wendlerRecord.Weeks.length > 0">
+            <li ng-repeat="week in wendlerRecord.Weeks" ng-class="{active: $index == 0}">
+                <a href="#week_{{week.Number}}" target="_self" data-toggle="tab">{{week.Name}}</a>
+            </li>
+        </ul>
+
+        <div id="myTabContent" class="tab-content" style="margin-top: 15px;">
+            <div ng-repeat="week in wendlerRecord.Weeks" class="tab-pane fade" ng-class="{active: $index == 0, in: $index == 0}" id="week_{{week.Number}}">
+
+                <div class="form-group">
+                    <label class="control-label sr-only">Name</label>
+                    <div class="">
+                        <input class="form-control" placeholder="Name" type="text" ng-model="week.Name"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label sr-only">Description</label>
+                    <div class="">
+                        <textarea class="form-control" placeholder="Description" rows="4" ng-model="week.Description"></textarea>
+                    </div>
+                </div>
+
+                <div class="col-sm-12">
+                    <table class="table workout-table">
+                        <tbody>
+                            <tr ng-repeat="day in week.Days" style="margin-top: 10px; border-top: #006d91 1px solid;">
+                                <td class="form-group">
+                                    <label class="control-label input-sm">{{day.Name}}</label>
+                                </td>
+                                <td style="">
+                                    <table class="table workout-sub-table">
+                                        <tbody style="">
+                                            <tr ng-repeat="exercise in day.Exercises">
+                                                <td style="width: 40%;" class="form-group">
+                                                    <div class="input-group input-group-sm">
+                                                        <select class="form-control input-sm"
+                                                                id="exerciseList"
+                                                                ng-options="exercise as exercise.Name for exercise in exercises"
+                                                                ng-model="exercise.SelectedExercise" ng-change="onExerciseSelect(this)"></select>
+                                                        <div class="input-group-btn">
+                                                            <div class="btn-group btn-group-xs">
+                                                                <button class="btn btn-xs btn-primary dropdown-toggle" data-toggle="dropdown">
+                                                                    <span class="glyphicon glyphicon-cog"></span>
+                                                                </button>
+                                                                <ul class="dropdown-menu" role="menu">
+                                                                    <li><a href="#/admin/wendler" ng-click="addExercise(this)"><span class="glyphicon glyphicon-plus-sign"></span> Add Exercise </a></li>
+                                                                    <li><a href="#/admin/wendler" ng-click="moveExerciseUp(this, $index)"><span class="glyphicon glyphicon-arrow-up"></span> Move Up </a></li>
+                                                                    <li><a href="#/admin/wendler" ng-click="moveExerciseDown(this, $index)"><span class="glyphicon glyphicon-arrow-down"></span> Move Down </a></li>
+                                                                    <li><a href="#/admin/wendler" ng-click="removeExercise(this, $index)"><span class="glyphicon glyphicon-remove-circle"></span> Delete Exercise </a></li>
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <table class="table workout-sub-table">
+                                                        <tbody>
+                                                            <tr ng-repeat="set in exercise.Sets">
+                                                                <td class="text-center" style="width: 10%; padding-top: 0 !important;">
+                                                                    <div class="btn-group">
+                                                                        <button class="btn btn-xs btn-primary dropdown-toggle" data-toggle="dropdown">
+                                                                            Set {{set.NumberOf}} <span class="caret"></span>
+                                                                        </button>
+                                                                        <ul class="dropdown-menu text-left" role="menu">
+                                                                            <li><a href="#/admin/wendler" ng-click="addSet(this)"><span class="glyphicon glyphicon-plus-sign"></span> Add Set </a></li>
+                                                                            <li><a href="#/admin/wendler" ng-click="moveSetUp(this, $index)"><span class="glyphicon glyphicon-arrow-up"></span> Move Up </a></li>
+                                                                            <li><a href="#/admin/wendler" ng-click="moveSetDown(this, $index)"><span class="glyphicon glyphicon-arrow-down"></span> Move Down </a></li>
+                                                                            <li><a href="#/admin/wendler" ng-click="removeSet(this, $index)"><span class="glyphicon glyphicon-remove-circle"></span> Delete Set </a></li>
+                                                                        </ul>
+                                                                    </div>
+                                                                </td>
+                                                                <td style="width: 40%; padding-top: 0 !important;">
+                                                                    <div class="input-group input-group-sm">
+                                                                        <input class="form-control input-sm" placeholder="Reps" ng-model="set.Reps" type="number"/>
+                                                                        <span class="input-group-addon">Reps @</span>
+                                                                    </div>
+                                                                </td>
+                                                                <td style="width: 40%; padding-top: 0 !important;">
+                                                                    <div class="input-group input-group-sm">
+                                                                        <input class="form-control input-sm" placeholder="% Max" ng-model="set.PercentMax" type="number"/>
+                                                                        <span class="input-group-addon">% Max</span>
+                                                                    </div>
+                                                                </td>
+                                                                <td style="padding-top: 0 !important;">
+                                                                    <button type="button" class="btn btn-primary btn-xs" ng-show="!set.IsMaxEffort" title="Click to indicate Max Effort" ng-click="setMaxError(this)">Rx</button>
+                                                                    <button type="button" class="btn btn-success btn-xs" ng-show="set.IsMaxEffort" title="Click to indicate Reps as Prescribed" ng-click="setMaxError(this)">
+                                                                        <span class="glyphicon glyphicon-plus"></span>
+                                                                    </button>
+                                                                </td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

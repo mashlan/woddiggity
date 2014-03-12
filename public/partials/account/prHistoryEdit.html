@@ -1,0 +1,32 @@
+
+<div class="form" role="form">
+    <div class="row">
+        <label class="col-sm-3">Date</label>
+        <label class="col-sm-3">Weight</label>
+        <label class="col-sm-3">Units</label>
+    </div>
+    <div class="row" ng-repeat="newPR in exerciseHistory.History" style="margin-bottom: 5px;">
+        <div class="col-sm-3">
+            <input type="text" class="form-control"
+                   required
+                   ng-model="newPR.RecordDate"
+                   datepicker-popup="MM/dd/yyyy"
+                   show-button-bar show-weeks="false" />
+        </div>
+        <div class="col-sm-3">
+            <input type="number" class="form-control"
+                   required ng-model="newPR.Value" />
+        </div>
+        <div class="col-sm-3">
+            <select ng-model="newPR.Units" class="form-control" required>
+                <option ng-repeat="unit in unitsList"
+                        ng-selected="{{unit.name == newPR.Units}}"> {{unit.name}}
+                </option>
+            </select>
+        </div>
+        <div class="col-sm-3">
+            <button type="button" class="btn btn-sm btn-primary">Save</button>
+            <button type="button" class="btn btn-sm btn-danger">Delete</button>
+        </div>
+    </div>
+</div>
