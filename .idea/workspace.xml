@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a3a47232-d218-458a-b6ad-e68962551f0a" name="Default" comment="">
+    <list default="true" id="a3a47232-d218-458a-b6ad-e68962551f0a" name="Default" comment="update to home page">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/Woddo.iml" afterPath="$PROJECT_DIR$/.idea/Woddo.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower.json" afterPath="$PROJECT_DIR$/bower.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dictionaries/eric_mashlan.xml" afterPath="$PROJECT_DIR$/.idea/dictionaries/eric_mashlan.xml" />
@@ -9,6 +9,7 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/index.html" afterPath="$PROJECT_DIR$/public/index.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Woddo.iws" />
@@ -50,10 +51,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="workspace.xml" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="workspace.xml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="22" column="14" selection-start="996" selection-end="996" vertical-scroll-proportion="0.599359" vertical-offset="0" max-vertical-offset="13243">
+            <state line="32" column="14" selection-start="2199" selection-end="2199" vertical-scroll-proportion="0.0" vertical-offset="170" max-vertical-offset="13838">
               <folding />
             </state>
           </provider>
@@ -71,7 +72,7 @@
       <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="22" column="35" selection-start="1003" selection-end="1003" vertical-scroll-proportion="-14.384615" vertical-offset="0" max-vertical-offset="1462">
+            <state line="1" column="16" selection-start="32" selection-end="32" vertical-scroll-proportion="-0.65384614" vertical-offset="0" max-vertical-offset="1462">
               <folding />
             </state>
           </provider>
@@ -86,10 +87,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="home.html" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="home.html" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public/partials/home.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="21" column="0" selection-start="564" selection-end="564" vertical-scroll-proportion="-13.730769" vertical-offset="0" max-vertical-offset="459">
+            <state line="21" column="0" selection-start="564" selection-end="564" vertical-scroll-proportion="0.58428806" vertical-offset="0" max-vertical-offset="611">
               <folding>
                 <element signature="n#style#0;n#div#0;n#i#0;n#blockquote#0;n#!!top" expanded="true" />
               </folding>
@@ -137,7 +138,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/public/css/bootstrap.css" />
         <option value="$PROJECT_DIR$/public/partials/register.html" />
         <option value="$PROJECT_DIR$/public/partials/admin/wendler.html" />
         <option value="$PROJECT_DIR$/public/css/bootstrap-yeti.css" />
@@ -185,9 +185,10 @@
         <option value="$PROJECT_DIR$/Gruntfile.js" />
         <option value="$PROJECT_DIR$/.jshintrc" />
         <option value="$PROJECT_DIR$/bower.json" />
-        <option value="$PROJECT_DIR$/public/index.html" />
         <option value="$PROJECT_DIR$/public/partials/home.html" />
         <option value="$PROJECT_DIR$/package.json" />
+        <option value="$PROJECT_DIR$/.idea/workspace.xml" />
+        <option value="$PROJECT_DIR$/public/index.html" />
       </list>
     </option>
   </component>
@@ -441,12 +442,18 @@
       <created>1393254164852</created>
       <updated>1393254164852</updated>
     </task>
+    <task id="LOCAL-00001" summary="update to home page">
+      <created>1394643760757</created>
+      <updated>1394643760757</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1696" height="1026" extended-state="6" />
     <editor active="false" />
     <layout>
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32960895" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2592179" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25698325" sideWeight="0.4996986" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -478,6 +485,8 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
+    <MESSAGE value="update to home page" />
+    <option name="LAST_COMMIT_MESSAGE" value="update to home page" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -750,22 +759,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/partials/home.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="0" selection-start="564" selection-end="564" vertical-scroll-proportion="-13.730769" vertical-offset="0" max-vertical-offset="459">
-          <folding>
-            <element signature="n#style#0;n#div#0;n#i#0;n#blockquote#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="35" selection-start="1003" selection-end="1003" vertical-scroll-proportion="-14.384615" vertical-offset="0" max-vertical-offset="1462">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/.idea/jsLibraryMappings.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="574">
@@ -789,8 +782,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="14" selection-start="996" selection-end="996" vertical-scroll-proportion="0.599359" vertical-offset="0" max-vertical-offset="13243">
+        <state line="32" column="14" selection-start="2199" selection-end="2199" vertical-scroll-proportion="0.0" vertical-offset="170" max-vertical-offset="13838">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1" column="16" selection-start="32" selection-end="32" vertical-scroll-proportion="-0.65384614" vertical-offset="0" max-vertical-offset="1462">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/partials/home.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="21" column="0" selection-start="564" selection-end="564" vertical-scroll-proportion="0.58428806" vertical-offset="0" max-vertical-offset="611">
+          <folding>
+            <element signature="n#style#0;n#div#0;n#i#0;n#blockquote#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
