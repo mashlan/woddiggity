@@ -2,7 +2,8 @@
 services.factory("Login", ['$resource', '$q',
     function($resource, $q){
         var resource = $resource('login', {}, {
-            login: {method: 'POST'}
+            login: {method: 'POST'},
+            changePassword: {method: 'PUT'}
         });
 
         var factory = {
@@ -21,6 +22,9 @@ services.factory("Login", ['$resource', '$q',
                 );
 
                 return deferred.promise;
+            },
+            changePassword: function(data){
+
             }
         };
 

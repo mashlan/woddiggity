@@ -1,78 +1,55 @@
 <form name="newPrForm" novalidate>
     <div class="row">
         <div class="col-sm-4">
-            <label>Exercise</label>
+            <div class="form-group">
+                <label class="control-label">Exercise</label>
+                <select name="uExerciseList" class="form-control" required
+                        ng-options="exercise as exercise.Name for exercise in exerciseList"
+                        ng-model="newPR.Exercise"
+                        ng-class="{error: newPrForm.uExerciseList.$error.required && prInvalid}"
+                        ng-change="onExerciseSelect(this)"></select>
+                <label ng-show="newPrForm.uExerciseList.$error.required && prInvalid" class="text-danger">Required!</label>
+            </div>
         </div>
         <div class="col-sm-3">
-            <label>Date</label>
+            <div class="form-group">
+                <label class="control-label">Date</label>
+                <input class="form-control" name="uRecordDate"
+                       ng-model="newPR.RecordDate"
+                       ng-class="{error: newPrForm.uRecordDate.$error.required && prInvalid}"
+                       required
+                       datepicker-popup="MM/dd/yyyy" show-button-bar show-weeks="false"
+                       type="text"/>
+                <label ng-show="newPrForm.uRecordDate.$error.required && prInvalid" class="text-danger">Required!</label>
+            </div>
         </div>
         <div class="col-sm-2">
-            <label>{{valuePlaceholder}}</label>
+            <div class="form-group">
+                <label class="control-label">{{valuePlaceholder}}</label>
+                <input name="uValue" class="form-control"
+                       id="maxWeight"
+                       ng-model="newPR.Value" type="number"
+                       ng-class="{error: newPrForm.uValue.$error.required && prInvalid}" required/>
+                <label ng-show="newPrForm.uValue.$error.required && prInvalid" class="text-danger">Required!</label>
+            </div>
         </div>
         <div class="col-sm-2">
-            <label>Units</label>
-        </div>
-        <div class="col-sm-1"></div>
-    </div>
-    <div class="row">
-        <div class="col-sm-4">
-            <select name="uExerciseList" class="form-control" required
-                    ng-options="exercise as exercise.Name for exercise in exerciseList"
-                    ng-model="newPR.Exercise"
-                    ng-class="{error: newPrForm.uExerciseList.$error.required && prInvalid}"
-                    ng-change="onExerciseSelect(this)">
-            </select>
-        </div>
-        <div class="col-sm-3">
-            <input class="form-control" name="uRecordDate"
-                   ng-model="newPR.RecordDate"
-                   ng-class="{error: newPrForm.uRecordDate.$error.required && prInvalid}"
-                   required
-                   datepicker-popup="MM/dd/yyyy" show-button-bar show-weeks="false"
-                   type="text"/>
-        </div>
-        <div class="col-sm-2">
-            <input name="uValue" class="form-control"
-                   id="maxWeight"
-                   ng-model="newPR.Value" type="number"
-                   ng-class="{error: newPrForm.uValue.$error.required && prInvalid}" required/>
-        </div>
-        <div class="col-sm-2">
-            <select name="uUnits"
-                    ng-model="newPR.Unit"
-                    ng-options="unit as unit.name for unit in unitsList"
-                    ng-change="onUnitSelected(this)"
-                    ng-class="{error: newPrForm.uUnits.$error.required && prInvalid}"
-                    required
-                    class="form-control">
-            </select>
+            <div class="form-group">
+                <label class="control-label">Units</label>
+                <select name="uUnits"
+                        ng-model="newPR.Unit"
+                        ng-options="unit as unit.name for unit in unitsList"
+                        ng-change="onUnitSelected(this)"
+                        ng-class="{error: newPrForm.uUnits.$error.required && prInvalid}"
+                        required
+                        class="form-control"></select>
+                <label ng-show="newPrForm.uUnits.$error.required && prInvalid" class="text-danger">Required!</label>
+            </div>
         </div>
         <div class="col-sm-1">
-            <button class="form-control btn-primary" type="button" ng-click="savePR()" tooltip="Save"><span class="glyphicon glyphicon-save"></span></button>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-sm-4">
-            <div ng-show="newPrForm.uExerciseList.$error.required && prInvalid" class="text-danger">
-                <label>Required!</label>
-            </div>
-        </div>
-        <div class="col-sm-3">
-            <div ng-show="newPrForm.uRecordDate.$error.required && prInvalid" class="text-danger">
-                <label>Required!</label>
-            </div>
-            <div ng-show="prInvalidDate" class="text-danger">
-                <label>Invalid!</label>
-            </div>
-        </div>
-        <div class="col-sm-2">
-            <div ng-show="newPrForm.uValue.$error.required && prInvalid" class="text-danger">
-                <label>Required!</label>
-            </div>
-        </div>
-        <div class="col-sm-2">
-            <div ng-show="newPrForm.uUnits.$error.required && prInvalid" class="text-danger">
-                <label>Required!</label>
+            <div class="form-group">
+                <label class="control-label">&nbsp;</label>
+                <button class="form-control btn-primary" type="button" ng-click="savePR()" tooltip="Save"><span class="glyphicon glyphicon-save"></span></button>
             </div>
         </div>
     </div>

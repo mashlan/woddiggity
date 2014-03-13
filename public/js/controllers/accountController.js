@@ -1,12 +1,12 @@
 'use strict';
 
-myControllers.controller('AccountCtrl', ['$scope', 'loginService', 'syncData', '$location',
-    function ($scope, loginService, syncData, $location) {
-        syncData(['users', $scope.auth.user.uid]).$bind($scope, 'user');
+myControllers.controller('AccountCtrl', ['$scope', '$rootScope', 'Login', '$location',
+    function ($scope, $rootScope, Login, $location) {
+//        syncData(['users', $scope.auth.user.uid]).$bind($scope, 'user');
 
-        $scope.logout = function () {
-            loginService.logout();
-        };
+//        $scope.logout = function () {
+//            loginService.logout();
+//        };
 
         $scope.oldpass = null;
         $scope.newpass = null;
@@ -17,14 +17,19 @@ myControllers.controller('AccountCtrl', ['$scope', 'loginService', 'syncData', '
             $scope.msg = null;
         };
 
+        $scope.cancelChangePassword = function(){
+            $("#change_password_text").show();
+            $("#change_password").hide();
+        }
+
         $scope.updatePassword = function () {
             $scope.reset();
-            loginService.changePassword(buildPwdParms());
+            Login.changePassword(buildPwdParms());
         };
 
         function buildPwdParms() {
             return {
-                email: $scope.auth.user.email,
+                email: $rootScope.ActiveUser.Email,
                 oldpass: $scope.oldpass,
                 newpass: $scope.newpass,
                 confirm: $scope.confirm,

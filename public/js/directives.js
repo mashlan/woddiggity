@@ -8,11 +8,35 @@ angular.module('myApp.directives', [])
         }
     }])
 
-    .directive('initTooltip', [ function(){
+    .directive('oneRepMaxForm', [ function(){
         return {
-            link: function($scope, element) {
-                $(element).tooltip();
-            }
+            restrict: 'E',
+            replace: false,
+            templateUrl: "./partials/account/estimatedOneRepMax.html"
+        };
+    }])
+
+    .directive('boxInfoForm', [ function(){
+        return {
+            restrict: 'E',
+            replace: false,
+            templateUrl: "./partials/account/boxInformation.html"
+        };
+    }])
+
+    .directive('userPreferencesForm', [ function(){
+        return {
+            restrict: 'E',
+            replace: false,
+            templateUrl: "./partials/account/userPreferences.html"
+        };
+    }])
+
+    .directive('changePasswordForm', [ function(){
+        return {
+            restrict: 'E',
+            replace: false,
+            templateUrl: "./partials/account/changePassword.html"
         };
     }])
 

@@ -3,35 +3,33 @@
 <div class="form-group">
     <div class="col-sm-6 list-group">
         <a href="#account" class="list-group-item">
-            <h4 class="text-primary" style="font-weight: bold">Estimate One Rep Max</h4>
-            <div class="row">
-                <div class="col-sm-3">
-                    <input id="weight_lifted" type="number" class="form-control" placeholder="Weight"/>
-                </div>
-                <div class="col-sm-3">
-                    <input id="max_reps" class="form-control" type="number" placeholder="Reps"/>
-                </div>
-                <div class="col-sm-3">
-                    <button type="button" ng-click="calculateOneRepMax();" class="btn btn-primary">Calculate</button>
-                </div>
-                <div class="col-sm-3">
-                    <input id="estimated_max" disabled="disabled" class="form-control"/>
-                </div>
-            </div>
+            <h4 class="text-primary" style="font-weight: bold">Estimate Your One Rep Max</h4>
+            <one-rep-max-form></one-rep-max-form>
         </a>
-        <a href="#account" class="list-group-item">
+
+        <a href="#account" class="list-group-item" ng-click="showPreferencesForm()">
             <h4 class="text-primary" style="font-weight: bold">Preferences</h4>
-            <p class="list-group-item-text">Enter or update your preferred units of measure</p>
+            <p id="preferences_form_text" class="diggity-text">Enter or update your preferred units of measure</p>
         </a>
+        <user-preferences-form id="preferences_form" style="display: none;"></user-preferences-form>
+
         <a href="#account" class="list-group-item" ng-click="editAccountInfo()">
             <h4 class="text-primary" style="font-weight: bold">Personal Info</h4>
-            <p id="account_info_text" class="list-group-item-text">Update name and email</p>
+            <p id="account_info_text" class="diggity-text">Update name and email</p>
         </a>
         <edit-account-info id="account_info" style="display: none"></edit-account-info>
-        <a href="#account" class="list-group-item">
-            <h4 class="text-primary" style="font-weight: bold">Your Box</h4>
-            <p class="list-group-item-text">Select or update your Box</p>
+
+        <a href="#account" class="list-group-item" ng-click="showChangePassword()">
+            <h4 class="text-primary" style="font-weight: bold;">Change Password</h4>
+            <p id="change_password_text" class="diggity-text">Change your password</p>
         </a>
+        <change-password-form id="change_password" style="display: none;"></change-password-form>
+
+        <a href="#account" class="list-group-item" ng-click="showBoxInfo()">
+            <h4 class="text-primary" style="font-weight: bold">Your Box</h4>
+            <p id="box_info_text" class="diggity-text">Select or update your Box</p>
+        </a>
+        <box-info-form id="box_info" style="display: none;"></box-info-form>
     </div>
 
     <div class="col-sm-6 float-right">
@@ -46,7 +44,7 @@
             <div class="panel-body" ng-init="getNew()">
                 <!-- form loaded by directive from  partials/account/enterPr.html -->
                 <enter-pr-form></enter-pr-form>
-                <br/>
+
                 <table class="table table-hover table-striped">
                     <tr ng-repeat="pr in personalRecords">
                         <td>{{pr.ExerciseName}}</td>

@@ -3,6 +3,10 @@ body{
     padding-top: 70px !important;
 }
 
+.diggity-text{
+    font-weight: bold;
+}
+
 .row {
     margin-left: 5px !important;
     margin-right: 5px !important;

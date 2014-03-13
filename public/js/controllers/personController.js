@@ -15,6 +15,7 @@ myControllers.controller('PersonalCtrl', ['$scope', '$rootScope', '$compile', 'E
         $scope.exerciseHistory = null;
         $scope.help = {title: ''};
         $scope.savePrError = '';
+        $scope.changePasswordError = "";
 
         Exercise.query().then(function (data){
             $scope.exerciseList = data;
@@ -174,10 +175,11 @@ myControllers.controller('PersonalCtrl', ['$scope', '$rootScope', '$compile', 'E
 
         //editing personal information
         $scope.editAccountInfo = function(){
-            $("#account_info").show();
-            $("#account_info_text").hide();
+            resetEditForms();
             $scope.user = { };
             $.extend($scope.user, $rootScope.ActiveUser);
+            $("#account_info").toggle();
+            $("#account_info_text").toggle();
         };
 
         $scope.saveAccountInfo = function(){
@@ -198,5 +200,37 @@ myControllers.controller('PersonalCtrl', ['$scope', '$rootScope', '$compile', 'E
             $("#account_info").hide();
             console.log("cancel edit account info");
         };
+
+        $scope.showChangePassword = function(){
+            resetEditForms();
+            $scope.changePasswordError = "";
+            $scope.changePassword = { };
+            $.extend($scope.user, $rootScope.ActiveUser);
+            $("#change_password_text").toggle();
+            $("#change_password").toggle();
+        };
+
+        $scope.showPreferencesForm = function(){
+            resetEditForms();
+            $("#preferences_form_text").toggle();
+            $("#preferences_form").toggle();
+        };
+
+        $scope.showBoxInfo = function(){
+            resetEditForms();
+            $("#box_info_text").toggle();
+            $("#box_info").toggle();
+        };
+
+        function resetEditForms(){
+            $("#account_info_text").show();
+            $("#account_info").hide();
+            $("#change_password_text").show();
+            $("#change_password").hide();
+            $("#preferences_form_text").show();
+            $("#preferences_form").hide();
+            $("#box_info_text").show();
+            $("#box_info").hide();
+        }
     }
 ]);
