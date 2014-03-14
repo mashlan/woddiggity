@@ -1,25 +1,20 @@
 var mongoose                = require('mongoose');
 var db                      = mongoose.createConnection('localhost', 'woddoTest');
-var exerciseRoutes          = require('./exercise.js');
 var userRoutes              = require('./user.js');
 var prRoutes                = require('./personalRecord.js');
-var weightWorkoutRoutes     = require('./weightWorkout.js');
-var wendlerWorkoutRoutes    = require('./wendlerWorkout.js');
+
+var activeRecord            = require('./ActiveRecord.js');
+var schema                  = require('../models/schema.js').schema;
 
 exports.index = function(req, res){
-    res.sendfile('./public/index.html')
+    res.sendfile('./public/index.html');
 }
 
-//init routes
-exerciseRoutes.init(mongoose, db);
-userRoutes.init(mongoose, db);
-prRoutes.init(mongoose, db);
-weightWorkoutRoutes.init(mongoose, db);
-wendlerWorkoutRoutes.init(mongoose, db);
-
 //export routes
-exports.exercise        = exerciseRoutes;
-exports.user            = userRoutes;
-exports.personalRecords = prRoutes;
-exports.weightWorkouts  = weightWorkoutRoutes;
-exports.wendlerWorkouts = wendlerWorkoutRoutes;
+exports.exercise        = activeRecord.record(mongoose, db, "exercises", schema.ExerciseSchema);
+exports.user            = userRoutes.record(mongoose, db, schema, activeRecord);
+exports.personalRecords = prRoutes.record(mongoose, db, schema, activeRecord);
+exports.weightWorkouts  = activeRecord.record(mongoose, db, "weightWorkouts", schema.WeightWorkoutSchema);
+exports.wendlerWorkouts = activeRecord.record(mongoose, db, "wendlerWorkouts", schema.WendlerWorkoutSchema);
+exports.exerciseTypes   = activeRecord.record(mongoose, db, "exerciseTypes", schema.ExerciseTypeSchema);
+exports.unitOfMeasures  = activeRecord.record(mongoose, db, "unitOfMeasures", schema.UnitOfMeasureSchema);

@@ -30,6 +30,20 @@ module.exports = function(app, process, dirname, express, path, routes) {
     app.delete('/exercise/:id', routes.exercise.delete);
     app.put('/exercise', routes.exercise.update);
 
+    //exercise type schema
+    app.get('/exerciseType/all?:sortName', routes.exerciseTypes.list);
+    app.get('/exerciseType/:id', routes.exerciseTypes.get);
+    app.post('/exerciseType', routes.exerciseTypes.create);
+    app.delete('/exerciseType/:id', routes.exerciseTypes.delete);
+    app.put('/exerciseType', routes.exerciseTypes.update);
+
+    //unit of measure schema
+    app.get('/unitOfMeasure/all?:sortName', routes.unitOfMeasures.list);
+    app.get('/unitOfMeasure/:id', routes.unitOfMeasures.get);
+    app.post('/unitOfMeasure', routes.unitOfMeasures.create);
+    app.delete('/unitOfMeasure/:id', routes.unitOfMeasures.delete);
+    app.put('/unitOfMeasure', routes.unitOfMeasures.update);
+
     //user schema
     app.get('/user/users?:sortName', routes.user.list);
     app.get('/user/:id', routes.user.get);

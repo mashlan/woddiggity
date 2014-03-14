@@ -1,0 +1,56 @@
+<form ng-controller="ExerciseTypeCtrl">
+    <h2>Exercise Types</h2>
+
+    <div class="modal fade" id="myModalTypes" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog    ">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="myModalLabel">{{exerciseType.Name}}</h4>
+                </div>
+                <div class="modal-body">
+                    <form class="form-horizontal">
+                        <div class="form-group">
+                            <label class="control-label" for="Name">Name</label>
+                            <input class="form-control" id="Name" type="text" ng-model="exerciseType.Name" placeholder="Name"/>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-sm btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-sm btn-primary" ng-click="saveExerciseType()">Save</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <table ng-init="getListRecords('Name')" class="table table-condensed table-hover editTable" style="margin-bottom: 0">
+        <thead>
+        <tr>
+            <th id="th__id" style="display: none;" ng-click="sortByColumn('_id')">Id </th>
+            <th id="th_Name" style="width: 200px" ng-click="sortByColumn('Name')">Name</th>
+        </tr>
+        </thead>
+    </table>
+
+    <div class="table-container">
+        <table id="exerciseTypeTable" class="table table-condensed table-hover editTable" style="margin-bottom: 0">
+            <tbody>
+            <tr id="{{exerciseType._id}}" ng-repeat="exerciseType in exerciseTypeList" ng-click="setActiveRow(this)" ng-dblclick="editRecord(this)">
+                <td style="display: none">{{exerciseType._id}}</td>
+                <td id="Name_{{exerciseType._id}}}" title="{{exerciseType.Name}}" style="width: 200px">{{exerciseType.Name}}</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <table class="table table-condensed table-footer" style="margin-top: 0;">
+        <tr>
+            <td>
+                <button class="btn btn-primary btn-xs" ng-click="newExerciseType()" data-toggle="modal" data-target="#myModalTypes"><i class="glyphicon glyphicon-plus"></i></button>
+                <button class="btn btn-primary btn-xs" ng-click="editExerciseType()"><i class="glyphicon glyphicon-pencil"></i></button>
+                <button class="btn btn-danger btn-xs" ng-click="deleteExerciseType()"><i class="glyphicon glyphicon-remove"></i></button>
+            </td>
+        </tr>
+    </table>
+</form>

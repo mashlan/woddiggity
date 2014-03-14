@@ -63,10 +63,19 @@ angular.module('myApp.directives', [])
            templateUrl: './partials/account/editAccountInfo.html'
        };
     }])
+
     .directive('prHelp', [function(){
         return {
             restrict: 'E',
             replace: false,
             templateUrl: "./partials/help/prHelp.html"
+        };
+    }])
+
+    .directive('exerciseTypeForm', [ function(){
+        return {
+            restrict: 'E',
+            replace: false,
+            templateUrl: "./partials/admin/manageExerciseTypes.html"
         };
     }]);

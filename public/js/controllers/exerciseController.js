@@ -12,7 +12,7 @@ myControllers.controller('ExerciseCtrl', ['$scope', 'Exercise',
             name: '',
             direction: '',
             text: ''
-        }
+        };
 
         $scope.exerciseList = [];
 
