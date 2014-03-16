@@ -1,1 +1,80 @@
-<h4>Unit of Measure</h4>
+
+<div class="row text-right">
+    <a class="label label-info nav-button"
+       href="#/admin/exercises"
+       tooltip="Click to Add, Edit, or Delete Exercises"
+       tooltip-placement="bottom">Manage Exercises</a>
+    <a class="label label-info nav-button"
+       href="#/admin/exerciseTypes"
+       tooltip="Click to Add, Edit, or Delete Exercise Types"
+       tooltip-placement="bottom">Manage Exercise Types</a>
+</div>
+
+<h2>Units of Measure</h2>
+
+<div class="modal fade" id="myModalUnits" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel">{{unitOfMeasure.Name}}</h4>
+            </div>
+            <div class="modal-body">
+                <form name="measureForm" class="form-horizontal" novalidate>
+                    <div class="form-group">
+                        <label class="control-label" for="uomName">Name</label>
+                        <input class="form-control" id="uomName" name="uomName" type="text"
+                               ng-model="unitOfMeasure.Name" placeholder="Name"
+                               required
+                               ng-class="{error: measureForm.uomName.$error.required && hasFormError}" />
+                        <label class="text-danger" ng-show="measureForm.uomName.$error.required && hasFormError">Required!</label>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label" for="uomDescription">Description</label>
+                        <textarea class="form-control"
+                                  id="uomDescription" rows="5"
+                                  ng-model="unitOfMeasure.Description"
+                                  placeholder="Name">
+                        </textarea>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-sm btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-sm btn-primary" ng-click="saveUnitOfMeasure()">Save</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<table ng-init="getListRecords('Name')" class="table table-condensed table-hover editTable" style="margin-bottom: 0">
+    <thead>
+    <tr>
+        <th id="unitOfMeasure_th__id" style="display: none;" ng-click="sortByColumn('_id')">Id </th>
+        <th id="unitOfMeasure_th_Name" style="width: 200px" ng-click="sortByColumn('Name')">Name</th>
+        <th id="unitOfMeasure_th_Description" ng-click="sortByColumn('Description')">Description</th>
+    </tr>
+    </thead>
+</table>
+
+<div class="table-container">
+    <table id="unitOfMeasureTable" class="table table-condensed table-hover editTable" style="margin-bottom: 0">
+        <tbody>
+        <tr id="unitOfMeasure_{{unitOfMeasure._id}}" ng-repeat="unitOfMeasure in unitOfMeasureList" ng-click="setActiveRow(this)" ng-dblclick="editRecord(this)">
+            <td style="display: none">{{unitOfMeasure._id}}</td>
+            <td title="{{unitOfMeasure.Name}}" style="width: 200px">{{unitOfMeasure.Name}}</td>
+            <td title="{{unitOfMeasure.Description}}">{{unitOfMeasure.Description}}</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+<table class="table table-condensed table-footer" style="margin-top: 0;">
+    <tr>
+        <td>
+            <button class="btn btn-primary btn-xs" ng-click="newUnitOfMeasure()" data-toggle="modal" data-target="#myModalUnits"><i class="glyphicon glyphicon-plus"></i></button>
+            <button class="btn btn-primary btn-xs" ng-click="editUnitOfMeasure()"><i class="glyphicon glyphicon-pencil"></i></button>
+            <button class="btn btn-danger btn-xs" ng-click="deleteUnitOfMeasure()"><i class="glyphicon glyphicon-remove"></i></button>
+        </td>
+    </tr>
+</table>

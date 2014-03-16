@@ -2,7 +2,7 @@
 services.factory("ExerciseType", ['$resource', '$q',
     function($resource, $q){
         var resource = $resource('exerciseType/:exTypeId/:id/', {}, {
-            query: {method: 'GET', params: {exTypeId: 'all', id: 0, sortName: null}, isArray:true},
+            query: {method: 'GET', params: {exTypeId: 'all', id: null, sortName: null}, isArray:true},
             get: {method: 'GET', params: {id: 0 }},
             remove: {method: 'DELETE'},
             insert: {method: 'POST'},

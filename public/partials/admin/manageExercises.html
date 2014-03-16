@@ -1,4 +1,16 @@
-<h2>Exercises</h2>
+
+<div class="row text-right">
+    <a class="label label-info nav-button"
+       href="#/admin/unitsOfMeasure"
+       tooltip="Click to Add, Edit, or Delete Units of Measure"
+       tooltip-placement="bottom">Manage Units of Measure</a>
+    <a class="label label-info nav-button"
+       href="#/admin/exerciseTypes"
+       tooltip="Click to Add, Edit, or Delete Exercise Types"
+       tooltip-placement="bottom">Manage Exercise Types</a>
+</div>
+
+<h2 class="table-header">Exercises</h2>
 
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog    ">
@@ -38,10 +50,10 @@
 <table ng-init="getListRecords('Name')" class="table table-condensed table-hover editTable" style="margin-bottom: 0">
     <thead>
         <tr>
-            <th id="th__id" style="display: none;" ng-click="sortByColumn('_id')">Id </th>
-            <th id="th_Name" style="width: 200px" ng-click="sortByColumn('Name')">Name</th>
-            <th id="th_Type" style="width: 200px;" ng-click="sortByColumn('Type')">Type</th>
-            <th id="th_Description" ng-click="sortByColumn('Description')">Description</th>
+            <th id="exercise_th__id" style="display: none;" ng-click="sortByColumn('_id')">Id </th>
+            <th id="exercise_th_Name" style="width: 200px" ng-click="sortByColumn('Name')">Name</th>
+            <th id="exercise_th_Type" style="width: 200px;" ng-click="sortByColumn('Type')">Type</th>
+            <th id="exercise_th_Description" ng-click="sortByColumn('Description')">Description</th>
         </tr>
     </thead>
 </table>
@@ -49,11 +61,11 @@
  <div class="table-container">
     <table id="exerciseTable" class="table table-condensed table-hover editTable" style="margin-bottom: 0">
         <tbody>
-            <tr id="{{exercise._id}}" ng-repeat="exercise in exerciseList" ng-click="setActiveRow(this)" ng-dblclick="editRecord(this)">
+            <tr id="exercise_{{exercise._id}}" ng-repeat="exercise in exerciseList" ng-click="setActiveRow(this)" ng-dblclick="editRecord(this)">
                 <td style="display: none">{{exercise._id}}</td>
-                <td id="Name_{{exercise._id}}}" title="{{exercise.Name}}" style="width: 200px">{{exercise.Name}}</td>
-                <td id="Type_{{exercise.Type}}" title="{{exercise.Type}}" style="width: 200px;">{{exercise.Type}}</td>
-                <td id="Description_{{exercise._id}}" title="{{exercise.Description}}" data-toggle="tooltip">{{exercise.Description}}</td>
+                <td title="{{exercise.Name}}" style="width: 200px">{{exercise.Name}}</td>
+                <td id="exercise_Type_{{exercise.Type}}" title="{{exercise.Type}}" style="width: 200px;">{{exercise.Type}}</td>
+                <td id="exercise_Description_{{exercise._id}}" title="{{exercise.Description}}" >{{exercise.Description}}</td>
             </tr>
         </tbody>
     </table>
@@ -69,5 +81,14 @@
     </tr>
 </table>
 
+<!--<exercise-type-form></exercise-type-form>-->
+<!--<unit-of-measure-form></unit-of-measure-form>-->
 
-<exercise-type-form></exercise-type-form>
+<!--<angular-grid id="test">-->
+    <!--<angular-column for="test" ng-repeat="exercise in exerciseList">-->
+        <!--<grid-data text="exercise._id" name="_id" display="none"></grid-data>-->
+        <!--<grid-data text="exercise.Name" name="Name" width="200"></grid-data>-->
+        <!--<grid-data text="exercise.Type" name="Type" width="200"></grid-data>-->
+        <!--<grid-data text="exercise.Description" name="Description"></grid-data>-->
+    <!--</angular-column>-->
+<!--</angular-grid>-->

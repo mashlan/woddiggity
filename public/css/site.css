@@ -78,6 +78,10 @@ footer{
     table-layout: fixed;
 }
 
+.table-header{
+
+}
+
 .table-footer{
     border: #008cba 1px solid;
 }
@@ -109,4 +113,20 @@ footer{
 
 .btn-xs{
     padding: 5px 10px !important;
+}
+
+.nav-button{
+    font-size: 1em;
+    margin: 5px;
+    border-radius: 5px;
+}
+
+.checkbox-button{
+    width: 100%;
+    margin: 5px;
+}
+
+.success{
+    background-color: #43ac6a;
+    border-color: #3c9a5f;
 }

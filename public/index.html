@@ -32,13 +32,22 @@
                         <li><a ng-show="isAuthenticated" href="#/logout">Logout</a></li>
                         <li><a ng-show="isAuthenticated" href="#/account">{{ActiveUser.FirstName}} {{ActiveUser.LastName}}</a></li>
                         <li ng-show="isAuthenticated">
-                            <a href="#/admin" target="_self" class="dropdown-toggle" data-toggle="dropdown">Coaching <b class="caret"></b></a>
+                            <a href="#/admin" target="_self" class="dropdown-toggle" data-toggle="dropdown">Admin<b class="caret"></b></a>
                             <ul class="dropdown-menu">
-                                <li><a href="#/admin/exercises">Exercise Admin</a></li>
-                                <li><a href="#/admin/wendler">Wendler Templates</a></li>
+                                <li><a href="#/admin/exercises">Exercises</a></li>
+                                <li><a href="#/admin/wendler">Weightlifting Template</a></li>
                                 <li class="divider"></li>
-                                <li><a href="#">Ladies</a></li>
-                                <li><a href="#">Heroes</a></li>
+                                <li><a href="#/admin/girls">Girls</a></li>
+                                <li><a href="#/admin/heroes">Heroes</a></li>
+                            </ul>
+                        </li>
+                        <li ng-show="isAuthenticated">
+                            <a href="#/admin" target="_self" class="dropdown-toggle" data-toggle="dropdown">Coach<b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#/coach/recordWod">Record WOD</a></li>
+                                <li class="divider"></li>
+                                <li><a href="#/coach/createWod">Create WOD</a></li>
+                                <li><a href="#/coach/createLifting">Create Lifting Workout</a></li>
                             </ul>
                         </li>
                     </ul>
@@ -64,6 +73,7 @@
         <script src="/js/services/weightWorkoutService.js"></script>
         <script src="/js/services/wendlerWorkoutService.js"></script>
         <script src="/js/services/exerciseTypeService.js"></script>
+        <script src="/js/services/unitOfMeasureService.js"></script>
 
         <!-- Controllers -->
         <script src="/js/controllers/accountController.js"></script>
@@ -76,6 +86,10 @@
         <script src="/js/controllers/wendlerController.js"></script>
         <script src="/js/controllers/wodController.js"></script>
         <script src="/js/controllers/exerciseTypeController.js"></script>
+        <script src="/js/controllers/unitOfMeasureController.js"></script>
+
+        <!-- angular grid -->
+        <script src="/js/angularGrid.js"></script>
 
     </body>
 

@@ -13,7 +13,15 @@ angular.module('myApp.routes', ['ngRoute'])
         $routeProvider.when('/workouts/weight', { authenticate: true, templateUrl: 'partials/workouts/wendler.html', controller: 'WeightWorkoutCtrl' });
 
         $routeProvider.when('/admin/exercises', {authenticate: true, templateUrl: 'partials/admin/manageExercises.html', controller: 'ExerciseCtrl' });
+        $routeProvider.when('/admin/girls', {authenticate: true, templateUrl: 'partials/admin/manageGirls.html', controller: 'ExerciseCtrl' });
+        $routeProvider.when('/admin/heroes', {authenticate: true, templateUrl: 'partials/admin/manageHeroes.html', controller: 'ExerciseCtrl' });
+        $routeProvider.when('/admin/exerciseTypes', {authenticate: true, templateUrl: 'partials/admin/manageExerciseTypes.html', controller: 'ExerciseTypeCtrl' });
+        $routeProvider.when('/admin/unitsOfMeasure', {authenticate: true, templateUrl: 'partials/admin/manageUnitOfMeasures.html', controller: 'UnitOfMeasureCtrl' });
         $routeProvider.when('/admin/wendler', {authenticate: true, templateUrl: 'partials/admin/wendler.html', controller: 'WendlerCtrl' });
+
+        $routeProvider.when('/coach/recordWod', {authenticate: true, templateUrl: 'partials/coach/recordWod.html', controller: 'ExerciseCtrl' });
+        $routeProvider.when('/coach/createWod', {authenticate: true, templateUrl: 'partials/coach/createWod.html', controller: 'ExerciseCtrl' });
+        $routeProvider.when('/coach/createLifting', {authenticate: true, templateUrl: 'partials/coach/createLiftingWorkout.html', controller: 'ExerciseCtrl' });
 
         $routeProvider.when('/account', {authenticate: true, templateUrl: 'partials/account/index.html', controller: 'PersonalCtrl' });
         $routeProvider.when('/login', { templateUrl: 'partials/login.html',  controller: 'LoginCtrl' });

@@ -1,7 +1,9 @@
 'use strict';
 
-/* Directives */
-angular.module('myApp.directives', [])
+/* Common Directives */
+var myAppDirectives = angular.module('myApp.directives', []);
+
+myAppDirectives
     .directive('appVersion', ['version', function(version) {
         return function(scope, elm, attrs) {
             elm.text(version);
@@ -69,6 +71,14 @@ angular.module('myApp.directives', [])
             restrict: 'E',
             replace: false,
             templateUrl: "./partials/help/prHelp.html"
+        };
+    }])
+
+    .directive('unitOfMeasureForm', [ function(){
+        return {
+            restrict: 'E',
+            replace: false,
+            templateUrl: "./partials/admin/manageUnitOfMeasures.html"
         };
     }])
 

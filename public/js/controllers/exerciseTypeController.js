@@ -1,68 +1,95 @@
 'use strict';
 
-myControllers.controller('ExerciseTypeCtrl', ['$scope', 'ExerciseType',
-    function($scope, ExerciseType) {
+myControllers.controller('ExerciseTypeCtrl', ['$scope', 'ExerciseType','angularGridService', 'UnitOfMeasure',
+    function($scope, ExerciseType, angularGridService, UnitOfMeasure) {
+
         $scope.exercisTypeList = [];
-        $scope.sortValues = {
-            name: '',
-            direction: '',
-            text: ''
-        };
         $scope.exerciseType = {
-            _id: '',
-            Name: ''
+            _id: null,
+            Name: "",
+            Description: "",
+            UnitOfMeasureIds: []
+        };
+
+        UnitOfMeasure.query().then(function(data){
+            $scope.unitsList = data;
+        });
+
+        $scope.toggleUnit = function(scope){
+            var index = $scope.exerciseType.UnitOfMeasureIds.indexOf(scope.unit._id);
+            if(index  > -1){
+                $scope.exerciseType.UnitOfMeasureIds.splice(index, 1);
+                scope.unit.selected = false;
+            }else{
+                $scope.exerciseType.UnitOfMeasureIds.push(scope.unit._id);
+                scope.unit.selected = true;
+            }
         };
 
         $scope.getListRecords = function(defaultSort){
-            $scope.sortByColumn(defaultSort);
+            angularGridService.sortByColumn(ExerciseType, $scope, "exerciseTypeList", "exerciseType", defaultSort);
         };
 
-        $scope.sortByColumn = function(columnName, sortOrder){
-            var icon = '';
-            var appendUp = "<span class='float-right'><i class='glyphicon glyphicon-chevron-up'></i></span>";
-            var appendDown = "<span class='float-right'><i class='glyphicon glyphicon-chevron-down'></i></span>";
-            var header = $("#th_" + columnName);
+        $scope.sortByColumn = function(sortName){
+            angularGridService.sortByColumn(ExerciseType, $scope, "exerciseTypeList", "exerciseType", sortName);
+        };
 
-            if($scope.sortValues.name == columnName){
-                if(sortOrder || sortOrder == ''){
-                    if(sortOrder == ''){icon= appendUp;}
-                    else{icon = appendDown;}
+        $scope.setUnitOfMeasureString = function(scope){
+            scope.exerciseType.UnitOfMeasureIdString = "";
+            $.each(scope.exerciseType.UnitOfMeasureIds, function(i, v){
+                var comma = scope.exerciseType.UnitOfMeasureIdString.length > 0 ? ", ": "";
+                scope.exerciseType.UnitOfMeasureIdString += comma + getUnitOfMeasureName(v);
+            })
+        }
+
+        function getUnitOfMeasureName(id){
+            var name = "";
+            $.each($scope.unitsList, function(i, v){
+                if(v._id == id){
+                    name = v.Name;
+                    return false;
                 }else{
-                    if($scope.sortValues.direction == ''){
-                        $scope.sortValues.direction = '-';
-                        icon = appendDown;
-                    }else{
-                        $scope.sortValues.direction = '';
-                        icon = appendUp;
-                    }
+                    return true;
                 }
-            }else{
-                $("#th_" + $scope.sortValues.name).text( $scope.sortValues.text);
-                $scope.sortValues.name = columnName;
-                $scope.sortValues.direction = '';
-                $scope.sortValues.text = $("#th_" + columnName).text();
-                icon = appendUp;
-            }
+            })
 
-            header.html($scope.sortValues.text + icon);
-
-            ExerciseType.query(columnName, $scope.sortValues.direction).then(function (data){
-                $scope.exerciseList = data;
-            });
-        };
-
-        $scope.sortByColumn = function(){
-
-        };
+            return name;
+        }
 
         $scope.saveExerciseType = function(){
+            if($scope.exerciseTypeForm.$invalid){
+                $scope.hasFormError = true;
+            }
+            else{
+                var isNew = $scope.exerciseType._id == null;
 
+                if(isNew){
+                    ExerciseType.insert($scope.exerciseType).then(function(p, resp){
+                        if(!p.message) {
+                            $scope.sortByColumn("Name");
+                        }
+                        else{alert(p.message);}
+                    });
+                }else{
+                    ExerciseType.update($scope.exerciseType).then(function(data){
+                        if(data.success) {
+                            $scope.sortByColumn("Name");
+                        }
+                        else{alert(data.message);}
+                    });
+                }
+
+                $scope.hasFormError = false;
+                $("#myModalTypes").modal('hide');
+            }
         };
 
         $scope.newExerciseType = function(){
             $scope.exerciseType = {
-                _id: '',
-                Name: ''
+                _id: null,
+                Name: "",
+                Description: "",
+                UnitOfMeasureIds: []
             };
         };
 
@@ -77,6 +104,5 @@ myControllers.controller('ExerciseTypeCtrl', ['$scope', 'ExerciseType',
         $scope.deleteExerciseType = function(){
 
         };
-
     }
 ]);

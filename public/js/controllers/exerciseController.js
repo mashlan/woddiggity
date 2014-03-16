@@ -1,57 +1,23 @@
 'use strict';
 
-myControllers.controller('ExerciseCtrl', ['$scope', 'Exercise',
-    function($scope, Exercise) {
+myControllers.controller('ExerciseCtrl', ['$scope', 'Exercise', 'angularGridService',
+    function($scope, Exercise, angularGridService) {
         $scope.exercise = {
             _id: null,
             Name: "",
             Description: ""
         }
 
-        $scope.sortValues = {
-            name: '',
-            direction: '',
-            text: ''
-        };
+        $scope.gridId = "test";
 
         $scope.exerciseList = [];
 
         $scope.getListRecords = function(defaultSort){
-            $scope.sortByColumn(defaultSort);
+            angularGridService.sortByColumn(Exercise, $scope, "exerciseList", "exercise", defaultSort);
         };
 
-        $scope.sortByColumn = function(columnName, sortOrder){
-            var icon = '';
-            var appendUp = "<span class='float-right'><i class='glyphicon glyphicon-chevron-up'></i></span>";
-            var appendDown = "<span class='float-right'><i class='glyphicon glyphicon-chevron-down'></i></span>";
-            var header = $("#th_" + columnName);
-
-            if($scope.sortValues.name == columnName){
-                if(sortOrder || sortOrder == ''){
-                    if(sortOrder == ''){icon= appendUp;}
-                    else{icon = appendDown;}
-                }else{
-                    if($scope.sortValues.direction == ''){
-                        $scope.sortValues.direction = '-';
-                        icon = appendDown;
-                    }else{
-                        $scope.sortValues.direction = '';
-                        icon = appendUp;
-                    }
-                }
-            }else{
-                $("#th_" + $scope.sortValues.name).text( $scope.sortValues.text);
-                $scope.sortValues.name = columnName;
-                $scope.sortValues.direction = '';
-                $scope.sortValues.text = $("#th_" + columnName).text();
-                icon = appendUp;
-            }
-
-            header.html($scope.sortValues.text + icon);
-
-            Exercise.query(columnName, $scope.sortValues.direction).then(function (data){
-                $scope.exerciseList = data;
-            });
+        $scope.sortByColumn = function(sortName){
+            angularGridService.sortByColumn(Exercise, $scope, "exerciseList","exercise", sortName);
         };
 
         $scope.getExercise = function(id){
@@ -79,7 +45,8 @@ myControllers.controller('ExerciseCtrl', ['$scope', 'Exercise',
                 alert("please select a row to edit");
             }
             else{
-                $scope.getExercise(selectRow.attr("id"))
+                var id = selectRow.attr("id").split("_")[1];
+                $scope.getExercise(id)
                 $("#myModal").modal('show');
             }
         };
@@ -109,7 +76,6 @@ myControllers.controller('ExerciseCtrl', ['$scope', 'Exercise',
         }
 
         $scope.saveExercise = function(){
-            // var ex = new Exercise($scope.exercise);
             var isNew = $scope.exercise._id == null;
 
             if(isNew){
@@ -133,7 +99,7 @@ myControllers.controller('ExerciseCtrl', ['$scope', 'Exercise',
 
         $scope.setActiveRow = function(scope){
             $("#exerciseTable").find("tr").removeClass("success");
-            $("#" + scope.exercise._id).addClass("success");
+            $("#exercise_" + scope.exercise._id).addClass("success");
         };
 
         function getIndexOfExercise(exerciseId){

@@ -24,28 +24,28 @@ module.exports = function(app, process, dirname, express, path, routes) {
 //    app.get('/logout', routes.user.logout);
 
     //exercise schema
-    app.get('/exercise/exercise?:sortName', routes.exercise.list);
+    app.get('/exercise/exercise', routes.exercise.list);
     app.get('/exercise/:id', routes.exercise.get);
     app.post('/exercise', routes.exercise.create);
     app.delete('/exercise/:id', routes.exercise.delete);
     app.put('/exercise', routes.exercise.update);
 
     //exercise type schema
-    app.get('/exerciseType/all?:sortName', routes.exerciseTypes.list);
+    app.get('/exerciseType/all', routes.exerciseTypes.list);
     app.get('/exerciseType/:id', routes.exerciseTypes.get);
     app.post('/exerciseType', routes.exerciseTypes.create);
     app.delete('/exerciseType/:id', routes.exerciseTypes.delete);
     app.put('/exerciseType', routes.exerciseTypes.update);
 
     //unit of measure schema
-    app.get('/unitOfMeasure/all?:sortName', routes.unitOfMeasures.list);
+    app.get('/unitOfMeasure/all', routes.unitOfMeasures.list);
     app.get('/unitOfMeasure/:id', routes.unitOfMeasures.get);
     app.post('/unitOfMeasure', routes.unitOfMeasures.create);
     app.delete('/unitOfMeasure/:id', routes.unitOfMeasures.delete);
     app.put('/unitOfMeasure', routes.unitOfMeasures.update);
 
     //user schema
-    app.get('/user/users?:sortName', routes.user.list);
+    app.get('/user/users', routes.user.list);
     app.get('/user/:id', routes.user.get);
     app.post('/user', routes.user.create);
     app.delete('/user/:id', routes.user.delete);
