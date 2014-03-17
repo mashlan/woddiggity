@@ -98,8 +98,8 @@ myControllers.controller('ExerciseCtrl', ['$scope', 'Exercise', 'angularGridServ
         };
 
         $scope.setActiveRow = function(scope){
-            $("#exerciseTable").find("tr").removeClass("success");
-            $("#exercise_" + scope.exercise._id).addClass("success");
+            $("#exerciseTable").find("tr").removeClass("info");
+            $("#exercise_" + scope.exercise._id).addClass("info");
         };
 
         function getIndexOfExercise(exerciseId){

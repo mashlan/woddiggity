@@ -1,30 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a3a47232-d218-458a-b6ad-e68962551f0a" name="Default" comment="added edits for exercise types and unit of measure type. refactored code to reduce repeating myself&#10;">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/angularGrid.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/partials/coach/createLiftingWorkout.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/partials/coach/createWod.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/partials/admin/manageGirls.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/partials/admin/manageHeroes.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/partials/coach/recordWod.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/ActiveRecord.js" afterPath="$PROJECT_DIR$/routes/ActiveRecord.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/app.js" afterPath="$PROJECT_DIR$/public/js/app.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/directives.js" afterPath="$PROJECT_DIR$/public/js/directives.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/models/exercise.js" afterPath="$PROJECT_DIR$/models/exercise.js" />
+    <list default="true" id="a3a47232-d218-458a-b6ad-e68962551f0a" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/controllers/exerciseController.js" afterPath="$PROJECT_DIR$/public/js/controllers/exerciseController.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/models/exerciseType.js" afterPath="$PROJECT_DIR$/models/exerciseType.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/controllers/exerciseTypeController.js" afterPath="$PROJECT_DIR$/public/js/controllers/exerciseTypeController.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/services/exerciseTypeService.js" afterPath="$PROJECT_DIR$/public/js/services/exerciseTypeService.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/index.html" afterPath="$PROJECT_DIR$/public/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/serverConfig/index.js" afterPath="$PROJECT_DIR$/serverConfig/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/partials/admin/manageExerciseTypes.html" afterPath="$PROJECT_DIR$/public/partials/admin/manageExerciseTypes.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/partials/admin/manageExercises.html" afterPath="$PROJECT_DIR$/public/partials/admin/manageExercises.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/partials/admin/manageUnitOfMeasures.html" afterPath="$PROJECT_DIR$/public/partials/admin/manageUnitOfMeasures.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/routes.js" afterPath="$PROJECT_DIR$/public/js/routes.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/css/site.css" afterPath="$PROJECT_DIR$/public/css/site.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/controllers/unitOfMeasureController.js" afterPath="$PROJECT_DIR$/public/js/controllers/unitOfMeasureController.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/services/unitOfMeasureService.js" afterPath="$PROJECT_DIR$/public/js/services/unitOfMeasureService.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Woddo.iws" />
@@ -48,10 +28,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="manageExerciseTypes.html" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="manageExerciseTypes.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/partials/admin/manageExerciseTypes.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="71" column="9" selection-start="3800" selection-end="3800" vertical-scroll-proportion="0.55841583" vertical-offset="925" max-vertical-offset="1751">
+            <state line="76" column="32" selection-start="3869" selection-end="3886" vertical-scroll-proportion="-14.115385" vertical-offset="925" max-vertical-offset="1751">
               <folding>
                 <element signature="n#style#0;n#table#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#th#0;n#tr#0;n#thead#0;n#table#0;n#!!top" expanded="true" />
@@ -98,20 +78,20 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="exerciseType.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/models/exerciseType.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="8" column="2" selection-start="253" selection-end="253" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="238">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="exerciseTypeController.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/js/controllers/exerciseTypeController.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="45" column="26" selection-start="1753" selection-end="1753" vertical-scroll-proportion="0.0" vertical-offset="246" max-vertical-offset="1921">
-              <folding />
+            <state line="34" column="10" selection-start="1283" selection-end="1283" vertical-scroll-proportion="0.0" vertical-offset="19" max-vertical-offset="884">
+              <folding>
+                <element signature="e#435#483#0" expanded="false" />
+                <element signature="e#530#924#0" expanded="false" />
+                <element signature="e#980#1107#0" expanded="false" />
+                <element signature="e#1158#1282#0" expanded="false" />
+                <element signature="e#1340#1682#0" expanded="false" />
+                <element signature="e#1725#2033#0" expanded="false" />
+                <element signature="e#2079#3020#0" expanded="false" />
+                <element signature="e#3066#3251#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -134,10 +114,25 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="exerciseController.js" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/public/js/controllers/exerciseController.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="57" column="17" selection-start="1737" selection-end="1737" vertical-scroll-proportion="0.6354009" vertical-offset="328" max-vertical-offset="1309">
+              <folding>
+                <element signature="e#708#825#0" expanded="false" />
+                <element signature="e#867#1009#0" expanded="false" />
+                <element signature="e#1055#1141#0" expanded="false" />
+                <element signature="e#1807#2333#0" expanded="false" />
+                <element signature="e#2375#3128#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="site.css" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/css/site.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="130" column="26" selection-start="2168" selection-end="2168" vertical-scroll-proportion="0.0" vertical-offset="1578" max-vertical-offset="2346">
+            <state line="127" column="0" selection-start="2100" selection-end="2100" vertical-scroll-proportion="0.0" vertical-offset="1563" max-vertical-offset="2261">
               <folding />
             </state>
           </provider>
@@ -201,7 +196,6 @@
         <option value="$PROJECT_DIR$/public/js/services/unitOfMeasureService.js" />
         <option value="$PROJECT_DIR$/public/js/services/exerciseTypeService.js" />
         <option value="$PROJECT_DIR$/public/js/angularGrid.js" />
-        <option value="$PROJECT_DIR$/public/js/controllers/exerciseController.js" />
         <option value="$PROJECT_DIR$/routes/ActiveRecord.js" />
         <option value="$PROJECT_DIR$/public/js/controllers/unitOfMeasureController.js" />
         <option value="$PROJECT_DIR$/public/partials/admin/manageExercises.html" />
@@ -213,9 +207,10 @@
         <option value="$PROJECT_DIR$/public/partials/coach/createLiftingWorkout.html" />
         <option value="$PROJECT_DIR$/public/partials/coach/createWod.html" />
         <option value="$PROJECT_DIR$/public/partials/coach/recordWod.html" />
+        <option value="$PROJECT_DIR$/public/partials/admin/manageExerciseTypes.html" />
         <option value="$PROJECT_DIR$/public/css/site.css" />
         <option value="$PROJECT_DIR$/public/js/controllers/exerciseTypeController.js" />
-        <option value="$PROJECT_DIR$/public/partials/admin/manageExerciseTypes.html" />
+        <option value="$PROJECT_DIR$/public/js/controllers/exerciseController.js" />
       </list>
     </option>
   </component>
@@ -225,8 +220,8 @@
   <component name="ProjectFrameBounds">
     <option name="x" value="-8" />
     <option name="y" value="-8" />
-    <option name="width" value="1616" />
-    <option name="height" value="876" />
+    <option name="width" value="1696" />
+    <option name="height" value="1026" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="true" id="Add" />
@@ -659,19 +654,23 @@
       <created>1394808117644</created>
       <updated>1394808117644</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="updated menu options, and added new html files.">
+      <created>1394943038775</created>
+      <updated>1394943038775</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
+    <frame x="-8" y="-8" width="1696" height="1026" extended-state="6" />
     <editor active="false" />
     <layout>
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32960895" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Changes" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20883535" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20893855" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.49832404" sideWeight="0.4996986" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24954791" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.26219127" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24954791" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.49263722" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.37430167" sideWeight="0.50030136" order="7" side_tool="true" content_ui="tabs" />
@@ -702,7 +701,8 @@
     <MESSAGE value="Updates to User Edits&#10;" />
     <MESSAGE value="More updates to User Edits.&#10;&#10;Added additional forms&#10;" />
     <MESSAGE value="added edits for exercise types and unit of measure type. refactored code to reduce repeating myself" />
-    <option name="LAST_COMMIT_MESSAGE" value="added edits for exercise types and unit of measure type. refactored code to reduce repeating myself" />
+    <MESSAGE value="updated menu options, and added new html files." />
+    <option name="LAST_COMMIT_MESSAGE" value="updated menu options, and added new html files." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -977,13 +977,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/js/controllers/exerciseController.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="10" selection-start="665" selection-end="665" vertical-scroll-proportion="0.024285715" vertical-offset="323" max-vertical-offset="2108">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/js/controllers/personController.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="212" column="18" selection-start="7198" selection-end="7198" vertical-scroll-proportion="0.9514286" vertical-offset="1340" max-vertical-offset="2499">
@@ -1014,13 +1007,6 @@
     <entry file="file://$PROJECT_DIR$/public/css/bootstrap-yeti.css">
       <provider selected="true" editor-type-id="text-editor">
         <state line="5795" column="4" selection-start="129093" selection-end="129146" vertical-scroll-proportion="0.35800603" vertical-offset="98278" max-vertical-offset="103275">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/css/site.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="130" column="26" selection-start="2168" selection-end="2168" vertical-scroll-proportion="0.0" vertical-offset="1578" max-vertical-offset="2346">
           <folding />
         </state>
       </provider>
@@ -1064,16 +1050,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/js/controllers/exerciseTypeController.js">
+    <entry file="file://$PROJECT_DIR$/public/css/site.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="45" column="26" selection-start="1753" selection-end="1753" vertical-scroll-proportion="0.0" vertical-offset="246" max-vertical-offset="1921">
+        <state line="127" column="0" selection-start="2100" selection-end="2100" vertical-scroll-proportion="0.0" vertical-offset="1563" max-vertical-offset="2261">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/partials/admin/manageExerciseTypes.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="71" column="9" selection-start="3800" selection-end="3800" vertical-scroll-proportion="0.55841583" vertical-offset="925" max-vertical-offset="1751">
+        <state line="76" column="32" selection-start="3869" selection-end="3886" vertical-scroll-proportion="-14.115385" vertical-offset="925" max-vertical-offset="1751">
           <folding>
             <element signature="n#style#0;n#table#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#th#0;n#tr#0;n#thead#0;n#table#0;n#!!top" expanded="true" />
@@ -1084,6 +1070,35 @@
             <element signature="n#style#0;n#td#1;n#tr#0;n#tbody#0;n#table#0;n#div#2;n#!!top" expanded="true" />
             <element signature="n#style#0;n#td#2;n#tr#0;n#tbody#0;n#table#0;n#div#2;n#!!top" expanded="true" />
             <element signature="n#style#0;n#table#1;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/js/controllers/exerciseTypeController.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="34" column="10" selection-start="1283" selection-end="1283" vertical-scroll-proportion="0.0" vertical-offset="19" max-vertical-offset="884">
+          <folding>
+            <element signature="e#435#483#0" expanded="false" />
+            <element signature="e#530#924#0" expanded="false" />
+            <element signature="e#980#1107#0" expanded="false" />
+            <element signature="e#1158#1282#0" expanded="false" />
+            <element signature="e#1340#1682#0" expanded="false" />
+            <element signature="e#1725#2033#0" expanded="false" />
+            <element signature="e#2079#3020#0" expanded="false" />
+            <element signature="e#3066#3251#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/js/controllers/exerciseController.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="57" column="17" selection-start="1737" selection-end="1737" vertical-scroll-proportion="0.6354009" vertical-offset="328" max-vertical-offset="1309">
+          <folding>
+            <element signature="e#708#825#0" expanded="false" />
+            <element signature="e#867#1009#0" expanded="false" />
+            <element signature="e#1055#1141#0" expanded="false" />
+            <element signature="e#1807#2333#0" expanded="false" />
+            <element signature="e#2375#3128#0" expanded="false" />
           </folding>
         </state>
       </provider>

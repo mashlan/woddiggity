@@ -93,6 +93,11 @@ myControllers.controller('ExerciseTypeCtrl', ['$scope', 'ExerciseType','angularG
             };
         };
 
+        $scope.setActiveRow = function(scope){
+            $("#exerciseTypeTable").find("tr").removeClass("info");
+            $("#exerciseType_" + scope.exerciseType._id).addClass("info");
+        };
+
         $scope.editRecord = function(){
 
         };
