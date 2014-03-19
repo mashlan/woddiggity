@@ -1,7 +1,7 @@
 'use strict';
 
-myControllers.controller('UserCtrl', ['$scope', '$location', 'User',
-    function($scope,$location, User) {
+myControllers.controller('UserCtrl', ['$scope', '$rootScope', '$location', 'User',
+    function($scope, $rootScope, $location, User) {
         $scope.confirmPassword = '';
 
         $scope.user = {
@@ -41,7 +41,13 @@ myControllers.controller('UserCtrl', ['$scope', '$location', 'User',
             }
             else{
                 User.insert($scope.user).then(function(data){
-                    alert(data);
+                    if(data.errors){$scope.err = data.message;}
+                    else{
+                        window.sessionStorage.setItem("woddo_user", JSON.stringify(data));
+                        $rootScope.ActiveUser = data;
+                        $rootScope.isAuthenticated = $rootScope.ActiveUser != null;
+                        $location.path("/home");
+                    }
                 });
             }
         };

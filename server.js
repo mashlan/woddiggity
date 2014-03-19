@@ -28,8 +28,10 @@ var expressApp  = express();
 //    // callback(new Error("Rejected as spam!")); // reported back to the client
 //});
 
+//var directoryPath = "C:\\Users\\eric.mashlan\\Documents\\GitHub\\woddiggity\\";
 
 require('./serverConfig')(expressApp, process, __dirname, express, path, routes);
+require('./service')(__dirname, path);
 
 var app = http.createServer(expressApp);
 

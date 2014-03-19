@@ -17,7 +17,9 @@ module.exports = function(app, process, dirname, express, path, routes) {
     }
 
     //set routing config
-    app.get('/', routes.index);
+    app.get('/', function(req, res){
+        res.sendfile(path.join(dirname, 'public/index.html'));
+    });
 
     //login/logout
     app.post('/login', routes.user.logIn);

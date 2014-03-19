@@ -2,13 +2,10 @@ var mongoose                = require('mongoose');
 var db                      = mongoose.createConnection('localhost', 'woddoTest');
 var userRoutes              = require('./user.js');
 var prRoutes                = require('./personalRecord.js');
+var path                    = require('path');
 
 var activeRecord            = require('./ActiveRecord.js');
 var schema                  = require('../models/schema.js').schema;
-
-exports.index = function(req, res){
-    res.sendfile('./public/index.html');
-}
 
 //export routes
 exports.exercise        = activeRecord.record(mongoose, db, "exercises", schema.ExerciseSchema);

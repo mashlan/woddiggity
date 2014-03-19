@@ -35,7 +35,7 @@ exports.record = function(mongoose, db, schema, activeRecord){
         },
         create: function(req, res){
             var ObjectId = mongoose.Types.ObjectId;
-            var data = new User(res.body);
+            var data = new User(req.body);
             data._id = ObjectId();
 
             data.save(function(err, doc){
