@@ -124,8 +124,8 @@ angularGrid.factory("angularGridService", ['$resource','$compile',
             },
             sortByColumn: function(service, scope, list, tableId, columnName){
                 var icon = '';
-                var appendUp = "<span class='float-right'><i class='glyphicon glyphicon-chevron-up'></i></span>";
-                var appendDown = "<span class='float-right'><i class='glyphicon glyphicon-chevron-down'></i></span>";
+                var appendUp = "<span class=''>&nbsp;&nbsp;<i class='glyphicon glyphicon-chevron-up'></i></span>";
+                var appendDown = "<span class=''>&nbsp;&nbsp;<i class='glyphicon glyphicon-chevron-down'></i></span>";
                 var header = $("#" + tableId + "_th_" + columnName);
 
                 if(sortValues.name == columnName){

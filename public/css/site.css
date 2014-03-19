@@ -72,34 +72,30 @@ footer{
     border-bottom: #008cba 1px solid;
 }
 
-.editTable{
-    border: #008cba 1px solid;
-    overflow: hidden;
-    table-layout: fixed;
-}
-
-.table-header{
-
-}
+/*.editTable{*/
+    /*border: #008cba 1px solid;*/
+    /*overflow: hidden;*/
+    /*table-layout: fixed;*/
+/*}*/
 
 .table-footer{
     border: #008cba 1px solid;
 }
 
-.editTable thead, .workout-table thead{
-    color: #ffffff;
-    background-color: #008cba;
-}
+/*.editTable thead, .workout-table thead{*/
+    /*color: #ffffff;*/
+    /*background-color: #008cba;*/
+/*}*/
 
-.editTable thead th, .workout-table thead th{
-    border-right: #ffffff 1px solid;
-    text-align: center;
-}
+/*.editTable thead th, .workout-table thead th{*/
+    /*border-right: #ffffff 1px solid;*/
+    /*text-align: center;*/
+/*}*/
 
 .editTable thead th:hover, .workout-table thead th:hover{
     cursor: pointer;
-    background-color: #afd9ee;
-    color: #000000;
+    background-color: #999999;
+    color: #ffffff;
 }
 
 .editTable tr, .workout-table tr{
@@ -108,11 +104,15 @@ footer{
 }
 
 .editTable tr td{
-    border-right: #008cba 1px solid;
+    border-right: #e7e7e7 1px solid;
 }
 
 .btn-xs{
     padding: 5px 10px !important;
+}
+
+.btn-mini{
+    padding: 3px 5px !important;
 }
 
 .nav-button{
