@@ -3,3 +3,8 @@ dist
 .tmp
 .sass-cache
 app/bower_components
+daemon/woddiggity.err.log
+daemon/woddiggity.exe
+daemon/woddiggity.out.log
+daemon/woddiggity.wrapper.log
+daemon/woddiggity.xml
