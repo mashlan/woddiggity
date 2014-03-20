@@ -17,7 +17,7 @@
                 <input class="form-control" name="uRecordDate"
                        ng-model="newPR.RecordDate"
                        ng-class="{error: newPrForm.uRecordDate.$error.required && prInvalid}"
-                       required
+                       required readonly="true"
                        datepicker-popup="MM/dd/yyyy" show-button-bar show-weeks="false"
                        type="text"/>
                 <label ng-show="newPrForm.uRecordDate.$error.required && prInvalid" class="text-danger">Required!</label>
