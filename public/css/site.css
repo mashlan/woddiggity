@@ -45,7 +45,7 @@ footer{
 }
 
 .table-container{
-    overflow-y: scroll;
+    /*overflow-y: scroll;*/
 }
 
 .workout-table tbody tr td{
@@ -94,13 +94,15 @@ footer{
 
 .editTable thead th:hover, .workout-table thead th:hover{
     cursor: pointer;
-    background-color: #999999;
     color: #ffffff;
+    background-color: #245269;
 }
 
-.editTable tr, .workout-table tr{
-    white-space: nowrap;
-    overflow-x: hidden;
+
+.editTable thead th{
+
+    color: #ffffff;
+    background-color: #245269;
 }
 
 .editTable tr td{

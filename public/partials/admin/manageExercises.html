@@ -1,5 +1,5 @@
 
-<div class="row text-right">
+<div class="col-md-12 text-right">
     <a class="label label-default nav-button"
        href="#/admin/unitsOfMeasure"
        tooltip="Click to Add, Edit, or Delete Units of Measure"
@@ -10,7 +10,15 @@
        tooltip-placement="bottom">Manage Exercise Types</a>
 </div>
 
-<h2 class="table-header">Exercises</h2>
+<h2 class="table-header">Exercises
+    <small>
+        <span style="margin-left: 20px;">
+            <button type="button" ng-click="newExercise()" data-toggle="modal" data-target="#myModal" class="btn btn-default btn-xs"><i class="glyphicon glyphicon-plus"></i></button>
+            <button type="button"  ng-click="editExercise()" class="btn btn-default btn-xs"><i class="glyphicon glyphicon-pencil"></i></button>
+            <button type="button" ng-click="deleteExercise()" class="btn btn-default btn-xs"><i class="glyphicon glyphicon-remove"></i></button>
+        </span>
+    </small>
+</h2>
 
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog    ">
@@ -47,42 +55,26 @@
     </div>
 </div>
 
-<table ng-init="getListRecords('Name')" class="table table-condensed table-hover editTable" style="margin-bottom: 0">
-    <thead>
+ <div class="table-container">
+    <table id="exerciseTable" ng-init="getListRecords('Name')" class="table table-condensed table-hover table-bordered table-responsive editTable" >
+        <thead>
         <tr>
             <th id="exercise_th__id" style="display: none;" ng-click="sortByColumn('_id')">Id </th>
-            <th id="exercise_th_Name" style="width: 200px" ng-click="sortByColumn('Name')">Name</th>
-            <th id="exercise_th_Type" style="width: 200px;" ng-click="sortByColumn('Type')">Type</th>
-            <th id="exercise_th_Description" ng-click="sortByColumn('Description')">Description</th>
+            <th id="exercise_th_Name" style="width: 20%" ng-click="sortByColumn('Name')">Name</th>
+            <th id="exercise_th_Type" style="width: 20%;" ng-click="sortByColumn('Type')">Type</th>
+            <th id="exercise_th_Description" style="width: 60%" ng-click="sortByColumn('Description')">Description</th>
         </tr>
-    </thead>
-</table>
-
- <div class="table-container">
-    <table id="exerciseTable" class="table table-condensed table-hover editTable" style="margin-bottom: 0">
+        </thead>
         <tbody>
             <tr id="exercise_{{exercise._id}}" ng-repeat="exercise in exerciseList" ng-click="setActiveRow(this)" ng-dblclick="editRecord(this)">
                 <td style="display: none">{{exercise._id}}</td>
-                <td title="{{exercise.Name}}" style="width: 200px">{{exercise.Name}}</td>
-                <td id="exercise_Type_{{exercise.Type}}" title="{{exercise.Type}}" style="width: 200px;">{{exercise.Type}}</td>
-                <td id="exercise_Description_{{exercise._id}}" title="{{exercise.Description}}" >{{exercise.Description}}</td>
+                <td title="{{exercise.Name}}" style="width: 20%">{{exercise.Name}}</td>
+                <td id="exercise_Type_{{exercise.Type}}" title="{{exercise.Type}}" style="width: 20%;">{{exercise.Type}}</td>
+                <td id="exercise_Description_{{exercise._id}}" style="width: 60%" title="{{exercise.Description}}" >{{exercise.Description}}</td>
             </tr>
         </tbody>
     </table>
  </div>
-
-<table class="table table-condensed table-footer" style="margin-top: 0;">
-    <tr>
-        <td>
-            <button class="btn btn-primary btn-xs" ng-click="newExercise()" data-toggle="modal" data-target="#myModal"><i class="glyphicon glyphicon-plus"></i></button>
-            <button class="btn btn-primary btn-xs" ng-click="editExercise()"><i class="glyphicon glyphicon-pencil"></i></button>
-            <button class="btn btn-danger btn-xs" ng-click="deleteExercise()"><i class="glyphicon glyphicon-remove"></i></button>
-        </td>
-    </tr>
-</table>
-
-<!--<exercise-type-form></exercise-type-form>-->
-<!--<unit-of-measure-form></unit-of-measure-form>-->
 
 <!--<angular-grid id="test">-->
     <!--<angular-column for="test" ng-repeat="exercise in exerciseList">-->
