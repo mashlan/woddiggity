@@ -2,10 +2,11 @@
 
 <div class="form-group">
     <div class="col-sm-6 list-group">
-        <a href="#account" class="list-group-item">
+        <a href="#account" class="list-group-item"  ng-click="showEstimationFormForm()">
             <h4 class="text-primary" style="font-weight: bold">Estimate Your One Rep Max</h4>
-            <one-rep-max-form></one-rep-max-form>
+            <p id="oneRepMaxEstimation_text" class="diggity-text">Uses the Brzycki formula to predict your one rep max.</p>
         </a>
+        <one-rep-max-form id="oneRepMaxEstimation_form" style="display: none;"></one-rep-max-form>
 
         <a href="#account" class="list-group-item" ng-click="showPreferencesForm()">
             <h4 class="text-primary" style="font-weight: bold">Preferences</h4>

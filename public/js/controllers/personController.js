@@ -210,6 +210,12 @@ myControllers.controller('PersonalCtrl', ['$scope', '$rootScope', '$compile', 'E
             $("#change_password").toggle();
         };
 
+        $scope.showEstimationFormForm = function(){
+            resetEditForms();
+            $("#oneRepMaxEstimation_text").toggle();
+            $("#oneRepMaxEstimation_form").toggle();
+        }
+
         $scope.showPreferencesForm = function(){
             resetEditForms();
             $("#preferences_form_text").toggle();
@@ -231,6 +237,8 @@ myControllers.controller('PersonalCtrl', ['$scope', '$rootScope', '$compile', 'E
             $("#preferences_form").hide();
             $("#box_info_text").show();
             $("#box_info").hide();
+            $("#oneRepMaxEstimation_text").show();
+            $("#oneRepMaxEstimation_form").hide();
         }
     }
 ]);

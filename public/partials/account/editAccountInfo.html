@@ -2,21 +2,21 @@
 <form class="form-horizontal diggity-text">
     <div class="list-group-item" style="border-top:none;">
         <div class="form-group">
-            <label class="col-sm-3 control-label" for="firstName">First Name</label>
-            <div class="col-sm-8">
+            <label class="col-md-3 control-label" for="firstName">First Name</label>
+            <div class="col-md-8">
                 <input id="firstName"  placeholder="First Name" class="form-control" type="text" ng-model="user.FirstName" />
             </div>
         </div>
         <div class="form-group">
-            <label class="col-sm-3 control-label" for="lastName">Last Name</label>
-            <div class="col-sm-8">
+            <label class="col-md-3 control-label" for="lastName">Last Name</label>
+            <div class="col-md-8">
                 <input id="lastName"  placeholder="Last Name" class="form-control" type="text" ng-model="user.LastName" />
             </div>
         </div>
 
         <div class="form-group">
-            <label class="col-sm-3 control-label" for="email">Email</label>
-            <div class="col-sm-8">
+            <label class="col-md-3 control-label" for="email">Email</label>
+            <div class="col-md-8">
                 <input id="email"  placeholder="Email" class="form-control" type="text" ng-model="user.Email" />
             </div>
         </div>
@@ -24,7 +24,7 @@
         <p ng-show="err" class="error">{{accountInfoError}}</p>
 
         <div class="form-group">
-            <div class="col-sm-12 col-sm-push-8">
+            <div class="col-md-12 col-md-push-3">
                 <button type="button" class="btn btn-sm btn-default" ng-click="cancelAccountInfo()">Cancel</button>
                 <button type="button" class="btn btn-sm btn-primary" ng-click="saveAccountInfo()">Save</button>
             </div>
