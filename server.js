@@ -29,7 +29,14 @@ var expressApp  = express();
 //});
 
 //var directoryPath = "C:\\Users\\eric.mashlan\\Documents\\GitHub\\woddiggity\\";
+var debug = typeof v8debug === 'object';
 
+if(debug){
+    process.env.PORT = 5000;
+}
+else{
+    process.env.PORT = 80;
+}
 require('./serverConfig')(expressApp, process, __dirname, express, path, routes);
 require('./service')(__dirname, path);
 
