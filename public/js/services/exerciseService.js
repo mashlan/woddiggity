@@ -30,6 +30,15 @@ services.factory('Exercise', ['$resource', '$q', function($resource, $q){
 
             return deferred.promise;
         },
+        getNew: function(){
+            return {
+                _id: null,
+                Name: "",
+                Abbreviation: "",
+                Description: "",
+                ExerciseTypeId: ""
+            };
+        },
         remove: function (id) {
             var deferred = $q.defer();
             resource.remove({exerciseId: id },

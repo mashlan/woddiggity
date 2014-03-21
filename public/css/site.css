@@ -12,6 +12,14 @@ body{
     margin-right: 5px !important;
 }
 
+.edit-form{
+    margin-top: 10px;
+    /*background-color: #d3d3d3;*/
+    padding: 20px;
+    /*background-color: #e7e7e7;*/
+    border: #ddd solid 1px;
+    box-shadow: none;
+}
 .error  {
     border-color: #f04124;
     -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
@@ -72,25 +80,14 @@ footer{
     border-bottom: #008cba 1px solid;
 }
 
-/*.editTable{*/
-    /*border: #008cba 1px solid;*/
-    /*overflow: hidden;*/
-    /*table-layout: fixed;*/
-/*}*/
-
-.table-footer{
-    border: #008cba 1px solid;
+.editTable{
+    margin-bottom: 0 !important;
 }
 
-/*.editTable thead, .workout-table thead{*/
-    /*color: #ffffff;*/
-    /*background-color: #008cba;*/
-/*}*/
-
-/*.editTable thead th, .workout-table thead th{*/
-    /*border-right: #ffffff 1px solid;*/
-    /*text-align: center;*/
-/*}*/
+.table-footer{
+    padding: 4px;
+    border: #dddddd 1px solid;
+}
 
 .editTable thead th:hover, .workout-table thead th:hover{
     cursor: pointer;

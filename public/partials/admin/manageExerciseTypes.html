@@ -1,5 +1,5 @@
 
-<div class="row text-right">
+<div class="col-md-12 text-right">
     <a class="label label-default nav-button"
        href="#/admin/exercises"
        tooltip="Click to Add, Edit, or Delete Exercises"
@@ -12,86 +12,69 @@
 
 <h2>Exercise Types</h2>
 
-<div class="modal fade" id="myModalTypes" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog    ">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4 class="modal-title" id="myModalLabel">{{exerciseType.Name}}</h4>
-            </div>
-            <div class="modal-body">
-                <form class="form-horizontal" name="exerciseTypeForm" novalidate>
-                    <div class="form-group">
-                        <label class="control-label" for="Name">Name</label>
-                        <input class="form-control" id="Name"
-                               name="Name" type="text"
-                               ng-model="exerciseType.Name" required
-                               ng-class="{error: exerciseTypeForm.Name.$error.required && hasFormError}"
-                               placeholder="Name"/>
-                        <label class="text-danger" ng-show="exerciseTypeForm.Name.$error.required && hasFormError">Required!</label>
-                    </div>
-                    <div class="form-group">
-                        <label class="col-sm-12 text-left">Selected Units Of Measure</label>
-                        <div class="col-sm-4" ng-repeat="unit in unitsList">
-                            <button class="btn checkbox-button"
-                                    ng-class="{'btn-success': unit.selected}"
-                                    ng-click="toggleUnit(this)"
-                                    type="button">
-                                <span ng-show="unit.selected" class="glyphicon glyphicon-ok"></span>
-                                <span ng-show="!unit.selected" class="glyphicon glyphicon-remove"></span>
-                                {{unit.Name}}
-                            </button>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label class="control-label" for="Description">Description</label>
-                        <textarea class="form-control"
-                                  id="Description" rows="5"
-                                  ng-model="exerciseType.Description"
-                                  placeholder="Name">
-                        </textarea>
-                    </div>
-                </form>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-sm btn-default" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-sm btn-primary" ng-click="saveExerciseType()">Save</button>
-            </div>
-        </div>
-    </div>
-</div>
-
-<table ng-init="getListRecords('Name')" class="table table-condensed table-hover editTable" style="margin-bottom: 0">
-    <thead>
-    <tr>
-        <th id="exerciseType_th__id" style="display: none;" ng-click="sortByColumn('_id')">Id </th>
-        <th id="exerciseType_th_Name" style="width: 200px" ng-click="sortByColumn('Name')">Name</th>
-        <th id="exerciseType_th_UnitOfMeasureIds" style="width: 300px">Units of Measure</th>
-        <th id="exerciseType_th_Description" ng-click="sortByColumn('Description')">Description</th>
-    </tr>
-    </thead>
-</table>
-
 <div class="table-container">
-    <table id="exerciseTypeTable" class="table table-condensed table-hover editTable" style="margin-bottom: 0">
+    <table id="exerciseTypeTable" ng-init="getListRecords('Name')" class="table table-condensed table-striped table-hover table-bordered table-responsive editTable" >
+        <thead>
+            <tr>
+                <th id="exerciseType_th__id" style="display: none;" ng-click="sortByColumn('_id')">Id </th>
+                <th id="exerciseType_th_Name" style="width: 200px" ng-click="sortByColumn('Name')">Name</th>
+                <th id="exerciseType_th_UnitOfMeasureIds" style="width: 300px">Units of Measure</th>
+                <th id="exerciseType_th_Description" ng-click="sortByColumn('Description')">Description</th>
+            </tr>
+        </thead>
         <tbody>
-        <tr id="exerciseType_{{exerciseType._id}}" ng-repeat="exerciseType in exerciseTypeList" ng-click="setActiveRow(this)" ng-dblclick="editRecord(this)">
-            <td style="display: none">{{exerciseType._id}}</td>
-            <td title="{{exerciseType.Name}}" style="width: 200px">{{exerciseType.Name}}</td>
-            <td title="{{exerciseType.UnitOfMeasureIds}}" style="width: 300px" ng-init="setUnitOfMeasureString(this)">{{exerciseType.UnitOfMeasureIdString}}</td>
-            <td title="{{exerciseType.Description}}">{{exerciseType.Description}}</td>
-        </tr>
+            <tr id="exerciseType_{{exerciseType._id}}" ng-repeat="exerciseType in exerciseTypeList" ng-click="setActiveRow(this)" ng-dblclick="editRecord(this)">
+                <td style="display: none">{{exerciseType._id}}</td>
+                <td title="{{exerciseType.Name}}" style="width: 200px">{{exerciseType.Name}}</td>
+                <td title="{{exerciseType.UnitOfMeasureIdString}}" style="width: 300px" ng-init="setUnitOfMeasureString(this)">{{exerciseType.UnitOfMeasureIdString}}</td>
+                <td title="{{exerciseType.Description}}">{{exerciseType.Description}}</td>
+            </tr>
         </tbody>
     </table>
 </div>
 
-<table class="table table-condensed table-footer" style="margin-top: 0;">
-    <tr>
-        <td>
-            <button class="btn btn-primary btn-xs" ng-click="newExerciseType()" data-toggle="modal" data-target="#myModalTypes"><i class="glyphicon glyphicon-plus"></i></button>
-            <button class="btn btn-primary btn-xs" ng-click="editExerciseType()"><i class="glyphicon glyphicon-pencil"></i></button>
-            <button class="btn btn-danger btn-xs" ng-click="deleteExerciseType()"><i class="glyphicon glyphicon-remove"></i></button>
-        </td>
-    </tr>
-</table>
+<div class="col-lg-12 table-footer">
+    <button class="btn btn-primary btn-xs" ng-click="newExerciseType()"><i class="glyphicon glyphicon-plus"></i></button>
+    <button class="btn btn-primary btn-xs" ng-click="editExerciseType()"><i class="glyphicon glyphicon-pencil"></i></button>
+    <button class="btn btn-primary btn-xs" ng-click="deleteExerciseType()"><i class="glyphicon glyphicon-remove"></i></button>
+</div>
+
+<div class="clearfix"></div>
+
+<form id="exerciseType_form" name="exerciseTypeForm" style="display: none;" class="form-horizontal edit-form" role="form" novalidate>
+    <div class="form-group">
+        <label class="control-label" for="Name">Name</label>
+        <input class="form-control" id="Name"
+               name="Name" type="text"
+               ng-model="exerciseType.Name" required
+               ng-class="{error: exerciseTypeForm.Name.$error.required && hasFormError}"
+               placeholder="Name"/>
+        <label class="text-danger" ng-show="exerciseTypeForm.Name.$error.required && hasFormError">Required!</label>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-12 text-left">Selected Units Of Measure</label>
+        <div class="col-sm-3" ng-repeat="unit in unitsList">
+            <button class="btn checkbox-button"
+                    ng-class="{'btn-success': unit.selected}"
+                    ng-click="toggleUnit(this)"
+                    type="button">
+                <span ng-show="unit.selected" class="glyphicon glyphicon-ok"></span>
+                <span ng-show="!unit.selected" class="glyphicon glyphicon-remove"></span>
+                {{unit.Name}}
+            </button>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label" for="Description">Description</label>
+        <textarea class="form-control"
+                  id="Description" rows="5"
+                  ng-model="exerciseType.Description"
+                  placeholder="Name">
+        </textarea>
+    </div>
+    <div class="form-group">
+        <button type="button" class="btn btn-sm btn-default" ng-click="cancelExerciseType()">Cancel</button>
+        <button type="button" class="btn btn-sm btn-primary" ng-click="saveExerciseType()">Save</button>
+    </div>
+</form>

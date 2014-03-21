@@ -10,77 +10,66 @@
        tooltip-placement="bottom">Manage Exercise Types</a>
 </div>
 
-<h2 class="table-header">Exercises
-    <small>
-        <span style="margin-left: 20px;">
-            <button type="button" ng-click="newExercise()" data-toggle="modal" data-target="#myModal" class="btn btn-default btn-xs"><i class="glyphicon glyphicon-plus"></i></button>
-            <button type="button"  ng-click="editExercise()" class="btn btn-default btn-xs"><i class="glyphicon glyphicon-pencil"></i></button>
-            <button type="button" ng-click="deleteExercise()" class="btn btn-default btn-xs"><i class="glyphicon glyphicon-remove"></i></button>
-        </span>
-    </small>
-</h2>
-
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog    ">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4 class="modal-title" id="myModalLabel">{{exercise.Name}}</h4>
-            </div>
-            <div class="modal-body">
-                <form class="form-horizontal">
-                    <div class="form-group">
-                        <label class="control-label" for="Name">Name</label>
-                        <input class="form-control" id="Name" type="text" ng-model="exercise.Name" placeholder="Name"/>
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label" for="type">Exercise Type</label>
-                        <select class="form-control" id="type" ng-model="exercise.Type">
-                            <option ng-selected="exercise.Type == 'Distance'">Distance</option>
-                            <option ng-selected="exercise.Type == 'Weight'">Weight</option>
-                            <option ng-selected="exercise.Type == 'Reps'">Reps</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label" for="Description">Description</label>
-                        <textarea class="form-control" rows="10" id="Description" placeholder="Add optional description" ng-model="exercise.Description"></textarea>
-                    </div>
-                </form>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-sm btn-default" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-sm btn-primary" ng-click="saveExercise()">Save</button>
-            </div>
-        </div>
-    </div>
-</div>
+<h2>Exercises</h2>
 
  <div class="table-container">
-    <table id="exerciseTable" ng-init="getListRecords('Name')" class="table table-condensed table-hover table-bordered table-responsive editTable" >
+    <table id="exerciseTable" ng-init="getListRecords('Name')" class="table table-condensed table-striped table-hover table-bordered table-responsive editTable" >
         <thead>
-        <tr>
-            <th id="exercise_th__id" style="display: none;" ng-click="sortByColumn('_id')">Id </th>
-            <th id="exercise_th_Name" style="width: 20%" ng-click="sortByColumn('Name')">Name</th>
-            <th id="exercise_th_Type" style="width: 20%;" ng-click="sortByColumn('Type')">Type</th>
-            <th id="exercise_th_Description" style="width: 60%" ng-click="sortByColumn('Description')">Description</th>
-        </tr>
+            <tr>
+                <th id="exercise_th__id" style="display: none;" ng-click="sortByColumn('_id')">Id </th>
+                <th id="exercise_th_Name" style="width: 20%" ng-click="sortByColumn('Name')">Name</th>
+                <th id="exercise_th_Abbreviation" style="width: 10%" ng-click="sortByColumn('Abbreviation')">Abbreviation</th>
+                <th id="exercise_th_Type" style="width: 10%;">Type</th>
+                <th id="exercise_th_Description" style="width: 50%" ng-click="sortByColumn('Description')">Description</th>
+            </tr>
         </thead>
         <tbody>
             <tr id="exercise_{{exercise._id}}" ng-repeat="exercise in exerciseList" ng-click="setActiveRow(this)" ng-dblclick="editRecord(this)">
                 <td style="display: none">{{exercise._id}}</td>
                 <td title="{{exercise.Name}}" style="width: 20%">{{exercise.Name}}</td>
-                <td id="exercise_Type_{{exercise.Type}}" title="{{exercise.Type}}" style="width: 20%;">{{exercise.Type}}</td>
+                <td title="{{exercise.Abbreviation}}" style="width: 10%">{{exercise.Abbreviation}}</td>
+                <td title="{{exercise.ExerciseTypeIdsString}}" ng-init="setExerciseTypeIdsString(this)" style="width: 10%;">{{exercise.ExerciseTypeIdsString}}</td>
                 <td id="exercise_Description_{{exercise._id}}" style="width: 60%" title="{{exercise.Description}}" >{{exercise.Description}}</td>
             </tr>
         </tbody>
     </table>
+    <div class="col-lg-12 table-footer">
+        <button type="button" ng-click="newExercise()" class="btn btn-primary btn-xs"><i class="glyphicon glyphicon-plus"></i></button>
+        <button type="button"  ng-click="editExercise()" class="btn btn-primary btn-xs"><i class="glyphicon glyphicon-pencil"></i></button>
+        <button type="button" ng-click="deleteExercise()" class="btn btn-primary btn-xs"><i class="glyphicon glyphicon-remove"></i></button>
+    </div>
  </div>
 
-<!--<angular-grid id="test">-->
-    <!--<angular-column for="test" ng-repeat="exercise in exerciseList">-->
-        <!--<grid-data text="exercise._id" name="_id" display="none"></grid-data>-->
-        <!--<grid-data text="exercise.Name" name="Name" width="200"></grid-data>-->
-        <!--<grid-data text="exercise.Type" name="Type" width="200"></grid-data>-->
-        <!--<grid-data text="exercise.Description" name="Description"></grid-data>-->
-    <!--</angular-column>-->
-<!--</angular-grid>-->
+<div class="clearfix"></div>
+
+<form id="exercise_form" name="exerciseForm" class="form-horizontal edit-form" style="display: none;" role="form" novalidate>
+    <div class="form-group">
+        <label class="control-label diggity-text" for="Name">Name</label>
+        <input class="form-control" id="Name" type="text" name="Name"
+               ng-class="{error: exerciseForm.Name.$error.required && hasFormError}" required
+               ng-model="exercise.Name" placeholder="Name"/>
+        <label ng-show="exerciseForm.Name.$error.required && hasFormError" class="text-danger">Required!</label>
+    </div>
+    <div class="form-group">
+        <label class="control-label diggity-text" for="Abbreviation">Abbreviation</label>
+        <input class="form-control" id="Abbreviation" type="text" ng-model="exercise.Abbreviation" placeholder="Abbreviation"/>
+    </div>
+    <div class="form-group">
+        <label class="control-label diggity-text" for="Type">Exercise Type</label>
+        <select class="form-control" id="Type" name="Type"
+                ng-class="{error: exerciseForm.Type.$error.required && hasFormError}" required
+                ng-model="exercise.ExerciseTypeId">
+            <option ng-repeat="type in typeList" ng-selected="{exercise.ExerciseTypeId == type._id}" value="{{type._id}}">{{type.Name}}</option>
+        </select>
+        <label ng-show="exerciseForm.Type.$error.required && hasFormError" class="text-danger">Required!</label>
+    </div>
+    <div class="form-group">
+        <label class="control-label diggity-text" for="Description">Description</label>
+        <textarea class="form-control" rows="5" id="Description" placeholder="Add optional description" ng-model="exercise.Description"></textarea>
+    </div>
+    <div class="form-group">
+        <button type="button" class="btn btn-sm btn-default" ng-click="cancelExercise()">Cancel</button>
+        <button type="button" class="btn btn-sm btn-primary" ng-click="saveExercise()">Save</button>
+    </div>
+</form>
+

@@ -20,7 +20,7 @@
 </head>
     <body>
         <nav class="navbar navbar-fixed-top navbar-default" role="navigation">
-            <div class="container-fluid">
+            <div class="container">
                 <div class="navbar-header">
                     <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#diggity-collapse-1">
                         <span class="sr-only">Toggle navigation</span>
@@ -64,7 +64,7 @@
             </div>
         </nav>
 
-        <div class="container-fluid">
+        <div class="container">
             <div ng-view></div>
         </div>
 
@@ -106,9 +106,12 @@
         $(document).ready(function(){
             $("a").bind("click", function(){
                 if($(".navbar-toggle").is(":visible")){
-                    $("#diggity-collapse-1").removeClass('in')
+                    var attr = $(this).attr('data-toggle');
+                    if (typeof attr == 'undefined' || attr == false) {
+                        $("#diggity-collapse-1").removeClass('in');
+                    }
                 }
-            })
+            });
         });
     </script>
 

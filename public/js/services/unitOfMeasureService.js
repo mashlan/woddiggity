@@ -32,6 +32,13 @@ services.factory("UnitOfMeasure", ['$resource', '$q',
 
                 return deferred.promise;
             },
+            getNew: function(){
+                return{
+                    _id: null,
+                    Name: "",
+                    Description: ""
+                };
+            },
             remove: function (id) {
                 var deferred = $q.defer();
                 resource.remove({id: id },
