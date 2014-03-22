@@ -77,14 +77,38 @@ myControllers.controller('PersonalCtrl', ['$scope', '$rootScope', '$compile', 'E
             }
         };
 
+        $scope.showAllPrs = function(scope){
+            $(".pr-history").hide();
+            $(".pr-summary").show();
+            $("#records_" + scope.pr._id).toggle();
+            $("#history_" + scope.pr._id).hide();
+        };
+
+        $scope.hidePrHistoryRecords = function(){
+            $(".pr-history").hide();
+            $(".pr-summary").show();
+        };
+
+        $scope.hidePrChart = function(){
+            $(".pr-chart").hide();
+            $(".pr-summary").show();
+        };
+
         $scope.showHistory = function(scope){
             $scope.exerciseHistory = scope.pr;
 
-            var graph = $("#exerciseGraph");
+            var graph = $("#exerciseGraph_" + scope.pr._id);
+            $(".pr-history").hide();
+            $(".pr-summary").show();
+            $(".pr-chart").hide();
+            $("#chart_" + scope.pr._id).show();
+            $("#history_" + scope.pr._id).hide();
+
+            var width = graph.width();
 
             graph.highcharts({
                 chart: {
-                    width: 850
+                    width: width
                 },
                 title: {
                     text: ''
@@ -136,7 +160,11 @@ myControllers.controller('PersonalCtrl', ['$scope', '$rootScope', '$compile', 'E
             //set the array back to original sort
             sortByHistoryRecordDate(false, $scope.exerciseHistory.History);
 
-            $("#myModal").modal("show");
+        };
+
+        $scope.setActiveRow = function(scope){
+            $(".diggity-table").find("tr").removeClass("info");
+            $("#history_" + scope.pr._id).addClass("info");
         };
 
         $scope.editHistory = function(scope){

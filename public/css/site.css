@@ -7,6 +7,17 @@ body{
     font-weight: bold;
 }
 
+.diggity-callout {
+    margin: 20px 0;
+    padding: 20px;
+    border-left: 3px solid #eee;
+}
+
+.diggity-callout-info{
+    background-color: #f4f8fa;
+    border-color: #5bc0de;
+}
+
 .row {
     margin-left: 5px !important;
     margin-right: 5px !important;
