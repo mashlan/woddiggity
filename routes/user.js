@@ -1,5 +1,5 @@
 
-exports.record = function(mongoose, db, schema, activeRecord){
+exports.record = function(mongoose, db, schema){
     var User =  db.model("users", schema.UserSchema);
 
     return {
@@ -14,12 +14,37 @@ exports.record = function(mongoose, db, schema, activeRecord){
                 res.json(exercises);
             });
         },
-        logIn: function(req, res){
-            User.findOne({Email: req.body.email}, function(err, user) {
-                if (user && user.authenticate(req.body.password)) {
-                    res.json({user: user});
+        findByEmail: function(email,callback){
+            User.findOne({Email: email}).exec(callback);
+        },
+        logIn: function(email, password, done){
+            User.findOne({Email: email} ,function (err, user) {
+                if (err) {
+                    return done(err);
+                }
+                if (!user) {
+                    return done(null, false, { message: 'Unknown user ' + username });
+                }
+                if (!user.authenticate(password)) {
+                    return done(null, false, { message: 'Invalid password' });
+                }
+                return done(null, user);
+            });
+        },
+        findById: function(id){
+            User.findById(id, function(err, user) {
+                    return user;
+                }
+            );
+        },
+        findOne: function(email, password){
+            User.findOne({Email: email}, function(err, user) {
+                if(err) return{error: err.message};
+                if(!user)return {error: "Incorrect username."};
+                if (user.authenticate(password)) {
+                    return user;
                 } else {
-                    res.json({error: 'Invalid email or password'});
+                    return {error: "Incorrect password"};
                 }
             });
         },

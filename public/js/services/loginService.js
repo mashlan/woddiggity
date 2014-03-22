@@ -9,7 +9,7 @@ services.factory("Login", ['$resource', '$q',
         var factory = {
             login: function(data){
                 var deferred = $q.defer();
-                resource.login({email: data.email, password: data.password},
+                resource.login({username: data.username, password: data.password},
                     function(resp){
                         deferred.resolve(resp);
                         if(resp.user){

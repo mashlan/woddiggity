@@ -189,6 +189,11 @@ myControllers.controller('PersonalCtrl', ['$scope', '$rootScope', '$compile', 'E
             $("#estimated_max").val(roundedToFive);
         };
 
+        $scope.closeOneRepMaxForm = function(){
+            $("#oneRepMaxEstimation_form").hide();
+            $("#oneRepMaxEstimation_text").show();
+        };
+
         function sortByHistoryRecordDate(asc, historyArray){
             if(asc){
                 historyArray.sort(function(a, b) {

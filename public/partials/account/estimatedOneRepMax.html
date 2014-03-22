@@ -14,15 +14,17 @@
             </div>
         </div>
         <div class="form-group">
-            <div class="col-md-12 col-md-push-3">
-                <button type="button" ng-click="calculateOneRepMax();" class="btn btn-primary">Calculate</button>
-            </div>
-        </div>
-        <div class="form-group">
             <label class="col-md-3 control-label">Estimated Max</label>
             <div class="col-md-9">
                 <input id="estimated_max" disabled="disabled" class="form-control"/>
             </div>
         </div>
+        <div class="form-group">
+            <div class="col-md-12 col-md-push-3">
+                <button type="button" ng-click="calculateOneRepMax()" class="btn btn-primary">Calculate</button>
+                <button type="button" ng-click="closeOneRepMaxForm()" class="btn btn-default">Cancel</button>
+            </div>
+        </div>
+
     </div>
 </form>

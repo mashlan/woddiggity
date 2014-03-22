@@ -2,14 +2,14 @@
 
 myControllers.controller('LoginCtrl', ['$scope', 'Login', '$location',
     function ($scope, Login, $location) {
-        $scope.email = null;
+        $scope.username = null;
         $scope.password = null;
         $scope.confirm = null;
         $scope.createMode = false;
 
         $scope.login = function (cb) {
             $scope.err = null;
-            if (!$scope.email) {
+            if (!$scope.username) {
                 $scope.err = 'Please enter an email address';
             }
             else if (!$scope.password) {
