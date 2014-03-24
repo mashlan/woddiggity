@@ -63,7 +63,7 @@ services.factory("WendlerWorkout", ['$resource', '$q',
 
                 return deferred.promise;
             }
-        }
+        };
 
         return factory;
     }

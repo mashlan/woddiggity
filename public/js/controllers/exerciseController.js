@@ -1,7 +1,8 @@
-'use strict';
 
 myControllers.controller('ExerciseCtrl', ['$scope', 'Exercise', 'angularGridService','ExerciseType',
     function($scope, Exercise, angularGridService, ExerciseType) {
+        'use strict';
+
         $scope.exercise = {};
         $scope.exerciseList = [];
         $scope.hasFormError = false;
@@ -28,7 +29,7 @@ myControllers.controller('ExerciseCtrl', ['$scope', 'Exercise', 'angularGridServ
             var name = "";
 
             $.each($scope.typeList, function(i, v){
-                if(v._id == id){
+                if(v._id === id){
                     name = v.Name;
                     return false;
                 }else{
@@ -57,7 +58,7 @@ myControllers.controller('ExerciseCtrl', ['$scope', 'Exercise', 'angularGridServ
 
         $scope.editExercise = function(){
             var selectRow = $("#exerciseTable").find("tr.info");
-            if(selectRow.length == 0){
+            if(selectRow.length === 0){
                 alert("please select a row to edit");
             }
             else{
@@ -69,15 +70,15 @@ myControllers.controller('ExerciseCtrl', ['$scope', 'Exercise', 'angularGridServ
 
         function getExerciseObject(id){
             $.each($scope.exerciseList, function(i, v){
-                if(v._id == id){
+                if(v._id === id){
                     $scope.exercise = v;
                 }
-            })
-        };
+            });
+        }
 
         $scope.deleteExercise = function(){
             var selectRow = $("#exerciseTable").find("tr.info");
-            if(selectRow.length == 0){
+            if(selectRow.length === 0){
                 alert("please select a row to edit");
             }
             else{
@@ -93,7 +94,7 @@ myControllers.controller('ExerciseCtrl', ['$scope', 'Exercise', 'angularGridServ
         };
 
         $scope.saveExercise = function(){
-            var isNew = $scope.exercise._id == null;
+            var isNew = $scope.exercise._id === null;
             if($scope.exerciseForm.$invalid){
                 $scope.hasFormError = true;
             }
@@ -135,13 +136,13 @@ myControllers.controller('ExerciseCtrl', ['$scope', 'Exercise', 'angularGridServ
         function getIndexOfExercise(exerciseId){
             var index = null;
             $.each($scope.exerciseList, function(i, v){
-                if(v._id == exerciseId){
+                if(v._id === exerciseId){
                     index = i;
                     return false;
                 }else{
                     return true;
                 }
-            })
+            });
 
             return index;
         }

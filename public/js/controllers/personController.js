@@ -1,7 +1,8 @@
-'use strict';
 
 myControllers.controller('PersonalCtrl', ['$scope', '$rootScope', '$compile', 'Exercise', 'PersonalRecord', 'User',
     function($scope,$rootScope, $compile, Exercise, PersonalRecord, User) {
+        'use strict';
+
         $scope.exerciseList = null;
         $scope.valuePlaceholder= 'Value';
         $scope.personalRecords = [];
@@ -56,13 +57,13 @@ myControllers.controller('PersonalCtrl', ['$scope', '$rootScope', '$compile', 'E
             $scope.newPR.ExerciseId = exercise._id;
             $scope.newPR.ExerciseName = exercise.Name;
 
-            if(exercise.Type == 'Weight'){
+            if(exercise.Type === 'Weight'){
                 $scope.valuePlaceholder = "Weight";
             }
-            if(exercise.Type == 'Distance'){
+            if(exercise.Type === 'Distance'){
                 $scope.valuePlaceholder = "Distance";
             }
-        }
+        };
 
         $scope.savePR = function(){
             if($scope.newPrForm.$invalid){
@@ -73,7 +74,7 @@ myControllers.controller('PersonalCtrl', ['$scope', '$rootScope', '$compile', 'E
                     $scope.getNew();
                     $scope.prInvalid = false;
                     $scope.prInvalidDate = false;
-                })
+                });
             }
         };
 
@@ -106,6 +107,25 @@ myControllers.controller('PersonalCtrl', ['$scope', '$rootScope', '$compile', 'E
 
             var width = graph.width();
 
+            var getExerciseDates = function (history){
+                var data = [];
+                sortByHistoryRecordDate(true, history);
+                $.each(history, function(i, v){
+                    var date = new Date(v.RecordDate);
+                    data.push((date.getMonth() + 1) + '/' + date.getDate() + '/' + date.getFullYear());
+                });
+                return data;
+            };
+
+            var getExerciseData = function (history){
+                var data = [];
+                sortByHistoryRecordDate(true, history);
+                $.each(history, function(i, v){
+                    data.push(parseFloat(v.Value));
+                });
+                return data;
+            };
+
             graph.highcharts({
                 chart: {
                     width: width
@@ -137,25 +157,6 @@ myControllers.controller('PersonalCtrl', ['$scope', '$rootScope', '$compile', 'E
                     enabled: false
                 }
             });
-
-            function getExerciseDates(history){
-                var data = [];
-                sortByHistoryRecordDate(true, history);
-                $.each(history, function(i, v){
-                    var date = new Date(v.RecordDate);
-                    data.push((date.getMonth() + 1) + '/' + date.getDate() + '/' + date.getFullYear());
-                });
-                return data;
-            }
-
-            function getExerciseData(history){
-                var data = [];
-                sortByHistoryRecordDate(true, history);
-                $.each(history, function(i, v){
-                    data.push(parseFloat(v.Value));
-                });
-                return data;
-            }
 
             //set the array back to original sort
             sortByHistoryRecordDate(false, $scope.exerciseHistory.History);
@@ -225,7 +226,7 @@ myControllers.controller('PersonalCtrl', ['$scope', '$rootScope', '$compile', 'E
                     $("#account_info_text").show();
                     $("#account_info").hide();
                 }
-            })
+            });
         };
 
         $scope.cancelAccountInfo = function(){
@@ -247,7 +248,7 @@ myControllers.controller('PersonalCtrl', ['$scope', '$rootScope', '$compile', 'E
             resetEditForms();
             $("#oneRepMaxEstimation_text").toggle();
             $("#oneRepMaxEstimation_form").toggle();
-        }
+        };
 
         $scope.showPreferencesForm = function(){
             resetEditForms();

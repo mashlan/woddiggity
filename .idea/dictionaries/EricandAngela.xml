@@ -3,6 +3,12 @@
     <words>
       <w>callout</w>
       <w>clearfix</w>
+      <w>concat</w>
+      <w>contrib</w>
+      <w>dest</w>
+      <w>jshint</w>
+      <w>requirejs</w>
+      <w>uglify</w>
     </words>
   </dictionary>
 </component>

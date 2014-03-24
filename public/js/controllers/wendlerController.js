@@ -1,7 +1,8 @@
-'use strict';
 
 myControllers.controller('WendlerCtrl', ['$scope', 'WendlerWorkout', 'Exercise',
     function($scope, WendlerWorkout, Exercise) {
+        'use strict';
+
         $scope.wendlerRecord = {
             Weeks: [],
             ProgramType: '',
@@ -20,7 +21,7 @@ myControllers.controller('WendlerCtrl', ['$scope', 'WendlerWorkout', 'Exercise',
         $scope.programTypes = [
             {name: 'Four Weeks', number: 4},
             {name: 'Six Weeks', number: 6}
-        ]
+        ];
 
         Exercise.query().then(function(data){
             $scope.exercises = data;
@@ -39,10 +40,10 @@ myControllers.controller('WendlerCtrl', ['$scope', 'WendlerWorkout', 'Exercise',
         $scope.setProgramType = function(scope){
             $scope.wendlerRecord.ProgramType = scope.ProgramType.name;
 
-            var weeks = []
+            var weeks = [];
             for(var i = 1; i < scope.ProgramType.number + 1; i++){
                 weeks.push({Name: 'Week ' + i, Number: i, Days: null});
-            };
+            }
 
             $scope.wendlerRecord.Weeks = weeks;
             $("#days").removeAttr('disabled');
@@ -50,12 +51,11 @@ myControllers.controller('WendlerCtrl', ['$scope', 'WendlerWorkout', 'Exercise',
 
         $scope.setWorkoutDay = function(scope){
             $.each($scope.wendlerRecord.Weeks, function(index, value){
-                var days = []
+                var days = [];
                 for(var i = 1; i < scope.NumberOfDays.name + 1; i++){
                     var day = {Name: 'Day ' + i, DayNumber: i, Exercises: [{ExerciseId: '', Sets: startingSets() }]};
                     days.push(day);
-                };
-
+                }
                 $scope.wendlerRecord.Weeks[index].Days = days;
             });
         };
@@ -65,13 +65,13 @@ myControllers.controller('WendlerCtrl', ['$scope', 'WendlerWorkout', 'Exercise',
 
             for(var i = 1; i < 4; i++){
                 sets.push(getNewSet(i));
-            };
+            }
 
             return sets;
         }
 
         function getNewSet(setNumber){
-            return {NumberOf: setNumber, Reps: 5, PercentMax: 50, IsMaxEffort: false}
+            return {NumberOf: setNumber, Reps: 5, PercentMax: 50, IsMaxEffort: false};
         }
 
         $scope.setMaxError = function(scope){
@@ -110,7 +110,7 @@ myControllers.controller('WendlerCtrl', ['$scope', 'WendlerWorkout', 'Exercise',
             $.each(scope.$parent.exercise.Sets, function(i, v){
                 scope.$parent.exercise.Sets[i].NumberOf= i+ 1;
             });
-        };
+        }
 
         //Moves the object at the given index up or down in the array position
         function moveObjectInArray(array, index, moveUp){
@@ -128,11 +128,11 @@ myControllers.controller('WendlerCtrl', ['$scope', 'WendlerWorkout', 'Exercise',
                     array.splice(index + 1, 0, data);
                 }
             }
-        };
+        }
 
         $scope.addSet = function(scope){
             var setNumber = scope.$parent.exercise.Sets.length + 1;
-            scope.$parent.exercise.Sets.push(getNewSet(setNumber))
+            scope.$parent.exercise.Sets.push(getNewSet(setNumber));
         };
 
         $scope.removeSet = function(scope, index){

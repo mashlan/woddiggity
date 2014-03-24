@@ -63,7 +63,7 @@ services.factory("User", ['$resource', '$q',
 
                 return deferred.promise;
             }
-        }
+        };
 
         return factory;
     }

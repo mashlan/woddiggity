@@ -1,7 +1,7 @@
-'use strict';
 
 myControllers.controller('UserCtrl', ['$scope', '$rootScope', '$location', 'User',
     function($scope, $rootScope, $location, User) {
+        'use strict';
         $scope.confirmPassword = '';
 
         $scope.user = {
@@ -24,20 +24,20 @@ myControllers.controller('UserCtrl', ['$scope', '$rootScope', '$location', 'User
         };
 
         $scope.createUser = function(){
-            if($scope.user.FirstName == ''){
+            if($scope.user.FirstName === ""){
                 $scope.err = "Please enter a First Name";
             }
-            else if ($scope.user.LastName == ''){
+            else if ($scope.user.LastName === ""){
                 $scope.err = "Please enter a Last Name";
             }
-            else if($scope.user.Email == ''){
+            else if($scope.user.Email === ""){
                 $scope.err = "Please enter an Email address";
             }
-            else if($scope.user.password == ''){
-                $scope.err = "Please enter a Password"
+            else if($scope.user.password === ""){
+                $scope.err = "Please enter a Password";
             }
-            else if($scope.user.password != $scope.confirmPassword){
-                $scope.err = "Password does not match Confirm Password"
+            else if($scope.user.password !== $scope.confirmPassword){
+                $scope.err = "Password does not match Confirm Password";
             }
             else{
                 User.insert($scope.user).then(function(data){

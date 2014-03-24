@@ -63,7 +63,7 @@ services.factory("WeightWorkout", ['$resource', '$q',
 
                 return deferred.promise;
             }
-        }
+        };
 
         return factory;
     }

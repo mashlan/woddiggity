@@ -63,7 +63,7 @@ services.factory("PersonalRecord", ['$resource', '$q',
 
                 return deferred.promise;
             }
-        }
+        };
 
         return factory;
     }

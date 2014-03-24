@@ -3,7 +3,16 @@
   "version": "1.0.0",
   "dependencies": {},
   "devDependencies": {
-    "chai": "~1.9.0"
+    "chai": "~1.9.0",
+    "passport": "latest",
+    "passport-local": "latest",
+    "mongodb": "latest",
+    "mongoose": "latest",
+    "grunt": "~0.4.4",
+    "grunt-contrib-jshint": "~0.9.2",
+    "grunt-contrib-uglify": "~0.4.0",
+    "mocha": "~1.18.2",
+    "grunt-contrib-concat": "~0.3.0"
   },
   "engines": {
     "node": ">=0.8.0"

@@ -38,7 +38,7 @@ services.factory("ExerciseType", ['$resource', '$q',
                     Name: "",
                     Description: "",
                     UnitOfMeasureIds: []
-                }
+                };
             },
             remove: function (id) {
                 var deferred = $q.defer();
@@ -71,7 +71,7 @@ services.factory("ExerciseType", ['$resource', '$q',
 
                 return deferred.promise;
             }
-        }
+        };
 
         return factory;
     }

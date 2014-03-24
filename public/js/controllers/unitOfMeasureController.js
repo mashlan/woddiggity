@@ -1,7 +1,8 @@
-'use strict';
 
 myControllers.controller('UnitOfMeasureCtrl', ['$scope', 'UnitOfMeasure', 'angularGridService',
     function($scope, UnitOfMeasure, angularGridService) {
+        'use strict';
+
         $scope.hasFormError = false;
         $scope.unitOfMeasureList = [];
         $scope.unitOfMeasure = {};
@@ -19,7 +20,7 @@ myControllers.controller('UnitOfMeasureCtrl', ['$scope', 'UnitOfMeasure', 'angul
                 $scope.hasFormError = true;
             }
             else{
-                var isNew = $scope.unitOfMeasure._id == null;
+                var isNew = $scope.unitOfMeasure._id === null;
 
                 if(isNew){
                     UnitOfMeasure.insert($scope.unitOfMeasure).then(function(p, resp){
@@ -64,7 +65,7 @@ myControllers.controller('UnitOfMeasureCtrl', ['$scope', 'UnitOfMeasure', 'angul
 
         $scope.editUnitOfMeasure = function(){
             var selectRow = $("#unitOfMeasureTable").find("tr.info");
-            if(selectRow.length == 0){
+            if(selectRow.length === 0){
                 alert("please select a row to edit");
             }
             else{
@@ -76,7 +77,7 @@ myControllers.controller('UnitOfMeasureCtrl', ['$scope', 'UnitOfMeasure', 'angul
 
         $scope.deleteUnitOfMeasure = function(){
             var selectRow = $("#unitOfMeasureTable").find("tr.info");
-            if(selectRow.length == 0){
+            if(selectRow.length === 0){
                 alert("please select a row to delete");
             }
             else{

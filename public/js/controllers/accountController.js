@@ -1,7 +1,8 @@
-'use strict';
 
-myControllers.controller('AccountCtrl', ['$scope', '$rootScope', 'Login', '$location',
-    function ($scope, $rootScope, Login, $location) {
+myControllers.controller('AccountCtrl', ['$scope', '$rootScope', 'Login',
+    function ($scope, $rootScope, Login) {
+        'use strict';
+
 //        syncData(['users', $scope.auth.user.uid]).$bind($scope, 'user');
 
 //        $scope.logout = function () {
@@ -20,7 +21,7 @@ myControllers.controller('AccountCtrl', ['$scope', '$rootScope', 'Login', '$loca
         $scope.cancelChangePassword = function(){
             $("#change_password_text").show();
             $("#change_password").hide();
-        }
+        };
 
         $scope.updatePassword = function () {
             $scope.reset();
@@ -44,7 +45,7 @@ myControllers.controller('AccountCtrl', ['$scope', '$rootScope', 'Login', '$loca
                         $scope.msg = 'Password updated!';
                     }
                 }
-            }
+            };
         }
     }
 ]);

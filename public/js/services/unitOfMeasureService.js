@@ -70,7 +70,7 @@ services.factory("UnitOfMeasure", ['$resource', '$q',
 
                 return deferred.promise;
             }
-        }
+        };
 
         return factory;
     }

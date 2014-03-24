@@ -1,7 +1,8 @@
-'use strict';
 
 myControllers.controller('ExerciseTypeCtrl', ['$scope', 'ExerciseType','angularGridService', 'UnitOfMeasure',
     function($scope, ExerciseType, angularGridService, UnitOfMeasure) {
+        'use strict';
+
         $scope.hasFormError = false;
         $scope.exercisTypeList = [];
         $scope.exerciseType ={};
@@ -40,7 +41,7 @@ myControllers.controller('ExerciseTypeCtrl', ['$scope', 'ExerciseType','angularG
         function getUnitOfMeasureName(id){
             var name = "";
             $.each($scope.unitsList, function(i, v){
-                if(v._id == id){
+                if(v._id === id){
                     name = v.Name;
                     return false;
                 }else{
@@ -104,7 +105,7 @@ myControllers.controller('ExerciseTypeCtrl', ['$scope', 'ExerciseType','angularG
 
         function setUnitOfMeasureButtons(){
             $.each($scope.unitsList, function(i, v){
-                var unit = $.grep($scope.exerciseType.UnitOfMeasureIds, function(e){ return e == v._id; });
+                var unit = $.grep($scope.exerciseType.UnitOfMeasureIds, function(e){ return e === v._id; });
                 if(unit.length > 0){
                     v.selected = true;
                 }
@@ -120,7 +121,7 @@ myControllers.controller('ExerciseTypeCtrl', ['$scope', 'ExerciseType','angularG
 
         $scope.editExerciseType = function(){
             var selectRow = $("#exerciseTypeTable").find("tr.info");
-            if(selectRow.length == 0){
+            if(selectRow.length === 0){
                 alert("please select a record to edit");
             }
             else{

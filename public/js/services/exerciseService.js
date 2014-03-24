@@ -70,7 +70,7 @@ services.factory('Exercise', ['$resource', '$q', function($resource, $q){
 
             return deferred.promise;
         }
-    }
+    };
 
     return factory;
 }]);

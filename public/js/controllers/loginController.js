@@ -1,7 +1,8 @@
-'use strict';
 
 myControllers.controller('LoginCtrl', ['$scope', 'Login', '$location',
     function ($scope, Login, $location) {
+        'use strict';
+
         $scope.username = null;
         $scope.password = null;
         $scope.confirm = null;
