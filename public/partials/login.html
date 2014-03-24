@@ -11,10 +11,6 @@
         <label class="sr-only" for="password">Password</label>
         <input id="password" placeholder="Password" class="form-control" type="password" ng-model="password" />
     </div>
-    <label ng-cloak ng-show="createMode">
-        <span>confirm pass</span>
-        <input type="password" ng-model="confirm" />
-    </label>
     <button class="form-control btn btn-primary" ng-click="login()">Log In</button>
     <a href="#/register" class="form-control btn btn-default">Register</a>
     <p ng-show="err" class="error">{{err}}</p>
