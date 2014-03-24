@@ -3,7 +3,7 @@ var express         = require('express');
 var http            = require('http');
 var path            = require('path');
 var mongoose        = require('mongoose');
-var db              = mongoose.createConnection('localhost', 'woddoTest');
+var db              = mongoose.createConnection('localhost', 'woddiggity');
 var schema          = require('./models/schema.js').schema;
 var expressApp      = express();
 var debug           = typeof v8debug === 'object';

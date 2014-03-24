@@ -58,6 +58,10 @@ exports.record = function(mongoose, db, schema){
                 else res.json(err);
             })
         },
+        insertNew: function(user, callback) {
+            var newUser = new User(user);
+            newUser.save(callback);
+        },
         create: function(req, res){
             var ObjectId = mongoose.Types.ObjectId;
             var data = new User(req.body);
@@ -79,6 +83,12 @@ exports.record = function(mongoose, db, schema){
                 else if(!doc){throw 'Error';}
                 else{res.json({success: true});}
             });
+        },
+        remove: function(id,callback){
+          User.remove({_id: mongoose.Types.ObjectId(id)}, callback);
+        },
+        removeAll : function(callback){
+            User.remove(callback);
         },
         delete: function(req, res){
             User.remove({_id: mongoose.Types.ObjectId(req.params.id)}, function(err){
