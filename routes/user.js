@@ -23,7 +23,7 @@ exports.record = function(mongoose, db, schema){
                     return done(err);
                 }
                 if (!user) {
-                    return done(null, false, { message: 'Unknown user ' + username });
+                    return done(null, false, { message: 'Unknown user - ' + email });
                 }
                 if (!user.authenticate(password)) {
                     return done(null, false, { message: 'Invalid password' });

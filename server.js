@@ -4,7 +4,7 @@ var http            = require('http');
 var path            = require('path');
 var mongoose        = require('mongoose');
 var db              = mongoose.createConnection('localhost', 'woddiggity');
-var schema          = require('./models/schema.js').schema;
+var schema          = require('./data_access/schema.js')(mongoose);
 var expressApp      = express();
 var debug           = typeof v8debug === 'object';
 var passport        = require('passport');

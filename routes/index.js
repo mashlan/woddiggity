@@ -6,7 +6,6 @@ module.exports = function(app, mongoose, db, schema, passport){
     var path                    = require('path');
     var activeRecord            = require('./ActiveRecord.js');
 
-
     var exercise        = activeRecord.record(mongoose, db, "exercises", schema.ExerciseSchema);
     var user            = userRoutes.record(mongoose, db, schema);
     var personalRecords = prRoutes.record(mongoose, db, schema, activeRecord);
@@ -30,7 +29,7 @@ module.exports = function(app, mongoose, db, schema, passport){
         })(req, res, next);
     });
 
-//    app.get('/logout', routes.user.logout);
+   app.get('/logout', user.logout);
 
     //exercise schema
     app.get('/exercise/exercise', exercise.list);
