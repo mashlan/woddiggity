@@ -25,8 +25,8 @@ module.exports = function(mongoose, db, modelName, schema){
         },
         create: function(data, callback){
             var ObjectId = mongoose.Types.ObjectId;
+            data._id = ObjectId();
             var newData = new ActiveRecord(data);
-            newData._id = ObjectId();
             newData.save(callback);
         },
         update: function(data, callback){

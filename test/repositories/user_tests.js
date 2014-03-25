@@ -2,26 +2,25 @@ var assert          = require("chai").assert;
 var dbConfig        = require('../databaseConfig.js');
 var User            = require('../../data_access/repositories/userRepository.js')(dbConfig.mongoose, dbConfig.db, "users", dbConfig.schema.User);
 
-var baseUser  = {
-    _id: null,
-    FirstName: "Eric",
-    LastName: "Mashlan",
-    Email: "eric.mashlan@gmail.com",
-    HashedPassword: "",
-    Salt: "",
-    IsAdmin: true,
-    password: "eric1234"
-};
+var baseUser  = null;
 
 describe("users", function(){
 
     beforeEach(function(done){
-        User.create(baseUser,
+        var newUser = {
+            FirstName: "Eric",
+            LastName: "Mashlan",
+            Email: "eric.mashlan@gmail.com",
+            password: "eric1234"
+        };
+
+        User.create(newUser,
             function(err, user){
                 if(err){
                     console.log("an error occurred");
                 }else{
                     if(!user) throw new Error("'beforeEach user not successfully created.");
+                    baseUser = user;
                 }
                 done();
             });
@@ -51,7 +50,14 @@ describe("users", function(){
     });
 
     it("create user with same email", function(done){
-        User.create(baseUser, function(err, user){
+        var newUser = {
+            FirstName: "joe",
+            LastName: "shmoe",
+            Email: "eric.mashlan@gmail.com",
+            password: "eric1234"
+        };
+
+        User.create(newUser, function(err, user){
             assert.ok(err !== null, "should have gotten an error");
             assert.equal(err.code, 11000, 'duplicate key error');
             done();
@@ -65,9 +71,9 @@ describe("users", function(){
             assert.isNull(err, 'no error returned');
             assert.isNotNull(message, 'message returned');
             assert.equal(message.message, 'Unknown user - ' + data.Email, 'unknown email address');
-        });
 
-        done();
+            done();
+        });
     });
 
     it("attempt login with invalid password", function(done){
@@ -77,10 +83,29 @@ describe("users", function(){
             assert.isNull(err, 'no error returned');
             assert.isNotNull(message, 'message returned');
             assert.equal(message.message, 'Invalid password', "invalid password returned");
-        });
 
-        done();
+            done();
+        });
     });
 
+    it("change user password", function(done){
+        var newPassword = "newPass123";
+        var updatedUser = {
+            FirstName: baseUser.FirstName,
+            LastName: baseUser.LastName,
+            Email: "eric.mashlan@gmail.com"
+        };
+        updatedUser._id = baseUser._id.id;
+
+        User.updatePassword(updatedUser, newPassword, function(err, numberAffected){
+            assert.isNull(err);
+            assert.equal(1, numberAffected, "one record should have updated");
+        });
+
+        User.findByEmail(baseUser.Email, function(err, data){
+            assert.notEqual(data.HashedPassword, baseUser.HashedPassword, "hashed password should no longer match" );
+            done();
+        });
+    });
 });
 

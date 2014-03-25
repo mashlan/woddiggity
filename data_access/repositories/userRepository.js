@@ -21,5 +21,18 @@ module.exports = function(mongoose, db, modelName, schema){
         User.findOne({Email: email}, callback);
     };
 
+    User.updatePassword = function(user, newPassword, callback){
+        var updateUser = new User.model(user);
+        updateUser.password = newPassword;
+
+        var data = {
+            _id: user._id,
+            HashedPassword: updateUser.HashedPassword,
+            Salt: updateUser.Salt
+        };
+
+        User.update(data, callback);
+    };
+
     return User;
 };

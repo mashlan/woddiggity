@@ -3,7 +3,7 @@ exports.UserSchema = function(mongoose){
     var crypto = require('crypto');
 
     function validatePresenceOf(value) {
-        return value && value.length;
+        return value && value.length > 5;
     }
 
     var UserPreferences = new mongoose.Schema({
