@@ -32,6 +32,21 @@ describe("users", function(){
         });
     });
 
+    it("attempt create user with invalid email", function(done){
+       var data = {
+           FirstName: "Eric",
+           LastName: "Mashlan",
+           Email: "eric.mashlan@gmail.com",
+           password: "boo"
+        };
+
+        User.create(data, function(err, user){
+            assert.isNotNull(err);
+            assert.equal(err.message, "Invalid Password", "should be invalid");
+            done();
+        });
+    });
+
     it("retrieve by email", function(done){
         var data = {Email: 'eric.mashlan@gmail.com'};
         User.findByEmail(data.Email, function(err, user){
@@ -104,6 +119,23 @@ describe("users", function(){
 
         User.findByEmail(baseUser.Email, function(err, data){
             assert.notEqual(data.HashedPassword, baseUser.HashedPassword, "hashed password should no longer match" );
+            done();
+        });
+    });
+
+    it("change user password fail", function(done){
+        var newPassword = "n23";
+        var updatedUser = {
+            FirstName: baseUser.FirstName,
+            LastName: baseUser.LastName,
+            Email: "eric.mashlan@gmail.com"
+        };
+        updatedUser._id = baseUser._id.id;
+
+        User.updatePassword(updatedUser, newPassword, function(err, numberAffected){
+            assert.isNotNull(err);
+            assert.equal(err.message, "Invalid Password", "should be an invalid password");
+            assert.isNull(numberAffected);
             done();
         });
     });
