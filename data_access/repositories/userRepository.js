@@ -1,6 +1,6 @@
-module.exports = function(mongoose, db, schema){
+module.exports = function(mongoose, db, modelName, schema){
     var activeRecord    = require('./repository.js');
-    var User            = activeRecord(mongoose, db, "users", schema.UserSchema);
+    var User            = activeRecord(mongoose, db, modelName, schema);
 
     User.logIn = function(email, password, done){
         User.findOne({Email: email} ,function (err, user) {

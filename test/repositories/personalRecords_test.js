@@ -1,6 +1,6 @@
 var assert          = require("chai").assert;
 var dbConfig        = require('../databaseConfig.js');
-var PersonalRecords = require('../../data_access/repositories/personalRecordRepository.js')(dbConfig.mongoose, dbConfig.db, dbConfig.schema);
+var PersonalRecords = require('../../data_access/repositories/personalRecordRepository.js')(dbConfig.mongoose, dbConfig.db, "personalRecords", dbConfig.schema.PersonalRecord);
 
 var basePRId = null;
 var prDate = new Date();

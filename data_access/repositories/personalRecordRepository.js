@@ -1,17 +1,16 @@
-module.exports = function(mongoose, db, schema){
+module.exports = function(mongoose, db, modelName, schema){
     var activeRecord    = require('./repository.js');
-    var PR              = activeRecord(mongoose, db, "personalRecord", schema.PersonalRecordSchema);
-    var History         = activeRecord(mongoose, db, 'personalHistory',schema.PersonalHistorySchema );
+    var PR              = activeRecord(mongoose, db, modelName, schema);
 
     PR.create = function(prData, callback){
         var ObjectId = mongoose.Types.ObjectId;
         var newId = ObjectId();
-        var history = new History.model({
+        var history = {
             RecordDate: new Date(prData.RecordDate),
             LocalFormat: new Date(prData.RecordDate).toLocaleDateString(),
             Value: prData.Value,
             Units: prData.Units
-        });
+        };
 
         PR.findOne({ExerciseId: prData.ExerciseId, UserId: prData.UserId}, function(err, doc){
             if(doc){

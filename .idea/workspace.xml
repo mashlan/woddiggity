@@ -2,30 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a3a47232-d218-458a-b6ad-e68962551f0a" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/databaseConfig.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data_access/repositories/personalRecordRepository.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/repositories/personalRecords_test.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data_access/repositories/repository.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data_access/schema.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data_access/repositories/userRepository.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/repositories/user_tests.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/woddiggity.min.js" />
-      <change type="DELETED" beforePath="C:\Users\eric.mashlan\Documents\GitHub\woddiggity\models\schema.js" afterPath="" />
-      <change type="MOVED" beforePath="C:\Users\eric.mashlan\Documents\GitHub\woddiggity\models\exercise.js" afterPath="$PROJECT_DIR$/data_access/models/exercise.js" />
-      <change type="MOVED" beforePath="C:\Users\eric.mashlan\Documents\GitHub\woddiggity\models\exerciseType.js" afterPath="$PROJECT_DIR$/data_access/models/exerciseType.js" />
-      <change type="MOVED" beforePath="C:\Users\eric.mashlan\Documents\GitHub\woddiggity\models\personalRecord.js" afterPath="$PROJECT_DIR$/data_access/models/personalRecord.js" />
-      <change type="MOVED" beforePath="C:\Users\eric.mashlan\Documents\GitHub\woddiggity\models\unitOfMeasure.js" afterPath="$PROJECT_DIR$/data_access/models/unitOfMeasure.js" />
-      <change type="MOVED" beforePath="C:\Users\eric.mashlan\Documents\GitHub\woddiggity\models\user.js" afterPath="$PROJECT_DIR$/data_access/models/user.js" />
-      <change type="MOVED" beforePath="C:\Users\eric.mashlan\Documents\GitHub\woddiggity\models\weightWorkout.js" afterPath="$PROJECT_DIR$/data_access/models/weightWorkout.js" />
-      <change type="MOVED" beforePath="C:\Users\eric.mashlan\Documents\GitHub\woddiggity\models\wendlerWorkout.js" afterPath="$PROJECT_DIR$/data_access/models/wendlerWorkout.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Gruntfile.js" afterPath="$PROJECT_DIR$/Gruntfile.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/controllers/controller.js" />
+      <change type="DELETED" beforePath="C:\Users\eric.mashlan\Documents\GitHub\woddiggity\routes\ActiveRecord.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\eric.mashlan\Documents\GitHub\woddiggity\routes\personalRecord.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\eric.mashlan\Documents\GitHub\woddiggity\routes\user.js" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/index.js" afterPath="$PROJECT_DIR$/routes/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/jsLinters/jshint.xml" afterPath="$PROJECT_DIR$/.idea/jsLinters/jshint.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/controllers/personalRecord_tests.js" afterPath="$PROJECT_DIR$/test/controllers/personalRecord_tests.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/partials/login.html" afterPath="$PROJECT_DIR$/public/partials/login.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data_access/models/personalRecord.js" afterPath="$PROJECT_DIR$/data_access/models/personalRecord.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data_access/repositories/personalRecordRepository.js" afterPath="$PROJECT_DIR$/data_access/repositories/personalRecordRepository.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/repositories/personalRecords_test.js" afterPath="$PROJECT_DIR$/test/repositories/personalRecords_test.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data_access/repositories/repository.js" afterPath="$PROJECT_DIR$/data_access/repositories/repository.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data_access/schema.js" afterPath="$PROJECT_DIR$/data_access/schema.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server.js" afterPath="$PROJECT_DIR$/server.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/user.js" afterPath="$PROJECT_DIR$/routes/user.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data_access/repositories/userRepository.js" afterPath="$PROJECT_DIR$/data_access/repositories/userRepository.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/repositories/user_tests.js" afterPath="$PROJECT_DIR$/test/repositories/user_tests.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Woddo.iws" />
@@ -49,28 +39,28 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="repository.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/data_access/repositories/repository.js">
+      <file leaf-file-name="controller.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/controllers/controller.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="6" column="48" selection-start="221" selection-end="221" vertical-scroll-proportion="0.0" vertical-offset="15" max-vertical-offset="884">
+            <state line="1" column="63" selection-start="64" selection-end="64" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="799">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ActiveRecord.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/routes/ActiveRecord.js">
+      <file leaf-file-name="login.html" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/public/partials/login.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="1" column="14" selection-start="15" selection-end="15" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="969">
+            <state line="17" column="0" selection-start="681" selection-end="681" vertical-scroll-proportion="0.4699187" vertical-offset="0" max-vertical-offset="615">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="schema.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/data_access/schema.js">
+      <file leaf-file-name="enterPR.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/partials/account/enterPR.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="20" column="2" selection-start="1102" selection-end="1102" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="442">
+            <state line="10" column="104" selection-start="663" selection-end="674" vertical-scroll-proportion="-6.5384617" vertical-offset="0" max-vertical-offset="1037">
               <folding />
             </state>
           </provider>
@@ -79,25 +69,16 @@
       <file leaf-file-name="user_tests.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/test/repositories/user_tests.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="12" column="24" selection-start="433" selection-end="433" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1564">
+            <state line="17" column="30" selection-start="513" selection-end="513" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1564">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="server.js" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/server.js">
+      <file leaf-file-name="userRepository.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/data_access/repositories/userRepository.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="16" column="5" selection-start="640" selection-end="640" vertical-scroll-proportion="0.42433697" vertical-offset="0" max-vertical-offset="641">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="user.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/routes/user.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="2" column="0" selection-start="50" selection-end="50" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1785">
+            <state line="10" column="50" selection-start="437" selection-end="444" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="510">
               <folding />
             </state>
           </provider>
@@ -106,7 +87,16 @@
       <file leaf-file-name="index.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/routes/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="29" column="7" selection-start="1425" selection-end="1425" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1598">
+            <state line="30" column="0" selection-start="1655" selection-end="1655" vertical-scroll-proportion="0.0" vertical-offset="147" max-vertical-offset="1683">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="repository.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/data_access/repositories/repository.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="2" column="0" selection-start="61" selection-end="61" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="867">
               <folding />
             </state>
           </provider>
@@ -115,7 +105,7 @@
       <file leaf-file-name="personalRecords_test.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/test/repositories/personalRecords_test.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="41" column="4" selection-start="1113" selection-end="1113" vertical-scroll-proportion="0.0" vertical-offset="405" max-vertical-offset="935">
+            <state line="2" column="142" selection-start="243" selection-end="243" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="935">
               <folding />
             </state>
           </provider>
@@ -124,16 +114,7 @@
       <file leaf-file-name="personalRecordRepository.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/data_access/repositories/personalRecordRepository.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="32" column="0" selection-start="1245" selection-end="1245" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="833">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="databaseConfig.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/test/databaseConfig.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="9" column="6" selection-start="319" selection-end="319" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="272">
+            <state line="0" column="49" selection-start="40" selection-end="49" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="816">
               <folding />
             </state>
           </provider>
@@ -152,12 +133,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/public/partials/admin/manageUnitOfMeasures.html" />
-        <option value="$PROJECT_DIR$/models/exerciseType.js" />
-        <option value="$PROJECT_DIR$/public/partials/admin/manageExerciseTypes.html" />
-        <option value="$PROJECT_DIR$/public/partials/account/enterPR.html" />
-        <option value="$PROJECT_DIR$/public/partials/account/index.html" />
-        <option value="$PROJECT_DIR$/public/css/site.css" />
         <option value="$PROJECT_DIR$/public/partials/home.html" />
         <option value="$PROJECT_DIR$/public/js/services/loginService.js" />
         <option value="$PROJECT_DIR$/serverConfig/index.js" />
@@ -188,21 +163,27 @@
         <option value="$PROJECT_DIR$/public/js/controllers/personController.js" />
         <option value="$PROJECT_DIR$/public/index.html" />
         <option value="$PROJECT_DIR$/public/partials/admin/manageExercises.html" />
-        <option value="$PROJECT_DIR$/public/partials/login.html" />
         <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/Gruntfile.js" />
         <option value="$PROJECT_DIR$/routes/user.js" />
         <option value="$PROJECT_DIR$/test/controllers/personalRecord_tests.js" />
-        <option value="$PROJECT_DIR$/data_access/repositories/userRepository.js" />
-        <option value="$PROJECT_DIR$/test/repositories/user_tests.js" />
-        <option value="$PROJECT_DIR$/data_access/repositories/personalRecordRepository.js" />
-        <option value="$PROJECT_DIR$/data_access/repositories/repository.js" />
-        <option value="$PROJECT_DIR$/test/repositories/personalRecords_test.js" />
         <option value="$PROJECT_DIR$/test/databaseConfig.js" />
         <option value="$PROJECT_DIR$/data_access/models/schema.js" />
-        <option value="$PROJECT_DIR$/routes/index.js" />
-        <option value="$PROJECT_DIR$/server.js" />
         <option value="$PROJECT_DIR$/routes/ActiveRecord.js" />
+        <option value="$PROJECT_DIR$/data_access/repositories/repository.js" />
+        <option value="$PROJECT_DIR$/controllers/userController.js" />
+        <option value="$PROJECT_DIR$/controllers/pesonalRecordController.js" />
+        <option value="$PROJECT_DIR$/data_access/repositories/personalRecordRepository.js" />
+        <option value="$PROJECT_DIR$/controllers/personalRecordController.js" />
+        <option value="$PROJECT_DIR$/data_access/models/personalRecord.js" />
+        <option value="$PROJECT_DIR$/controllers/controller.js" />
+        <option value="$PROJECT_DIR$/data_access/schema.js" />
+        <option value="$PROJECT_DIR$/test/repositories/personalRecords_test.js" />
+        <option value="$PROJECT_DIR$/data_access/repositories/userRepository.js" />
+        <option value="$PROJECT_DIR$/test/repositories/user_tests.js" />
+        <option value="$PROJECT_DIR$/server.js" />
+        <option value="$PROJECT_DIR$/routes/index.js" />
+        <option value="$PROJECT_DIR$/public/partials/login.html" />
       </list>
     </option>
   </component>
@@ -336,38 +317,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="test" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="controllers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="woddiggity" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="woddiggity" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="routes" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="woddiggity" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="woddiggity" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="public" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -386,7 +335,43 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
+              <option name="myItemId" value="partials" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="woddiggity" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="woddiggity" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="partials" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="account" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="woddiggity" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="woddiggity" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="passportConfig" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -401,6 +386,24 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="data_access" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="woddiggity" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="woddiggity" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="data_access" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="repositories" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -419,6 +422,20 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="models" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="woddiggity" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="woddiggity" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="controllers" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -688,7 +705,11 @@
       <created>1395624499289</created>
       <updated>1395624499289</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="code refactor to allow for testing. added unit tests">
+      <created>1395693062045</created>
+      <updated>1395693062045</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -715,10 +736,11 @@
     <frame x="-8" y="-8" width="1696" height="1026" extended-state="6" />
     <editor active="false" />
     <layout>
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32960895" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2547486" sideWeight="0.49966997" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.19776537" sideWeight="0.4996986" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3286517" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.36197183" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.36089385" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24954791" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24834238" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.37877095" sideWeight="0.4996986" order="3" side_tool="false" content_ui="tabs" />
@@ -731,7 +753,6 @@
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Grunt" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.41432583" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32960895" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
     </layout>
@@ -762,57 +783,18 @@
     <MESSAGE value="updates to account page. Added warning about site under construction" />
     <MESSAGE value="added passport js auth to the application" />
     <MESSAGE value="added passport functionality and grunt js configurations" />
-    <option name="LAST_COMMIT_MESSAGE" value="added passport functionality and grunt js configurations" />
+    <MESSAGE value="code refactor to allow for testing. added unit tests" />
+    <option name="LAST_COMMIT_MESSAGE" value="code refactor to allow for testing. added unit tests" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="278" />
+      <option name="time" value="294" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/public/js/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/js/controllers/accountController.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/js/controllers/exerciseController.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/js/controllers/exerciseTypeController.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/js/controllers/homeController.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/js/controllers/loginController.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/js/controllers/unitOfMeasureController.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/js/controllers/weightWorkoutController.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/js/controllers/wodController.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0" />
@@ -885,13 +867,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/partials/login.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Gruntfile.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="25" column="28" selection-start="864" selection-end="864" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1275">
@@ -947,13 +922,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/data_access/models/user.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="52" selection-start="436" selection-end="489" vertical-scroll-proportion="0.49656358" vertical-offset="0" max-vertical-offset="1156">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/package.json">
       <provider selected="true" editor-type-id="text-editor">
         <state line="12" column="37" selection-start="323" selection-end="323" vertical-scroll-proportion="0.36690646" vertical-offset="0" max-vertical-offset="556">
@@ -989,60 +957,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/data_access/repositories/userRepository.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="16" selection-start="804" selection-end="804" vertical-scroll-proportion="0.44994247" vertical-offset="0" max-vertical-offset="869">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data_access/models/personalRecord.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="2" selection-start="463" selection-end="463" vertical-scroll-proportion="0.41081703" vertical-offset="0" max-vertical-offset="869">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/routes/personalRecord.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="12" selection-start="225" selection-end="225" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="969">
-          <folding>
-            <element signature="e#1026#2324#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/node_modules/mongodb/node_modules/bson/lib/bson/objectid.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="32" column="10" selection-start="976" selection-end="976" vertical-scroll-proportion="0.33207548" vertical-offset="368" max-vertical-offset="4335">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/repositories/personalRecords_test.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="41" column="4" selection-start="1113" selection-end="1113" vertical-scroll-proportion="0.0" vertical-offset="405" max-vertical-offset="935">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data_access/repositories/personalRecordRepository.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="32" column="0" selection-start="1245" selection-end="1245" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="833">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data_access/repositories/repository.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="48" selection-start="221" selection-end="221" vertical-scroll-proportion="0.0" vertical-offset="15" max-vertical-offset="884">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/repositories/user_tests.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="24" selection-start="433" selection-end="433" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1564">
           <folding />
         </state>
       </provider>
@@ -1054,44 +971,163 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/data_access/schema.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="2" selection-start="1102" selection-end="1102" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="442">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/routes/user.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="0" selection-start="50" selection-end="50" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1785">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/routes/ActiveRecord.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="14" selection-start="15" selection-end="15" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="969">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/routes/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="29" column="7" selection-start="1425" selection-end="1425" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1598">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/test/databaseConfig.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="6" selection-start="319" selection-end="319" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="272">
+        <state line="9" column="6" selection-start="319" selection-end="319" vertical-scroll-proportion="0.17606445" vertical-offset="0" max-vertical-offset="869">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/service/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="869">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/lib/JavaScriptLanguage.jar!/com/intellij/lang/javascript/index/predefined/EcmaScript5.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="52" column="7" selection-start="854" selection-end="854" vertical-scroll-proportion="0.33256617" vertical-offset="595" max-vertical-offset="3247">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/express/lib/router/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="317" column="15" selection-start="7156" selection-end="7156" vertical-scroll-proportion="0.6792453" vertical-offset="5029" max-vertical-offset="5559">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data_access/models/weightWorkout.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1" column="8" selection-start="9" selection-end="9" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="782">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data_access/schema.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="11" column="52" selection-start="595" selection-end="595" vertical-scroll-proportion="0.3528302" vertical-offset="0" max-vertical-offset="530">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data_access/models/personalRecord.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="17" column="14" selection-start="411" selection-end="411" vertical-scroll-proportion="0.545283" vertical-offset="0" max-vertical-offset="530">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data_access/models/user.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="45" column="40" selection-start="1322" selection-end="1322" vertical-scroll-proportion="1.4433962" vertical-offset="0" max-vertical-offset="1156">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controllers/controller.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1" column="63" selection-start="64" selection-end="64" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="799">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data_access/models/unitOfMeasure.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3" column="47" selection-start="131" selection-end="131" vertical-scroll-proportion="0.088541664" vertical-offset="0" max-vertical-offset="576">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/mongoose/lib/connection.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="624" column="10" selection-start="16595" selection-end="16595" vertical-scroll-proportion="0.3321492" vertical-offset="10387" max-vertical-offset="12274">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data_access/repositories/personalRecordRepository.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="49" selection-start="40" selection-end="49" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="816">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/repositories/personalRecords_test.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="142" selection-start="243" selection-end="243" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="935">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/repositories/user_tests.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="17" column="30" selection-start="513" selection-end="513" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1564">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.WebStorm7/system/extLibs/nodejs-v0.10.22-src/core-modules-sources/lib/module.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="355" column="0" selection-start="10021" selection-end="10070" vertical-scroll-proportion="0.33207548" vertical-offset="5536" max-vertical-offset="8908">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data_access/repositories/repository.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="0" selection-start="61" selection-end="61" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="867">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/server.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="5" selection-start="640" selection-end="640" vertical-scroll-proportion="0.42433697" vertical-offset="0" max-vertical-offset="641">
+        <state line="31" column="0" selection-start="1132" selection-end="1132" vertical-scroll-proportion="0.6064442" vertical-offset="0" max-vertical-offset="869">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data_access/repositories/userRepository.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="50" selection-start="437" selection-end="444" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="510">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/passportConfig/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="13" column="35" selection-start="351" selection-end="351" vertical-scroll-proportion="0.41698113" vertical-offset="0" max-vertical-offset="530">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="30" column="0" selection-start="1655" selection-end="1655" vertical-scroll-proportion="0.0" vertical-offset="147" max-vertical-offset="1683">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/partials/account/changePassword.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="629">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/partials/account/enterPR.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="104" selection-start="663" selection-end="674" vertical-scroll-proportion="-6.5384617" vertical-offset="0" max-vertical-offset="1037">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/partials/login.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="17" column="0" selection-start="681" selection-end="681" vertical-scroll-proportion="0.4699187" vertical-offset="0" max-vertical-offset="615">
           <folding />
         </state>
       </provider>

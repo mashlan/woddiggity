@@ -1,25 +1,28 @@
 
 
 module.exports = function(app, mongoose, db, schema, passport){
-    var userRoutes              = require('./user.js');
-    var prRoutes                = require('./personalRecord.js');
-    var path                    = require('path');
-    var activeRecord            = require('./ActiveRecord.js');
 
-    var exercise        = activeRecord.record(mongoose, db, "exercises", schema.ExerciseSchema);
-    var user            = userRoutes.record(mongoose, db, schema);
-    var personalRecords = prRoutes.record(mongoose, db, schema, activeRecord);
-    var weightWorkouts  = activeRecord.record(mongoose, db, "weightWorkouts", schema.WeightWorkoutSchema);
-    var wendlerWorkouts = activeRecord.record(mongoose, db, "wendlerWorkouts", schema.WendlerWorkoutSchema);
-    var exerciseTypes   = activeRecord.record(mongoose, db, "exerciseTypes", schema.ExerciseTypeSchema);
-    var unitOfMeasures  = activeRecord.record(mongoose, db, "unitOfMeasures", schema.UnitOfMeasureSchema);
+    //controller and repository files. repo files are only those that are created for exceptions to the rule
+    var controller              = require('../controllers/controller.js');
+    var prRepo                  = require('../data_access/repositories/personalRecordRepository.js');
+    var userRepo                = require('../data_access/repositories/userRepository.js');
 
+    var exercise                = controller(mongoose, db, "exercises", schema.Exercise);
+    var user                    = controller(mongoose, db, "users", schema.User, userRepo);
+    var personalRecords         = controller(mongoose, db, "personalRecords", schema.PersonalRecord, prRepo);
+    var weightWorkouts          = controller(mongoose, db, "weightWorkouts", schema.WeightWorkout);
+    var wendlerWorkouts         = controller(mongoose, db, "wendlerWorkouts", schema.WendlerWorkout);
+    var exerciseTypes           = controller(mongoose, db, "exerciseTypes", schema.ExerciseType);
+    var unitOfMeasures          = controller(mongoose, db, "unitOfMeasures", schema.UnitOfMeasure);
 
     //login/logout
     app.post('/login', function(req, res, next){
         passport.authenticate('local', function(err, user, info) {
             if (err) { return next(err); }
-            if (!user) { return res.json({error:'Invalid email or password'})}
+            if (!user) {
+                if(info) {return res.json({error: info.message});}
+                else{ return res.json({error:'Invalid email or password'});}
+            }
 
             req.logIn(user, function(err) {
                 if (err) { return next(err); }
@@ -29,7 +32,9 @@ module.exports = function(app, mongoose, db, schema, passport){
         })(req, res, next);
     });
 
-   app.get('/logout', user.logout);
+   app.get('/logout',function(req, res, next){
+       req.logout();
+   });
 
     //exercise schema
     app.get('/exercise/exercise', exercise.list);

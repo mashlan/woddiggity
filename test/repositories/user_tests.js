@@ -1,6 +1,6 @@
 var assert          = require("chai").assert;
 var dbConfig        = require('../databaseConfig.js');
-var User            = require('../../data_access/repositories/userRepository.js')(dbConfig.mongoose, dbConfig.db, dbConfig.schema);
+var User            = require('../../data_access/repositories/userRepository.js')(dbConfig.mongoose, dbConfig.db, "users", dbConfig.schema.User);
 
 var baseUser  = {
     _id: null,

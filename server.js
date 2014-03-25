@@ -9,7 +9,7 @@ var expressApp      = express();
 var debug           = typeof v8debug === 'object';
 var passport        = require('passport');
 var localStrategy   = require('passport-local').Strategy;
-var userRepo        = require('./routes/user.js').record(mongoose, db, schema);
+var userRepo        = require('./data_access/repositories/userRepository.js')(mongoose, db, "users", schema.User);
 
 if(debug){
     process.env.PORT = 5000;

@@ -33,7 +33,6 @@ module.exports = function(mongoose, db, modelName, schema){
             var id = mongoose.Types.ObjectId(data._id);
             var query = {_id: id};
             delete data._id;
-
             ActiveRecord.update(query, data, callback);
         },
         delete: function(id, callback){

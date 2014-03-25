@@ -15,8 +15,5 @@ exports.PrSchemas = function (mongoose) {
         History: [PrHistory]
     });
 
-    return {
-        PrHistory: PrHistory,
-        PR: PR
-    }
+    return PR;
 };

@@ -9,13 +9,12 @@ module.exports = function(mongoose){
     var exTypeRecord            = require('./models/exerciseType.js');
 
     return {
-        ExerciseSchema: exRecord.ExerciseRecord(mongoose),
-        ExerciseTypeSchema: exTypeRecord.ExerciseTypeRecord(mongoose),
-        PersonalRecordSchema: prRecord.PrSchemas(mongoose).PR,
-        PersonalHistorySchema: prRecord.PrSchemas(mongoose).PrHistory,
-        UnitOfMeasureSchema: unitRecord.UnitOfMeasureSchema(mongoose),
-        UserSchema: userRecord.UserSchema(mongoose),
-        WeightWorkoutSchema: weightWorkoutRecord.WeightWorkoutSchema(mongoose),
-        WendlerWorkoutSchema: wendlerWorkoutRecord.WendlerWorkoutSchema(mongoose)
+        Exercise: exRecord.ExerciseRecord(mongoose),
+        ExerciseType: exTypeRecord.ExerciseTypeRecord(mongoose),
+        PersonalRecord: prRecord.PrSchemas(mongoose),
+        UnitOfMeasure: unitRecord.UnitOfMeasureSchema(mongoose),
+        User: userRecord.UserSchema(mongoose),
+        WeightWorkout: weightWorkoutRecord.WeightWorkoutSchema(mongoose),
+        WendlerWorkout: wendlerWorkoutRecord.WendlerWorkoutSchema(mongoose)
     };
 };
