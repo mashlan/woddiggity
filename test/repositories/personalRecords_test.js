@@ -45,5 +45,5 @@ describe("personal records", function(){
             assert.isNull(err);
             done();
         })
-    })
+    });
 });

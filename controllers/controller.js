@@ -22,7 +22,7 @@ module.exports = function(mongoose, db, modelName, schema, repository){
         create: function(req, res){
             dataRepository.create(req.body, function(err, doc){
                 if(err){res.json(err);}
-                else if(!doc){rew.json({message: "unknown error"});}
+                else if(!doc){res.json({message: "unknown error"});}
                 else{res.json(doc);}
             });
         },
