@@ -8,3 +8,5 @@ daemon/woddiggity.exe
 daemon/woddiggity.out.log
 daemon/woddiggity.wrapper.log
 daemon/woddiggity.xml
+.idea/libraries/woddiggity_node_modules.xml
+.idea/workspace.xml

@@ -22,4 +22,6 @@ module.export = function(){
         console.log('Express server listening on port ' + expressApp.get('port'));
     });
 
+   exports.repo = userRepo;
+
 }();

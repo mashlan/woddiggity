@@ -1,10 +1,10 @@
 
 module.exports = function(mongoose, db, modelName, schema, repository){
     if(!repository){
-        repository = require('../data_access/repositories/repository.js');
+        repository = require('../data_access/repositories/repository.js')(mongoose, db, modelName, schema);
     }
 
-    var dataRepository  = repository(mongoose, db, modelName, schema);
+    var dataRepository  = repository;
 
     return {
         list: function(req, res){

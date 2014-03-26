@@ -4,12 +4,12 @@ module.exports = function(app, mongoose, db, schema, passport){
 
     //controller and repository files. repo files are only those that are created for exceptions to the rule
     var controller              = require('../controllers/controller.js');
-    var prRepo                  = require('../data_access/repositories/personalRecordRepository.js');
-    var userRepo                = require('../data_access/repositories/userRepository.js');
+    var prRepo                  = require('../data_access/repositories/personalRecordRepository.js')(mongoose, db, "personalRecords", schema.PersonalRecord);
+    var userRepo                = require('../data_access/repositories/userRepository.js')(mongoose, db, "users", schema.User);
 
     var exercise                = controller(mongoose, db, "exercises", schema.Exercise);
-    var user                    = controller(mongoose, db, "users", schema.User, userRepo);
-    var personalRecords         = controller(mongoose, db, "personalRecords", schema.PersonalRecord, prRepo);
+    var user                    = controller(null, null, null, null, userRepo);
+    var personalRecords         = controller(null, null, null, null, prRepo);
     var weightWorkouts          = controller(mongoose, db, "weightWorkouts", schema.WeightWorkout);
     var wendlerWorkouts         = controller(mongoose, db, "wendlerWorkouts", schema.WendlerWorkout);
     var exerciseTypes           = controller(mongoose, db, "exerciseTypes", schema.ExerciseType);
@@ -85,7 +85,7 @@ module.exports = function(app, mongoose, db, schema, passport){
 
     function ensureAuthenticated(req, res, next) {
         if (req.user) {return next();}
-        res.redirect('/');
+        res.json({message: 'user not logged in'});
     }
 };
 
