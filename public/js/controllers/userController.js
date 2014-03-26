@@ -42,6 +42,7 @@ myControllers.controller('UserCtrl', ['$scope', '$rootScope', '$location', 'User
             else{
                 User.insert($scope.user).then(function(data){
                     if(data.errors){$scope.err = data.message;}
+                    if(data.message){ $scope.err = data.message; }
                     else{
                         window.sessionStorage.setItem("woddo_user", JSON.stringify(data));
                         $rootScope.ActiveUser = data;
