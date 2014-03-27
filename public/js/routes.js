@@ -27,44 +27,37 @@ angular.module('myApp.routes', ['ngRoute'])
 
         $routeProvider.when('/account', {authenticate: true, templateUrl: 'partials/account/index.html', controller: 'PersonalCtrl' });
         $routeProvider.when('/login', { templateUrl: 'partials/login.html',  controller: 'LoginCtrl' });
-        $routeProvider.when('/logout', { templateUrl: 'partials/logout.html', controller: 'LoginCtrl'});
+        $routeProvider.when('/logout', { logout: true});
         $routeProvider.when('/register', {templateUrl: 'partials/register.html', controller: 'UserCtrl'});
         $routeProvider.otherwise({redirectTo: '/home'});
     }])
-    .run(function($rootScope, $location){
-        $rootScope.ActiveUser = {};
-
+    .run(function($rootScope, $location, Authentication){
         // register listener to watch for route changes
         // this event will fire every time the route changes
         $rootScope.$on("$routeChangeStart", function (event, next, current) {
-            var storage = window.sessionStorage.getItem("woddo_user");
-            if(storage == 'null') {storage = null};
             if(next.authenticate){
-                if (!storage) {
-                    // no logged user, we should be going to the login route
-                    if (next.templateUrl == "partials/login.html") {
-                        // already going to the login route, no redirect needed
-                    } else {
-                        // not going to the login route, we should redirect now
+                Authentication.isLoggedIn().then(function(resp){
+                    if(resp.user){
+                        $rootScope.ActiveUser = resp.user;
+                        $rootScope.isAuthenticated = true;
+                    }else{
+                        $rootScope.ActiveUser = null;
+                        $rootScope.isAuthenticated = false;
                         $location.path("/login");
                     }
-                    $rootScope.isAuthenticated = false;
-                }
-                else{
-                    $rootScope.isAuthenticated = true;
-                    $rootScope.ActiveUser = JSON.parse(storage);
-                }
-            }else{
-                if(next.templateUrl == 'partials/logout.html'){
-                    window.sessionStorage.setItem("woddo_user", null);
-                    $rootScope.ActiveUser = null;
-                    $rootScope.isAuthenticated = false;
-                    $location.path('/login');
-                }
-                else{
-                    $rootScope.ActiveUser = JSON.parse(storage);
-                    $rootScope.isAuthenticated = $rootScope.ActiveUser != null;
-                }
+                });
+            }
+
+            if(next.logout){
+                Authentication.logout().then(function(resp){
+                    clearActiveUser();
+                });
+            }
+
+            function clearActiveUser(){
+                $rootScope.ActiveUser = null;
+                $rootScope.isAuthenticated = false;
+                $location.path("/login");
             }
         });
     });

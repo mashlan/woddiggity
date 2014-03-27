@@ -1,13 +1,7 @@
 
-myControllers.controller('AccountCtrl', ['$scope', '$rootScope', 'Login',
-    function ($scope, $rootScope, Login) {
+myControllers.controller('AccountCtrl', ['$scope', '$rootScope', 'Authentication',
+    function ($scope, $rootScope, Authentication) {
         'use strict';
-
-//        syncData(['users', $scope.auth.user.uid]).$bind($scope, 'user');
-
-//        $scope.logout = function () {
-//            loginService.logout();
-//        };
 
         $scope.oldpass = null;
         $scope.newpass = null;
@@ -25,7 +19,7 @@ myControllers.controller('AccountCtrl', ['$scope', '$rootScope', 'Login',
 
         $scope.updatePassword = function () {
             $scope.reset();
-            Login.changePassword(buildPwdParms());
+            Authentication.changePassword(buildPwdParms());
         };
 
         function buildPwdParms() {
@@ -340,8 +334,8 @@ myControllers.controller('HomeCtrl', ['$scope', function($scope) {
     'use strict';
 
 }]);
-myControllers.controller('LoginCtrl', ['$scope', 'Login', '$location',
-    function ($scope, Login, $location) {
+myControllers.controller('LoginCtrl', ['$scope', 'Authentication', '$location',
+    function ($scope, Authentication, $location) {
         'use strict';
 
         $scope.username = null;
@@ -358,7 +352,7 @@ myControllers.controller('LoginCtrl', ['$scope', 'Login', '$location',
                 $scope.err = 'Please enter a password';
             }
             else {
-                Login.login($scope).then(function (data) {
+                Authentication.login($scope).then(function (data) {
                     $scope.err = data.error ? data.error + '' : null;
                     if (data.user) {
                         $location.path('/home');
@@ -974,18 +968,23 @@ myControllers.controller('WodCtrl', ['$scope', 'Exercise',
     function($scope, Exercise) {
         'use strict';
     }
-]);services.factory('Authentication', ['$resource', '$q', function($resource, $q) {
-    var resource = $resource('authentication/:userId', {}, {
-        getUser: {method: 'GET', params: {userId: "" }}
+]);services.factory('Authentication', ['$resource', '$q', '$rootScope', function($resource, $q, $rootScope) {
+    var resource = $resource('authentication/:method/:userId', {}, {
+        get: {method: 'GET'},
+        login: {method: 'POST'},
+        changePassword: {method: 'PUT'},
+        logout: {method: 'GET', params: {method: 'logout', userId: ""}}
     });
 
     var factory = {
-        isLoggedIn: function(userId){
+        isLoggedIn: function(){
             var deferred = $q.defer();
-            resource.get({userId: userId},
+            resource.get({},
                 function(resp){deferred.resolve(resp);},
                 function(error){deferred.reject(error);}
             );
+
+            return deferred.promise;
         },
         hasRole: function(userId, roleId){
             var deferred = $q.defer();
@@ -993,6 +992,37 @@ myControllers.controller('WodCtrl', ['$scope', 'Exercise',
                 function(resp){deferred.resolve(resp);},
                 function(error){deferred.reject(error);}
             );
+
+            return deferred.promise;
+        },
+        login: function(data){
+            var deferred = $q.defer();
+            resource.login({username: data.username, password: data.password},
+                function(resp){
+                    deferred.resolve(resp);
+                    if(resp.user){
+                        $rootScope.ActiveUser = resp.user;
+                        $rootScope.isAuthenticated = true;
+                    }
+                },
+                function(error){
+                    deferred.reject(error);
+                }
+            );
+
+            return deferred.promise;
+        },
+        logout: function(){
+            var deferred = $q.defer();
+            resource.logout({method: 'logout'},
+                function(resp){ deferred.resolve(resp);},
+                function(error){deferred.reject(error);}
+            );
+
+            return deferred.promise;
+        },
+        changePassword: function(){
+
         }
     };
 
@@ -1145,38 +1175,6 @@ services.factory("ExerciseType", ['$resource', '$q',
                 );
 
                 return deferred.promise;
-            }
-        };
-
-        return factory;
-    }
-]);
-services.factory("Login", ['$resource', '$q',
-    function($resource, $q){
-        var resource = $resource('login', {}, {
-            login: {method: 'POST'},
-            changePassword: {method: 'PUT'}
-        });
-
-        var factory = {
-            login: function(data){
-                var deferred = $q.defer();
-                resource.login({username: data.username, password: data.password},
-                    function(resp){
-                        deferred.resolve(resp);
-                        if(resp.user){
-                            window.sessionStorage.setItem("woddo_user", JSON.stringify(resp.user));
-                        }
-                    },
-                    function(error){
-                        deferred.reject(error);
-                    }
-                );
-
-                return deferred.promise;
-            },
-            changePassword: function(data){
-
             }
         };
 

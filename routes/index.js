@@ -8,15 +8,15 @@ module.exports = function(app, mongoose, db, schema, passport){
     var userRepo                = require('../data_access/repositories/userRepository.js')(mongoose, db, "users", schema.User);
 
     var exercise                = controller(mongoose, db, "exercises", schema.Exercise);
-    var user                    = controller(null, null, null, null, userRepo);
-    var personalRecords         = controller(null, null, null, null, prRepo);
+    var user                    = controller(mongoose, null, null, null, userRepo);
+    var personalRecords         = controller(mongoose, null, null, null, prRepo);
     var weightWorkouts          = controller(mongoose, db, "weightWorkouts", schema.WeightWorkout);
     var wendlerWorkouts         = controller(mongoose, db, "wendlerWorkouts", schema.WendlerWorkout);
     var exerciseTypes           = controller(mongoose, db, "exerciseTypes", schema.ExerciseType);
     var unitOfMeasures          = controller(mongoose, db, "unitOfMeasures", schema.UnitOfMeasure);
 
-    //login/logout
-    app.post('/login', function(req, res, next){
+    //login
+    app.post('/authentication', function(req, res, next){
         passport.authenticate('local', function(err, user, info) {
             if (err) { return next(err); }
             if (!user) {
@@ -32,10 +32,16 @@ module.exports = function(app, mongoose, db, schema, passport){
         })(req, res, next);
     });
 
-   app.get('/logout',function(req, res, next){
+   //logout
+   app.get('/authentication/logout',function(req, res, next){
        req.logout();
-       res.redirect('/');
+       res.json({success: true});
    });
+
+    //return user in session
+    app.get('/authentication',function(req, res, next){
+        res.json({user: req.user});
+    });
 
     //exercise schema
     app.get('/exercise/exercise', exercise.list);
@@ -85,7 +91,7 @@ module.exports = function(app, mongoose, db, schema, passport){
     app.get('');
 
     function ensureAuthenticated(req, res, next) {
-        if (req.isAuthenticated()) {return next();}
+        if (req.user) {return next();}
         res.json({message: 'user not logged in'});
     }
 };

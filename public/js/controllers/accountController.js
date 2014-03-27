@@ -1,13 +1,7 @@
 
-myControllers.controller('AccountCtrl', ['$scope', '$rootScope', 'Login',
-    function ($scope, $rootScope, Login) {
+myControllers.controller('AccountCtrl', ['$scope', '$rootScope', 'Authentication',
+    function ($scope, $rootScope, Authentication) {
         'use strict';
-
-//        syncData(['users', $scope.auth.user.uid]).$bind($scope, 'user');
-
-//        $scope.logout = function () {
-//            loginService.logout();
-//        };
 
         $scope.oldpass = null;
         $scope.newpass = null;
@@ -25,7 +19,7 @@ myControllers.controller('AccountCtrl', ['$scope', '$rootScope', 'Login',
 
         $scope.updatePassword = function () {
             $scope.reset();
-            Login.changePassword(buildPwdParms());
+            Authentication.changePassword(buildPwdParms());
         };
 
         function buildPwdParms() {

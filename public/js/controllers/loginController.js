@@ -1,6 +1,6 @@
 
-myControllers.controller('LoginCtrl', ['$scope', 'Login', '$location',
-    function ($scope, Login, $location) {
+myControllers.controller('LoginCtrl', ['$scope', 'Authentication', '$location',
+    function ($scope, Authentication, $location) {
         'use strict';
 
         $scope.username = null;
@@ -17,7 +17,7 @@ myControllers.controller('LoginCtrl', ['$scope', 'Login', '$location',
                 $scope.err = 'Please enter a password';
             }
             else {
-                Login.login($scope).then(function (data) {
+                Authentication.login($scope).then(function (data) {
                     $scope.err = data.error ? data.error + '' : null;
                     if (data.user) {
                         $location.path('/home');
