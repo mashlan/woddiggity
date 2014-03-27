@@ -10,3 +10,5 @@ daemon/woddiggity.wrapper.log
 daemon/woddiggity.xml
 .idea/libraries/woddiggity_node_modules.xml
 .idea/workspace.xml
+.idea/workspace.xml
+.idea/libraries/Node_js_Dependencies_for_Woddo.xml
