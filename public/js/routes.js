@@ -47,6 +47,15 @@ angular.module('myApp.routes', ['ngRoute'])
                     }
                 });
             }
+            else{
+                //do this in case the browser is refreshed
+                Authentication.isLoggedIn().then(function(resp){
+                    if(resp.user){
+                        $rootScope.ActiveUser = resp.user;
+                        $rootScope.isAuthenticated = true;
+                    }
+                });
+            }
 
             if(next.logout){
                 Authentication.logout().then(function(resp){

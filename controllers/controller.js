@@ -8,7 +8,7 @@ module.exports = function(mongoose, db, modelName, schema, repository){
 
     return {
         list: function(req, res){
-            dataRepository.sort(req.query, function(err, data){
+            dataRepository.sort(req.query, req.params, function(err, data){
                 res.json(data);
             });
         },

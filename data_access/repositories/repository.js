@@ -3,7 +3,7 @@ module.exports = function(mongoose, db, modelName, schema){
     var ActiveRecord = db.model(modelName, schema);
 
     return {
-        sort: function(sortValues, callback){
+        sort: function(sortValues, params, callback){
             var sortValue = sortValues.sortName;
             var sortDirection = sortValues.sortDirection;
             if(!sortDirection) sortDirection = "";

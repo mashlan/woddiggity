@@ -40,7 +40,7 @@
                         <li><a ng-show="!isAuthenticated" href="#/login">Login</a></li>
                         <li><a ng-show="isAuthenticated" href="#/logout">Logout</a></li>
                         <li><a ng-show="isAuthenticated" href="#/account">{{ActiveUser.FirstName}} {{ActiveUser.LastName}}</a></li>
-                        <li ng-show="isAuthenticated">
+                        <li ng-show="isAuthenticated && ActiveUser.IsAdmin">
                             <a href="#/admin" target="_self" class="dropdown-toggle" data-toggle="dropdown">Admin<b class="caret"></b></a>
                             <ul class="dropdown-menu">
                                 <li><a href="#/admin/exercises">Exercises</a></li>
@@ -50,7 +50,7 @@
                                 <li><a href="#/admin/heroes">Heroes</a></li>
                             </ul>
                         </li>
-                        <li ng-show="isAuthenticated">
+                        <li ng-show="isAuthenticated && ActiveUser.IsCoach">
                             <a href="#/admin" target="_self" class="dropdown-toggle" data-toggle="dropdown">Coach<b class="caret"></b></a>
                             <ul class="dropdown-menu">
                                 <li><a href="#/coach/recordWod">Record WOD</a></li>

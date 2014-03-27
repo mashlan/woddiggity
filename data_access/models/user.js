@@ -7,10 +7,13 @@ exports.UserSchema = function(mongoose){
     }
 
     var UserPreferences = new mongoose.Schema({
-        _id: {type: mongoose.Schema.ObjectId},
         WeightUnitId: String,
         RowUnitId: String,
         RunUnitId: String
+    });
+
+    var UserRoles = new mongoose.Schema({
+
     });
 
     var User = new mongoose.Schema({
@@ -20,7 +23,13 @@ exports.UserSchema = function(mongoose){
         Email: { type: String, validate: [validatePresenceOf, 'an email is required'], index: { unique: true } },
         HashedPassword: String,
         Salt: String,
-        IsAdmin: Boolean
+        IsAdmin: Boolean,
+        IsCoach: Boolean,
+        Preferences: {
+            WeightUnitId: String,
+            RowUnitId: String,
+            RunUnitId: String
+        }
     });
 
     User.virtual('id').get(function(){

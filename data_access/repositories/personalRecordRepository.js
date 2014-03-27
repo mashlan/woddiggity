@@ -30,6 +30,15 @@ module.exports = function(mongoose, db, modelName, schema){
         });
     };
 
+    PR.sort = function(sortValues, params, callback){
+        var sortValue = sortValues.sortName;
+        var sortDirection = sortValues.sortDirection;
+        if(!sortDirection) sortDirection = "";
+        if(!sortValue) sortValue = "";
+
+       PR.model.find({UserId: params.id}).sort(sortDirection + sortValue).exec(callback);
+    };
+
     PR.updateHistoryRecord = function(historyData, callback){
 
     };

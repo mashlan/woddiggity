@@ -27,8 +27,7 @@ describe("user controller", function(){
         options.method = "POST";
         options.path = "/user";
         options.headers = {
-            'Content-Type': 'application/x-www-form-urlencoded',
-            'Cookie': cookie
+            'Content-Type': 'application/x-www-form-urlencoded'
         };
 
         var req = httpMock.request(options, function(response){

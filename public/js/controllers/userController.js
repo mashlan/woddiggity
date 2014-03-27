@@ -9,7 +9,9 @@ myControllers.controller('UserCtrl', ['$scope', '$rootScope', '$location', 'User
             FirstName: '',
             LastName: '',
             Email: '',
-            password: ''
+            password: '',
+            IsCoach: false,
+            IsAdmin: false
         };
 
         $scope.List = [];
