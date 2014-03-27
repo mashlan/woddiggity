@@ -9,7 +9,7 @@ module.exports = function(app, process, dirname, express, path, passport) {
     app.use(app.router);
 
 
-    app.set('port',  process.env.PORT || 5000);
+    app.set('port',  process.env.PORT);
     app.use(express.favicon(dirname + '/public/img/favicon.ico'));
     app.use(express.logger('dev'));
     app.use(express.json());

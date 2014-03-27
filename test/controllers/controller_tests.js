@@ -1,13 +1,10 @@
 var assert          = require("chai").assert;
+var queryString     = require('querystring');
 var mockApp         = require('../testServer.js');
 var httpMock        = require('http');
-var dbConfig        = require('../databaseConfig.js');
 var controller      = require('../../controllers/controller.js');
-var userRepo        = require('../../data_access/repositories/userRepository.js');
-var repo            = mockApp.repo;
-var queryString     = require('querystring');
 
-var user            = controller(dbConfig.mongoose, dbConfig.db, "users", dbConfig.schema.User, userRepo);
+var repo            = mockApp.repo;
 var baseUser        = null;
 
 var options = {
@@ -60,7 +57,6 @@ describe("user controller", function(){
         logInUser(function(){
             options.method = "GET";
             options.path = "/user/" + baseUser._id;
-            options.headers = null;
             options.user = baseUser;
 
             var req = httpMock.request(options, function(response){
@@ -87,9 +83,6 @@ describe("user controller", function(){
 
         options.method = "POST";
         options.path = "/login";
-        options.headers = {
-            'Content-Type': 'application/x-www-form-urlencoded'
-        };
 
         var request = httpMock.request(options, function(response){
             response.setEncoding('utf8');
