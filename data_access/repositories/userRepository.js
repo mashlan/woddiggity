@@ -13,6 +13,24 @@ module.exports = function(mongoose, db, modelName, schema){
         }
     };
 
+    User.updatePreferences = function(id, preferences, callback){
+        User.model.findOne({_id: mongoose.Types.ObjectId(id)}, function(err, user){
+            if(err) {callback(err);}
+            else if(!user){callback({message: "user not found"}, null);}
+            else {
+//                user.Preferences = preferences;
+                user.update({Preferences: preferences}, function (err) {
+                    if (err) {
+                        callback(err);
+                    }
+                    else {
+                        callback();
+                    }
+                });
+            }
+        });
+    };
+
     User.logIn = function(email, password, done){
         User.findOne({Email: email} ,function (err, user) {
             if (err) {

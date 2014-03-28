@@ -9,6 +9,10 @@ services.factory("User", ['$resource', '$q',
             update: {method: 'PUT'}
         });
 
+        var prefResource = $resource('userPreferences', {}, {
+            updatePref: {method: 'PUT'}
+        });
+
         var factory = {
             query: function(sortByName, sortDir){
                 var deferred = $q.defer();
@@ -22,6 +26,20 @@ services.factory("User", ['$resource', '$q',
             get: function (id) {
                 var deferred = $q.defer();
                 resource.get({userId: id },
+                    function (resp) {
+                        deferred.resolve(resp);
+                    },
+                    function (error) {
+                        deferred.reject(error);
+                    }
+                );
+
+                return deferred.promise;
+            },
+            updatePreferences: function(preferences){
+                var deferred = $q.defer();
+
+                prefResource.updatePref(preferences,
                     function (resp) {
                         deferred.resolve(resp);
                     },

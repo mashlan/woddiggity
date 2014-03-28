@@ -1,6 +1,6 @@
 
-services.factory("PersonalRecord", ['$resource', '$q',
-    function($resource, $q){
+services.factory("PersonalRecord", ['$resource', '$q', '$rootScope',
+    function($resource, $q, $rootScope){
         var resource = $resource('pr/:prId/:id/', {}, {
             query: {method: 'GET', params: {prId: 'records', id: 0, sortName: null}, isArray:true},
             get: {method: 'GET', params: {id: 0 }},
@@ -31,6 +31,15 @@ services.factory("PersonalRecord", ['$resource', '$q',
                 );
 
                 return deferred.promise;
+            },
+            getNew: function(){
+                return {
+                    RecordDate: null,
+                    Value: "",
+                    Units: "",
+                    UserId: $rootScope.ActiveUser._id,
+                    ExerciseId: ''
+                };
             },
             remove: function (id) {
                 var deferred = $q.defer();

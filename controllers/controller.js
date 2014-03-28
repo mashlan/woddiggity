@@ -37,6 +37,13 @@ module.exports = function(mongoose, db, modelName, schema, repository){
                 if(err ){res.json(err);}
                 else{res.json({success: true});}
             });
+        },
+
+        updatePreferences: function(req, res){
+            dataRepository.updatePreferences(req.body._id, req.body.preferences, function(err){
+                if(err){res.json(err);}
+                else{res.json({success: true});}
+            });
         }
     };
 };

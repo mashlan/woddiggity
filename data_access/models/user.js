@@ -7,13 +7,8 @@ exports.UserSchema = function(mongoose){
     }
 
     var UserPreferences = new mongoose.Schema({
-        WeightUnitId: String,
-        RowUnitId: String,
-        RunUnitId: String
-    });
-
-    var UserRoles = new mongoose.Schema({
-
+        UnitOfMeasureId: String,
+        ExerciseTypeId: String
     });
 
     var User = new mongoose.Schema({
@@ -25,11 +20,7 @@ exports.UserSchema = function(mongoose){
         Salt: String,
         IsAdmin: Boolean,
         IsCoach: Boolean,
-        Preferences: {
-            WeightUnitId: String,
-            RowUnitId: String,
-            RunUnitId: String
-        }
+        Preferences: [UserPreferences]
     });
 
     User.virtual('id').get(function(){

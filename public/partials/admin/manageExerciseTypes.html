@@ -17,16 +17,18 @@
         <thead>
             <tr>
                 <th id="exerciseType_th__id" style="display: none;" ng-click="sortByColumn('_id')">Id </th>
-                <th id="exerciseType_th_Name" style="width: 200px" ng-click="sortByColumn('Name')">Name</th>
-                <th id="exerciseType_th_UnitOfMeasureIds" style="width: 300px">Units of Measure</th>
+                <th id="exerciseType_th_Name" ng-click="sortByColumn('Name')">Name</th>
+                <th id="exerciseType_th_UnitOfMeasures">Units of Measure</th>
+                <th id="exerciseType_th_IsUserPreference" ng-click="sortByColumn('IsUserPreference')">Preference</th>
                 <th id="exerciseType_th_Description" ng-click="sortByColumn('Description')">Description</th>
             </tr>
         </thead>
         <tbody>
             <tr id="exerciseType_{{exerciseType._id}}" ng-repeat="exerciseType in exerciseTypeList" ng-click="setActiveRow(this)" ng-dblclick="editRecord(this)">
                 <td style="display: none">{{exerciseType._id}}</td>
-                <td title="{{exerciseType.Name}}" style="width: 200px">{{exerciseType.Name}}</td>
-                <td title="{{exerciseType.UnitOfMeasuresString}}" style="width: 300px" ng-init="setUnitOfMeasureString(this)">{{exerciseType.UnitOfMeasuresString}}</td>
+                <td title="{{exerciseType.Name}}" style="width: 20%">{{exerciseType.Name}}</td>
+                <td title="{{exerciseType.UnitOfMeasuresString}}" style="width: 20%" ng-init="setUnitOfMeasureString(this)">{{exerciseType.UnitOfMeasuresString}}</td>
+                <td title="{{exerciseType.IsUserPreference}}" style="width: 10%">{{exerciseType.IsUserPreference}}</td>
                 <td title="{{exerciseType.Description}}">{{exerciseType.Description}}</td>
             </tr>
         </tbody>
@@ -72,6 +74,13 @@
                   ng-model="exerciseType.Description"
                   placeholder="Name">
         </textarea>
+    </div>
+    <div class="form-group">
+        <div class="checkbox">
+            <label >
+                <input type="checkbox" ng-model="exerciseType.IsUserPreference" value="{{exerciseType.IsUserPreference}}"/> Check to show as a user preference
+            </label>
+        </div>
     </div>
     <div class="form-group">
         <button type="button" class="btn btn-sm btn-default" ng-click="cancelExerciseType()">Cancel</button>

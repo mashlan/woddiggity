@@ -70,6 +70,7 @@ module.exports = function(app, mongoose, db, schema, passport){
     app.post('/user', user.create);
     app.delete('/user/:id', ensureAuthenticated, user.delete);
     app.put('/user', ensureAuthenticated, user.update);
+    app.put('/userPreferences', ensureAuthenticated, user.updatePreferences);
 
     //pr schema
     app.get('/pr/records/:id', ensureAuthenticated, personalRecords.list);

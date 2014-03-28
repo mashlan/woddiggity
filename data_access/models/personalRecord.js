@@ -1,19 +1,17 @@
 
 exports.PrSchemas = function (mongoose) {
     var PrHistory = new mongoose.Schema({
+        _id: {type: mongoose.Schema.ObjectId },
         RecordDate: Date,
-        LocalFormat: String,
         Value: Number,
         Units: String
     });
 
-    var PR = new mongoose.Schema({
+    return new mongoose.Schema({
         _id: {type: mongoose.Schema.ObjectId },
         UserId: String,
         ExerciseId: String,
-        ExerciseName: String,
         History: [PrHistory]
     });
 
-    return PR;
 };

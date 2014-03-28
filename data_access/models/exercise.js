@@ -11,7 +11,8 @@ module.exports = function(mongoose){
         _id: {type: mongoose.Schema.ObjectId },
         Name: { type: String, required: true, unique: true },
         Description: String,
-        UnitOfMeasures: [unitOfMeasure]
+        UnitOfMeasures: [unitOfMeasure],
+        IsUserPreference: Boolean
     });
 
     var exercise = new mongoose.Schema({

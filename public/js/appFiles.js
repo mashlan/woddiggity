@@ -363,20 +363,24 @@ myControllers.controller('LoginCtrl', ['$scope', 'Authentication', '$location',
         };
     }
 ]);
-myControllers.controller('PersonalCtrl', ['$scope', '$rootScope', '$compile', 'Exercise', 'PersonalRecord', 'User',
-    function($scope,$rootScope, $compile, Exercise, PersonalRecord, User) {
+myControllers.controller('PersonalCtrl', ['$scope', '$rootScope', '$compile', 'Exercise', 'PersonalRecord', 'User', 'ExerciseType',
+    function($scope,$rootScope, $compile, Exercise, PersonalRecord, User, ExerciseType) {
         'use strict';
 
         $scope.exerciseList = null;
         $scope.valuePlaceholder= 'Value';
         $scope.personalRecords = [];
-        $scope.unitsList= [
-            { name: 'Kg' },
-            { name: 'Lbs' },
-            { name: 'Miles' },
-            { name: 'Meters' },
-            { name: 'Time' }
-        ];
+        $scope.unitsList = [];
+        $scope.exerciseTypeList = [];
+
+        ExerciseType.query("Name").then(function(data){
+            $.each(data, function(i, v){
+                if(v.IsUserPreference){
+                    $scope.exerciseTypeList.push(v);
+                }
+            });
+        });
+
         $scope.exerciseHistory = null;
         $scope.help = {title: ''};
         $scope.savePrError = '';
@@ -397,36 +401,19 @@ myControllers.controller('PersonalCtrl', ['$scope', '$rootScope', '$compile', 'E
 
         $scope.getNew = function(){
             $scope.getPersonalRecords();
-
-            $scope.newPR = {
-                RecordDate: null,
-                Value: "",
-                Units: "",
-                UserId: $rootScope.ActiveUser._id,
-                ExerciseId: '',
-                ExerciseName: ''
-            };
+            $scope.newPR = PersonalRecord.getNew();
         };
 
         $scope.onUnitSelected = function(scope){
             scope.newPR.Units = scope.newPR.Unit.name;
         };
 
-        $scope.getSelectedUnit = function(scope){
-            scope.Unit = $scope.unitsList[2];
-        };
-
         $scope.onExerciseSelect = function(scope){
             var exercise = scope.newPR.Exercise;
             $scope.newPR.ExerciseId = exercise._id;
             $scope.newPR.ExerciseName = exercise.Name;
-
-            if(exercise.Type === 'Weight'){
-                $scope.valuePlaceholder = "Weight";
-            }
-            if(exercise.Type === 'Distance'){
-                $scope.valuePlaceholder = "Distance";
-            }
+            $scope.valuePlaceholder = exercise.ExerciseType.Name;
+            $scope.unitsList = exercise.ExerciseType.UnitOfMeasures;
         };
 
         $scope.savePR = function(){
@@ -618,6 +605,53 @@ myControllers.controller('PersonalCtrl', ['$scope', '$rootScope', '$compile', 'E
             resetEditForms();
             $("#preferences_form_text").toggle();
             $("#preferences_form").toggle();
+        };
+
+        $scope.setPreference = function(scope){
+            var user = $rootScope.ActiveUser;
+            var prefer = $.grep(user.Preferences, function(e){ return e.ExerciseTypeId === scope.exType._id; });
+            if(prefer.length > 0){
+                prefer[0].UnitOfMeasureId = scope.exType._id;
+            }else{
+                user.Preferences.push({
+                    UnitOfMeasureId: scope.exType.unitPreference._id,
+                    ExerciseTypeId: scope.exType._id
+                });
+            }
+        };
+
+        //TODO: finish up setting prefence selection
+//        $scope.getSelectedPreference = function(scope){
+//            if(scope.exType && scope.exType.unitPreference) {
+//                $("#exType_" + scope.exType._id).val(getUnitIndex(scope));
+//            }
+//        };
+//
+//        function getUnitIndex(scope){
+//            var index = null;
+//            $.each(scope.exType.unitPreference, function(i, v){
+//                if(v._id === id){
+//                    index = i;
+//                    return false;
+//                }else{
+//                    return true;
+//                }
+//            });
+//
+//            return index;
+//        }
+
+        $scope.savePreferences = function(){
+            var pref = {
+                _id: $rootScope.ActiveUser._id,
+                preferences: $scope.ActiveUser.Preferences
+            };
+            User.updatePreferences(pref);
+        };
+
+        $scope.cancelPreferences = function(){
+            $("#preferences_form").hide();
+            $("#preferences_form_text").show();
         };
 
         $scope.showBoxInfo = function(){
@@ -1184,8 +1218,8 @@ services.factory("ExerciseType", ['$resource', '$q',
         return factory;
     }
 ]);
-services.factory("PersonalRecord", ['$resource', '$q',
-    function($resource, $q){
+services.factory("PersonalRecord", ['$resource', '$q', '$rootScope',
+    function($resource, $q, $rootScope){
         var resource = $resource('pr/:prId/:id/', {}, {
             query: {method: 'GET', params: {prId: 'records', id: 0, sortName: null}, isArray:true},
             get: {method: 'GET', params: {id: 0 }},
@@ -1216,6 +1250,15 @@ services.factory("PersonalRecord", ['$resource', '$q',
                 );
 
                 return deferred.promise;
+            },
+            getNew: function(){
+                return {
+                    RecordDate: null,
+                    Value: "",
+                    Units: "",
+                    UserId: $rootScope.ActiveUser._id,
+                    ExerciseId: ''
+                };
             },
             remove: function (id) {
                 var deferred = $q.defer();
@@ -1339,6 +1382,10 @@ services.factory("User", ['$resource', '$q',
             update: {method: 'PUT'}
         });
 
+        var prefResource = $resource('userPreferences', {}, {
+            updatePref: {method: 'PUT'}
+        });
+
         var factory = {
             query: function(sortByName, sortDir){
                 var deferred = $q.defer();
@@ -1352,6 +1399,20 @@ services.factory("User", ['$resource', '$q',
             get: function (id) {
                 var deferred = $q.defer();
                 resource.get({userId: id },
+                    function (resp) {
+                        deferred.resolve(resp);
+                    },
+                    function (error) {
+                        deferred.reject(error);
+                    }
+                );
+
+                return deferred.promise;
+            },
+            updatePreferences: function(preferences){
+                var deferred = $q.defer();
+
+                prefResource.updatePref(preferences,
                     function (resp) {
                         deferred.resolve(resp);
                     },

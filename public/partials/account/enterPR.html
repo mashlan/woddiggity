@@ -38,7 +38,7 @@
                 <label class="control-label">Units</label>
                 <select name="uUnits"
                         ng-model="newPR.Unit"
-                        ng-options="unit as unit.name for unit in unitsList"
+                        ng-options="unit as unit.Name for unit in unitsList"
                         ng-change="onUnitSelected(this)"
                         ng-class="{error: newPrForm.uUnits.$error.required && prInvalid}"
                         required
