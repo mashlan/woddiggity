@@ -26,7 +26,7 @@
             <tr id="exerciseType_{{exerciseType._id}}" ng-repeat="exerciseType in exerciseTypeList" ng-click="setActiveRow(this)" ng-dblclick="editRecord(this)">
                 <td style="display: none">{{exerciseType._id}}</td>
                 <td title="{{exerciseType.Name}}" style="width: 200px">{{exerciseType.Name}}</td>
-                <td title="{{exerciseType.UnitOfMeasureIdString}}" style="width: 300px" ng-init="setUnitOfMeasureString(this)">{{exerciseType.UnitOfMeasureIdString}}</td>
+                <td title="{{exerciseType.UnitOfMeasuresString}}" style="width: 300px" ng-init="setUnitOfMeasureString(this)">{{exerciseType.UnitOfMeasuresString}}</td>
                 <td title="{{exerciseType.Description}}">{{exerciseType.Description}}</td>
             </tr>
         </tbody>

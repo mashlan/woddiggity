@@ -28,7 +28,7 @@
                 <td style="display: none">{{exercise._id}}</td>
                 <td title="{{exercise.Name}}" style="width: 20%">{{exercise.Name}}</td>
                 <td title="{{exercise.Abbreviation}}" style="width: 10%">{{exercise.Abbreviation}}</td>
-                <td title="{{exercise.ExerciseTypeIdsString}}" ng-init="setExerciseTypeIdsString(this)" style="width: 10%;">{{exercise.ExerciseTypeIdsString}}</td>
+                <td title="{{exercise.ExerciseType.Name}}" style="width: 10%;">{{exercise.ExerciseType.Name}}</td>
                 <td id="exercise_Description_{{exercise._id}}" style="width: 60%" title="{{exercise.Description}}" >{{exercise.Description}}</td>
             </tr>
         </tbody>
@@ -57,10 +57,11 @@
     <div class="form-group">
         <label class="control-label diggity-text" for="Type">Exercise Type</label>
         <select class="form-control" id="Type" name="Type"
-                ng-class="{error: exerciseForm.Type.$error.required && hasFormError}" required
-                ng-model="exercise.ExerciseTypeId">
-            <option ng-repeat="type in typeList" ng-selected="{exercise.ExerciseTypeId == type._id}" value="{{type._id}}">{{type.Name}}</option>
-        </select>
+                ng-class="{error: exerciseForm.Type.$error.required && hasFormError}"
+                required
+                ng-model="exercise.ExerciseType"
+                ng-selected="setSelectedExerciseType(this)"
+                ng-options="type as type.Name for type in typeList" ></select>
         <label ng-show="exerciseForm.Type.$error.required && hasFormError" class="text-danger">Required!</label>
     </div>
     <div class="form-group">

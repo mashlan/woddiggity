@@ -21,25 +21,6 @@ myControllers.controller('ExerciseCtrl', ['$scope', 'Exercise', 'angularGridServ
             $("#exercise_form").hide();
         };
 
-        $scope.setExerciseTypeIdsString = function(scope){
-            scope.exercise.ExerciseTypeIdsString = getExerciseTypeName(scope.exercise.ExerciseTypeId);
-        };
-
-        function getExerciseTypeName(id){
-            var name = "";
-
-            $.each($scope.typeList, function(i, v){
-                if(v._id === id){
-                    name = v.Name;
-                    return false;
-                }else{
-                    return true;
-                }
-            });
-
-            return name;
-        }
-
         $scope.getExercise = function(id){
             Exercise.get(id).then(function(data){
                 $scope.exercise = data;
@@ -55,6 +36,26 @@ myControllers.controller('ExerciseCtrl', ['$scope', 'Exercise', 'angularGridServ
             $scope.setActiveRow(scope);
             $scope.editExercise();
         };
+
+        $scope.setSelectedExerciseType = function(scope){
+            if(scope.exercise && scope.exercise.ExerciseType) {
+                $("#Type").val(getExerciseTypeIndex(scope.exercise.ExerciseType._id));
+            }
+        };
+
+        function getExerciseTypeIndex(id){
+            var index = null;
+            $.each($scope.typeList, function(i, v){
+                if(v._id === id){
+                    index = i;
+                    return false;
+                }else{
+                    return true;
+                }
+            });
+
+            return index;
+        }
 
         $scope.editExercise = function(){
             var selectRow = $("#exerciseTable").find("tr.info");

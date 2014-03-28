@@ -65,25 +65,6 @@ myControllers.controller('ExerciseCtrl', ['$scope', 'Exercise', 'angularGridServ
             $("#exercise_form").hide();
         };
 
-        $scope.setExerciseTypeIdsString = function(scope){
-            scope.exercise.ExerciseTypeIdsString = getExerciseTypeName(scope.exercise.ExerciseTypeId);
-        };
-
-        function getExerciseTypeName(id){
-            var name = "";
-
-            $.each($scope.typeList, function(i, v){
-                if(v._id === id){
-                    name = v.Name;
-                    return false;
-                }else{
-                    return true;
-                }
-            });
-
-            return name;
-        }
-
         $scope.getExercise = function(id){
             Exercise.get(id).then(function(data){
                 $scope.exercise = data;
@@ -99,6 +80,26 @@ myControllers.controller('ExerciseCtrl', ['$scope', 'Exercise', 'angularGridServ
             $scope.setActiveRow(scope);
             $scope.editExercise();
         };
+
+        $scope.setSelectedExerciseType = function(scope){
+            if(scope.exercise && scope.exercise.ExerciseType) {
+                $("#Type").val(getExerciseTypeIndex(scope.exercise.ExerciseType._id));
+            }
+        };
+
+        function getExerciseTypeIndex(id){
+            var index = null;
+            $.each($scope.typeList, function(i, v){
+                if(v._id === id){
+                    index = i;
+                    return false;
+                }else{
+                    return true;
+                }
+            });
+
+            return index;
+        }
 
         $scope.editExercise = function(){
             var selectRow = $("#exerciseTable").find("tr.info");
@@ -205,12 +206,12 @@ myControllers.controller('ExerciseTypeCtrl', ['$scope', 'ExerciseType','angularG
         });
 
         $scope.toggleUnit = function(scope){
-            var index = $scope.exerciseType.UnitOfMeasureIds.indexOf(scope.unit._id);
+            var index = $scope.exerciseType.UnitOfMeasures.indexOf(scope.unit._id);
             if(index  > -1){
-                $scope.exerciseType.UnitOfMeasureIds.splice(index, 1);
+                $scope.exerciseType.UnitOfMeasures.splice(index, 1);
                 scope.unit.selected = false;
             }else{
-                $scope.exerciseType.UnitOfMeasureIds.push(scope.unit._id);
+                $scope.exerciseType.UnitOfMeasures.push(scope.unit);
                 scope.unit.selected = true;
             }
         };
@@ -224,10 +225,10 @@ myControllers.controller('ExerciseTypeCtrl', ['$scope', 'ExerciseType','angularG
         };
 
         $scope.setUnitOfMeasureString = function(scope){
-            scope.exerciseType.UnitOfMeasureIdString = "";
-            $.each(scope.exerciseType.UnitOfMeasureIds, function(i, v){
-                var comma = scope.exerciseType.UnitOfMeasureIdString.length > 0 ? ", ": "";
-                scope.exerciseType.UnitOfMeasureIdString += comma + getUnitOfMeasureName(v);
+            scope.exerciseType.UnitOfMeasuresString = "";
+            $.each(scope.exerciseType.UnitOfMeasures, function(i, v){
+                var comma = scope.exerciseType.UnitOfMeasuresString.length > 0 ? ", ": "";
+                scope.exerciseType.UnitOfMeasuresString += comma + v.Name;
             });
         };
 
@@ -298,7 +299,7 @@ myControllers.controller('ExerciseTypeCtrl', ['$scope', 'ExerciseType','angularG
 
         function setUnitOfMeasureButtons(){
             $.each($scope.unitsList, function(i, v){
-                var unit = $.grep($scope.exerciseType.UnitOfMeasureIds, function(e){ return e === v._id; });
+                var unit = $.grep($scope.exerciseType.UnitOfMeasures, function(e){ return e._id === v._id; });
                 if(unit.length > 0){
                     v.selected = true;
                 }
@@ -1068,7 +1069,7 @@ myControllers.controller('WodCtrl', ['$scope', 'Exercise',
                 Name: "",
                 Abbreviation: "",
                 Description: "",
-                ExerciseTypeId: ""
+                ExerciseType: null
             };
         },
         remove: function (id) {
@@ -1144,7 +1145,7 @@ services.factory("ExerciseType", ['$resource', '$q',
                     _id: null,
                     Name: "",
                     Description: "",
-                    UnitOfMeasureIds: []
+                    UnitOfMeasures: []
                 };
             },
             remove: function (id) {

@@ -36,7 +36,7 @@ services.factory('Exercise', ['$resource', '$q', function($resource, $q){
                 Name: "",
                 Abbreviation: "",
                 Description: "",
-                ExerciseTypeId: ""
+                ExerciseType: null
             };
         },
         remove: function (id) {

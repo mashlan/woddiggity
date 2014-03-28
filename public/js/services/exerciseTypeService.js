@@ -37,7 +37,7 @@ services.factory("ExerciseType", ['$resource', '$q',
                     _id: null,
                     Name: "",
                     Description: "",
-                    UnitOfMeasureIds: []
+                    UnitOfMeasures: []
                 };
             },
             remove: function (id) {

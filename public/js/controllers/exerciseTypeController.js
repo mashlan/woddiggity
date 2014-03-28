@@ -12,12 +12,12 @@ myControllers.controller('ExerciseTypeCtrl', ['$scope', 'ExerciseType','angularG
         });
 
         $scope.toggleUnit = function(scope){
-            var index = $scope.exerciseType.UnitOfMeasureIds.indexOf(scope.unit._id);
+            var index = $scope.exerciseType.UnitOfMeasures.indexOf(scope.unit._id);
             if(index  > -1){
-                $scope.exerciseType.UnitOfMeasureIds.splice(index, 1);
+                $scope.exerciseType.UnitOfMeasures.splice(index, 1);
                 scope.unit.selected = false;
             }else{
-                $scope.exerciseType.UnitOfMeasureIds.push(scope.unit._id);
+                $scope.exerciseType.UnitOfMeasures.push(scope.unit);
                 scope.unit.selected = true;
             }
         };
@@ -31,10 +31,10 @@ myControllers.controller('ExerciseTypeCtrl', ['$scope', 'ExerciseType','angularG
         };
 
         $scope.setUnitOfMeasureString = function(scope){
-            scope.exerciseType.UnitOfMeasureIdString = "";
-            $.each(scope.exerciseType.UnitOfMeasureIds, function(i, v){
-                var comma = scope.exerciseType.UnitOfMeasureIdString.length > 0 ? ", ": "";
-                scope.exerciseType.UnitOfMeasureIdString += comma + getUnitOfMeasureName(v);
+            scope.exerciseType.UnitOfMeasuresString = "";
+            $.each(scope.exerciseType.UnitOfMeasures, function(i, v){
+                var comma = scope.exerciseType.UnitOfMeasuresString.length > 0 ? ", ": "";
+                scope.exerciseType.UnitOfMeasuresString += comma + v.Name;
             });
         };
 
@@ -105,7 +105,7 @@ myControllers.controller('ExerciseTypeCtrl', ['$scope', 'ExerciseType','angularG
 
         function setUnitOfMeasureButtons(){
             $.each($scope.unitsList, function(i, v){
-                var unit = $.grep($scope.exerciseType.UnitOfMeasureIds, function(e){ return e === v._id; });
+                var unit = $.grep($scope.exerciseType.UnitOfMeasures, function(e){ return e._id === v._id; });
                 if(unit.length > 0){
                     v.selected = true;
                 }
