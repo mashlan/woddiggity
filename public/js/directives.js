@@ -34,6 +34,43 @@ myAppDirectives
         };
     }])
 
+    .directive('setPreferenceOption', ['$timeout', '$rootScope', function($timeout, $rootScope){
+        return{
+            link: function($scope, element){
+//                $timeout(function(){
+                    var preferences = $rootScope.ActiveUser.Preferences;
+                    if(preferences){
+                        if($scope.exType && $scope.exType._id){
+                            var pref = $.grep(preferences, function(e) {return e.ExerciseTypeId === $scope.exType._id});
+                            if(pref.length > 0){
+                                $scope.exType.unitPreference = pref[0];
+//                                var index = getUnitIndex($scope, pref[0].UnitOfMeasureId);
+//                                var elementId = element.attr("id");
+//                                document.getElementById(elementId).selectedIndex = index;
+//                                $("#" + elementId + " option[value='" + index + "']").attr("selected", "selected");
+//                                element.val(index);
+                            }
+                        }
+                    }
+//                }, 0, false);
+
+                function getUnitIndex(scope, id){
+                    var index = null;
+                    $.each(scope.exType.UnitOfMeasures, function(i, v){
+                        if(v._id === id){
+                            index = i;
+                            return false;
+                        }else{
+                            return true;
+                        }
+                    });
+
+                    return index;
+                }
+            }
+        }
+    }])
+
     .directive('changePasswordForm', [ function(){
         return {
             restrict: 'E',

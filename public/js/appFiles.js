@@ -374,9 +374,12 @@ myControllers.controller('PersonalCtrl', ['$scope', '$rootScope', '$compile', 'E
         $scope.exerciseTypeList = [];
 
         ExerciseType.query("Name").then(function(data){
+            var index = 0;
             $.each(data, function(i, v){
                 if(v.IsUserPreference){
                     $scope.exerciseTypeList.push(v);
+                    $scope.getSelectedPreference(index);
+                    index++;
                 }
             });
         });
@@ -394,6 +397,16 @@ myControllers.controller('PersonalCtrl', ['$scope', '$rootScope', '$compile', 'E
             PersonalRecord.query($rootScope.ActiveUser._id, "ExerciseName").then(function(data){
                 $.each(data, function(i, v){
                     sortByHistoryRecordDate(false, data[i].History);
+
+                    //set local time stamp
+                    $.each(data[i].History, function(hi, hv){
+                        hv.LocalFormat = (new Date(hv.RecordDate)).toLocaleDateString();
+                    });
+
+                    var exercise = $.grep($scope.exerciseList, function(e){return e._id === data[i].ExerciseId});
+                    if(exercise.length > 0){
+                        data[i].ExerciseName = exercise[0].Name;
+                    }
                 });
                 $scope.personalRecords = data;
             });
@@ -405,7 +418,7 @@ myControllers.controller('PersonalCtrl', ['$scope', '$rootScope', '$compile', 'E
         };
 
         $scope.onUnitSelected = function(scope){
-            scope.newPR.Units = scope.newPR.Unit.name;
+            $scope.newPR.Units = scope.newPR.Unit.name;
         };
 
         $scope.onExerciseSelect = function(scope){
@@ -414,6 +427,16 @@ myControllers.controller('PersonalCtrl', ['$scope', '$rootScope', '$compile', 'E
             $scope.newPR.ExerciseName = exercise.Name;
             $scope.valuePlaceholder = exercise.ExerciseType.Name;
             $scope.unitsList = exercise.ExerciseType.UnitOfMeasures;
+
+            //default unit list to user preference;
+            var unitPref = $.grep($rootScope.ActiveUser.Preferences, function(e){ return e.ExerciseTypeId === exercise.ExerciseType._id});
+            if(unitPref.length > 0){
+                $scope.newPR.Unit = $.grep($scope.unitsList, function(e){return e._id === unitPref[0].UnitOfMeasureId})[0];
+            }else{
+                $scope.newPR.Unit = $scope.unitsList[0];
+            }
+
+            $scope.newPR.Units = $scope.newPR.Unit.Name;
         };
 
         $scope.savePR = function(){
@@ -611,7 +634,7 @@ myControllers.controller('PersonalCtrl', ['$scope', '$rootScope', '$compile', 'E
             var user = $rootScope.ActiveUser;
             var prefer = $.grep(user.Preferences, function(e){ return e.ExerciseTypeId === scope.exType._id; });
             if(prefer.length > 0){
-                prefer[0].UnitOfMeasureId = scope.exType._id;
+                prefer[0].UnitOfMeasureId = scope.exType.unitPreference._id;
             }else{
                 user.Preferences.push({
                     UnitOfMeasureId: scope.exType.unitPreference._id,
@@ -620,26 +643,33 @@ myControllers.controller('PersonalCtrl', ['$scope', '$rootScope', '$compile', 'E
             }
         };
 
-        //TODO: finish up setting prefence selection
-//        $scope.getSelectedPreference = function(scope){
-//            if(scope.exType && scope.exType.unitPreference) {
-//                $("#exType_" + scope.exType._id).val(getUnitIndex(scope));
-//            }
-//        };
-//
-//        function getUnitIndex(scope){
-//            var index = null;
-//            $.each(scope.exType.unitPreference, function(i, v){
-//                if(v._id === id){
-//                    index = i;
-//                    return false;
-//                }else{
-//                    return true;
-//                }
-//            });
-//
-//            return index;
-//        }
+        $scope.getSelectedPreference = function(index){
+            var preferences = $rootScope.ActiveUser.Preferences;
+            var scope = $scope.exerciseTypeList[index];
+            if(preferences){
+                if(scope && scope._id){
+                    var pref = $.grep(preferences, function(e) {return e.ExerciseTypeId === scope._id});
+                    if(pref.length > 0){
+                        var selectedPref = getUnitOfMeasure(scope, pref[0].UnitOfMeasureId);
+                        scope.unitPreference = selectedPref;
+                    }
+                }
+            }
+        };
+
+        function getUnitOfMeasure(scope, id){
+            var unit = null;
+            $.each(scope.UnitOfMeasures, function(i, v){
+                if(v._id === id){
+                    unit = v;
+                    return false;
+                }else{
+                    return true;
+                }
+            });
+
+            return unit;
+        }
 
         $scope.savePreferences = function(){
             var pref = {

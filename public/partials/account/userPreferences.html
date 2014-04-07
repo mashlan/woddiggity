@@ -1,14 +1,14 @@
 
 <form class="form-horizontal diggity-text">
     <div class="list-group-item diggity-text" style="border-top:none;">
+        <h4 class="text-danger">You must logout and log back in for changes to take affect.</h4>
         <div class="form-group" ng-repeat="exType in exerciseTypeList">
             <label class="col-md-3 control-label">{{exType.Name}}</label>
             <div class="col-md-8">
-                <select ng-model="exType.unitPreference" class="form-control"
+                <select ng-model="exerciseTypeList[$index].unitPreference" class="form-control"
                         id="exType_{{exType._id}}"
                         ng-options="unit as unit.Name for unit in exType.UnitOfMeasures"
-                        ng-change="setPreference(this)"
-                        ng-selected="getSelectedPreference(this)"></select>
+                        ng-change="setPreference(this)"></select>
             </div>
         </div>
         <div class="form-group">
