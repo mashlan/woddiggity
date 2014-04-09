@@ -1,4 +1,20 @@
 
+myControllers.controller('WeightLiftingCtrl', ['$scope', 'WeightWorkout', 'Exercise', 'PersonalRecord', 'ExerciseType',
+    function($scope, WeightWorkout, Exercise, PersonalRecord, ExerciseType) {
+        'use strict';
+
+        $scope.exerciseList = [];
+        $scope.valuePlaceholder= 'Value';
+        $scope.personalRecords = [];
+        $scope.unitsList = [];
+        $scope.exerciseTypeList = [];
+
+        Exercise.query().then(function (data){
+            $scope.exerciseList = data;
+        });
+    }
+]);
+
 myControllers.controller('AccountCtrl', ['$scope', '$rootScope', 'Authentication',
     function ($scope, $rootScope, Authentication) {
         'use strict';
@@ -858,12 +874,6 @@ myControllers.controller('UserCtrl', ['$scope', '$rootScope', '$location', 'User
                 });
             }
         };
-    }
-]);
-myControllers.controller('WeightWorkoutCtrl', ['$scope', 'WeightWorkout', 'Exercise', 'PersonalRecord',
-    function($scope, WeightWorkout, Exercise, PersonalRecord) {
-        'use strict';
-
     }
 ]);
 myControllers.controller('WendlerCtrl', ['$scope', 'WendlerWorkout', 'Exercise',

@@ -4,18 +4,21 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Wod Diggity</title>
-    <link rel="stylesheet" href="/css/bootstrap-yeti.css"/>
-    <link rel="stylesheet" href="/css/site.css"/>
+    <link rel="stylesheet" href="css/bootstrap-yeti.css"/>
+    <link rel="stylesheet" href="css/site.css"/>
+    <link rel="stylesheet" href="css/fullcalendar.css"/>
 
-    <script src="/lib/jquery/jquery.js"></script>
-    <script src="/lib/bootstrap/bootstrap.js"></script>
-    <script src="/lib/highcharts/highcharts.js"></script>
-    <script src="/lib/angular/angular.js"></script>
-    <script src="/lib/angular/i18n/angular-locale_en.js"></script>
-    <script src="/lib/angular/angular-resource.js"></script>
-    <script src="/lib/angular/angular-route.js"></script>
-    <script src="/lib/angular/angular-animate.js"></script>
-    <script src="/lib/angular/ui-bootstrap-tpls-0.10.0.js"></script>
+    <script src="lib/jquery/jquery.js"></script>
+    <script src="lib/bootstrap/bootstrap.js"></script>
+    <script src="lib/highcharts/highcharts.js"></script>
+    <script src="lib/angular/angular.js"></script>
+    <script src="lib/angular/i18n/angular-locale_en.js"></script>
+    <script src="lib/angular/angular-resource.js"></script>
+    <script src="lib/angular/angular-route.js"></script>
+    <script src="lib/angular/angular-animate.js"></script>
+    <script src="lib/angular/ui-bootstrap-tpls-0.10.0.js"></script>
+    <script src="lib/moment/moment.min.js"></script>
+    <script src="lib/calendar/fullcalendar.js"></script>
 
 </head>
     <body>
@@ -28,18 +31,23 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="#">Home</a>
+                    <a class="navbar-brand" ng-show="isAuthenticated" href="#/account">{{ActiveUser.FirstName}} {{ActiveUser.LastName}}</a>
+                    <a ng-show="!isAuthenticated" class="navbar-brand" href="#">Home</a>
                 </div>
 
                 <div class="collapse navbar-collapse" id="diggity-collapse-1">
                     <ul class="nav navbar-nav">
-                        <li><a ng-show="isAuthenticated" href="#/WOD">WOD</a></li>
-                        <li><a ng-show="isAuthenticated" href="#/workouts">Workouts</a></li>
+                        <li><a ng-show="isAuthenticated" href="#/WOD">WODs</a></li>
+                        <li ng-show="isAuthenticated">
+                            <a href="#/weightLifting" target="_self" class="dropdown-toggle" data-toggle="dropdown">Weight Lifting <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#/weightLifting/calendar">Calendar</a></li>
+                                <li><a href="#/weightLifting/create">Create</a></li>
+                                <li><a href="#/weightLifting/edit">Edit</a></li>
+                            </ul>
+                        </li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a ng-show="!isAuthenticated" href="#/login">Login</a></li>
-                        <li><a ng-show="isAuthenticated" href="#/logout">Logout</a></li>
-                        <li><a ng-show="isAuthenticated" href="#/account">{{ActiveUser.FirstName}} {{ActiveUser.LastName}}</a></li>
                         <li ng-show="isAuthenticated && ActiveUser.IsAdmin">
                             <a href="#/admin" target="_self" class="dropdown-toggle" data-toggle="dropdown">Admin<b class="caret"></b></a>
                             <ul class="dropdown-menu">
@@ -59,6 +67,9 @@
                                 <li><a href="#/coach/createLifting">Create Lifting Workout</a></li>
                             </ul>
                         </li>
+                        <li><a href="#/settings" ng-show="isAuthenticated">Settings</span></a></li>
+                        <li><a ng-show="!isAuthenticated" href="#/login">Login</a></li>
+                        <li><a ng-show="isAuthenticated" href="#/logout">Logout</a></li>
                     </ul>
                 </div>
             </div>

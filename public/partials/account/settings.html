@@ -1,0 +1,26 @@
+
+<div class="col-md-8 col-md-push-2 col-sm-12 list-group">
+    <a href="#settings" class="list-group-item" ng-click="showPreferencesForm()">
+        <h4 class="text-primary" style="font-weight: bold">Preferences</h4>
+        <p id="preferences_form_text" class="diggity-text">Enter or update your preferred units of measure</p>
+    </a>
+    <user-preferences-form id="preferences_form" style="display: none;"></user-preferences-form>
+
+    <a href="#settings" class="list-group-item" ng-click="editAccountInfo()">
+        <h4 class="text-primary" style="font-weight: bold">Personal Info</h4>
+        <p id="account_info_text" class="diggity-text">Update name and email</p>
+    </a>
+    <edit-account-info id="account_info" style="display: none"></edit-account-info>
+
+    <a href="#settings" class="list-group-item" ng-click="showChangePassword()">
+        <h4 class="text-primary" style="font-weight: bold;">Change Password</h4>
+        <p id="change_password_text" class="diggity-text">Change your password</p>
+    </a>
+    <change-password-form id="change_password" style="display: none;"></change-password-form>
+
+    <a href="#settings" class="list-group-item" ng-click="showBoxInfo()">
+        <h4 class="text-primary" style="font-weight: bold">Your Box</h4>
+        <p id="box_info_text" class="diggity-text">Select or update your Box</p>
+    </a>
+    <box-info-form id="box_info" style="display: none;"></box-info-form>
+</div>

@@ -11,8 +11,9 @@ angular.module('myApp.routes', ['ngRoute'])
         $routeProvider.when('/WOD', { authenticate: true, templateUrl: 'partials/WOD.html', controller: 'WodCtrl' });
 
         //Workout templates
-        $routeProvider.when('/workouts', { authenticate: true, templateUrl: 'partials/workouts/index.html', controller: 'WodCtrl' });
-        $routeProvider.when('/workouts/weight', { authenticate: true, templateUrl: 'partials/workouts/wendler.html', controller: 'WeightWorkoutCtrl' });
+        $routeProvider.when('/weightLifting/calendar', { authenticate: true, templateUrl: 'partials/weightLifting/weightLiftingCalendar.html', controller: 'WeightLiftingCtrl' });
+        $routeProvider.when('/weightLifting/create', { authenticate: true, templateUrl: 'partials/weightLifting/weightLiftingCreate.html', controller: 'WeightLiftingCtrl' });
+        $routeProvider.when('/weightLifting/edit', { authenticate: true, templateUrl: 'partials/weightLifting/weightLiftingEdit.html', controller: 'WeightLiftingCtrl' });
 
         $routeProvider.when('/admin/exercises', {authenticate: true, templateUrl: 'partials/admin/manageExercises.html', controller: 'ExerciseCtrl' });
         $routeProvider.when('/admin/girls', {authenticate: true, templateUrl: 'partials/admin/manageGirls.html', controller: 'ExerciseCtrl' });
@@ -26,6 +27,7 @@ angular.module('myApp.routes', ['ngRoute'])
         $routeProvider.when('/coach/createLifting', {authenticate: true, templateUrl: 'partials/coach/createLiftingWorkout.html', controller: 'ExerciseCtrl' });
 
         $routeProvider.when('/account', {authenticate: true, templateUrl: 'partials/account/index.html', controller: 'PersonalCtrl' });
+        $routeProvider.when('/settings', {authenticate: true, templateUrl: 'partials/account/settings.html', controller: 'PersonalCtrl' });
         $routeProvider.when('/login', { templateUrl: 'partials/login.html',  controller: 'LoginCtrl' });
         $routeProvider.when('/logout', { logout: true});
         $routeProvider.when('/register', {templateUrl: 'partials/register.html', controller: 'UserCtrl'});

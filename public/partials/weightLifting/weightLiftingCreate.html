@@ -1,0 +1,92 @@
+<h2>Create new workout</h2>
+
+<ul class="nav nav-tabs" >
+    <li class="active">
+        <a href="#week_one" target="_self" data-toggle="tab">Week One</a>
+    </li>
+    <li>
+        <a href="#week_minus" target="_self" data-toggle="tab"><span class="glyphicon glyphicon-minus"></span></a>
+    </li>
+    <li>
+        <a href="#week_plus" target="_self" data-toggle="tab"><span class="glyphicon glyphicon-plus"></span> </a>
+    </li>
+</ul>
+
+<div id="week_one" class="tab-pane fade col-sm-12 active">
+    <table class="table workout-table">
+        <tbody>
+            <tr>
+                <td class="col-lg-1">
+                    Day one
+                </td>
+                <td class="col-lg-3">
+                    <div class="input-group">
+                        <select name="uExerciseList" class="form-control" required
+                                ng-options="exercise as exercise.Name for exercise in exerciseList"
+                                ng-model="newPR.Exercise"
+                                ng-change="onExerciseSelect(this)"></select>
+                        <div class="input-group-btn btn-group">
+                            <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                                <span class="glyphicon glyphicon-cog"></span>
+                            </button>
+                            <ul class="dropdown-menu text-left" role="menu">
+                                <li><a href="#/workouts/weight" ng-click="addSet(this)"><span class="glyphicon glyphicon-plus-sign"></span> Add Set </a></li>
+                                <li><a href="#/workouts/weight" ng-click="moveSetUp(this, $index)"><span class="glyphicon glyphicon-arrow-up"></span> Move Up </a></li>
+                                <li><a href="#/workouts/weight" ng-click="moveSetDown(this, $index)"><span class="glyphicon glyphicon-arrow-down"></span> Move Down </a></li>
+                                <li><a href="#/workouts/weight" ng-click="removeSet(this, $index)"><span class="glyphicon glyphicon-remove-circle"></span> Delete Set </a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </td>
+                <td class="col-lg-8">
+                    <table class="table workout-sub-table">
+                        <tbody>
+                            <tr>
+                                <td class="col-lg-1">
+                                    <div class="btn-group">
+                                        <button class="btn btn-sm btn-primary dropdown-toggle" data-toggle="dropdown">
+                                            Set One <span class="caret"></span>
+                                        </button>
+                                        <ul class="dropdown-menu text-left" role="menu">
+                                            <li><a href="#/workouts/weight" ng-click="addSet(this)"><span class="glyphicon glyphicon-plus-sign"></span> Add Set </a></li>
+                                            <li><a href="#/workouts/weight" ng-click="moveSetUp(this, $index)"><span class="glyphicon glyphicon-arrow-up"></span> Move Up </a></li>
+                                            <li><a href="#/workouts/weight" ng-click="moveSetDown(this, $index)"><span class="glyphicon glyphicon-arrow-down"></span> Move Down </a></li>
+                                            <li><a href="#/workouts/weight" ng-click="removeSet(this, $index)"><span class="glyphicon glyphicon-remove-circle"></span> Delete Set </a></li>
+                                        </ul>
+                                    </div>
+                                </td>
+                                <td class="col-lg-3">
+                                    <div class="input-group">
+                                        <input class="form-control" placeholder="Reps" type="number"/>
+                                        <span class="input-group-addon">Reps @</span>
+                                    </div>
+                                </td>
+                                <td class="col-lg-3">
+                                    <div class="input-group">
+                                        <input class="form-control" placeholder="Value" type="number"/>
+                                        <div class="input-group-btn btn-group">
+                                            <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                                                <span class="glyphicon glyphicon-cog"></span>
+                                            </button>
+                                            <ul class="dropdown-menu">
+                                                <li><a href="#">% of ME</a></li>
+                                                <li><a href="#">Calculate ME</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <select class="form-control">
+                                        <option>Lbs</option>
+                                        <option>Kgs</option>
+                                    </select>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
