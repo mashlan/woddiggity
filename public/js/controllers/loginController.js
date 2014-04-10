@@ -20,7 +20,7 @@ myControllers.controller('LoginCtrl', ['$scope', 'Authentication', '$location',
                 Authentication.login($scope).then(function (data) {
                     $scope.err = data.error ? data.error + '' : null;
                     if (data.user) {
-                        $location.path('/home');
+                        $location.path('/account');
                     }
                 });
             }

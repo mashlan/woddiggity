@@ -232,7 +232,6 @@ myControllers.controller('PersonalCtrl', ['$scope', '$rootScope', '$compile', 'E
                     $scope.accountInfoError = data.error;
                 }else{
                     $rootScope.ActiveUser = $scope.user;
-                    window.sessionStorage.setItem("woddo_user", JSON.stringify($rootScope.ActiveUser));
                     $("#account_info_text").show();
                     $("#account_info").hide();
                 }

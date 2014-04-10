@@ -38,11 +38,11 @@
 
                 <table class="table table-hover diggity-table" ng-repeat="pr in personalRecords" style="margin-bottom: 0">
                     <tr class="pr-summary" id="history_{{pr._id}}" ng-click="setActiveRow(this)">
-                        <td class="col-md-3">{{pr.ExerciseName}}</td>
-                        <td class="col-md-4">{{pr.History[0].LocalFormat}}</td>
-                        <td class="col-md-2">{{pr.History[0].Value}} {{pr.History[0].Units}}</td>
-                        <td class="col-md-2"><a href="#account" ng-click="showHistory(this)">Chart <span class="badge">{{pr.History.length}}</span></a></td>
-                        <td class="col-md-1"><a href="#account" ng-click="showAllPrs(this)" tooltip="Edit Records"><span class="glyphicon glyphicon-pencil"></span></a> </td>
+                        <td class="col-md-3 col-sm-3">{{pr.ExerciseName}}</td>
+                        <td class="col-md-4 col-sm-4">{{pr.History[0].LocalFormat}}</td>
+                        <td class="col-md-2 col-sm-2">{{pr.History[0].Value}} {{pr.History[0].Units}}</td>
+                        <td class="col-md-2 col-sm-2"><a href="#account" ng-click="showHistory(this)">Chart <span class="badge">{{pr.History.length}}</span></a></td>
+                        <td class="col-md-1 col-sm-1"><a href="#account" ng-click="showAllPrs(this)" tooltip="Edit Records"><span class="glyphicon glyphicon-pencil"></span></a> </td>
                     </tr>
                     <tr id="records_{{pr._id}}" style="display: none; background-color: #f5f5f5" class="edit-form pr-history">
                         <td colspan="5">

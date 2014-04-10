@@ -46,10 +46,7 @@ myControllers.controller('UserCtrl', ['$scope', '$rootScope', '$location', 'User
                     if(data.errors){$scope.err = data.message;}
                     if(data.message){ $scope.err = data.message; }
                     else{
-                        window.sessionStorage.setItem("woddo_user", JSON.stringify(data));
-                        $rootScope.ActiveUser = data;
-                        $rootScope.isAuthenticated = $rootScope.ActiveUser != null;
-                        $location.path("/home");
+                        $location.path("/login");
                     }
                 });
             }

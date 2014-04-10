@@ -372,7 +372,7 @@ myControllers.controller('LoginCtrl', ['$scope', 'Authentication', '$location',
                 Authentication.login($scope).then(function (data) {
                     $scope.err = data.error ? data.error + '' : null;
                     if (data.user) {
-                        $location.path('/home');
+                        $location.path('/account');
                     }
                 });
             }
@@ -612,7 +612,6 @@ myControllers.controller('PersonalCtrl', ['$scope', '$rootScope', '$compile', 'E
                     $scope.accountInfoError = data.error;
                 }else{
                     $rootScope.ActiveUser = $scope.user;
-                    window.sessionStorage.setItem("woddo_user", JSON.stringify($rootScope.ActiveUser));
                     $("#account_info_text").show();
                     $("#account_info").hide();
                 }
@@ -866,10 +865,7 @@ myControllers.controller('UserCtrl', ['$scope', '$rootScope', '$location', 'User
                     if(data.errors){$scope.err = data.message;}
                     if(data.message){ $scope.err = data.message; }
                     else{
-                        window.sessionStorage.setItem("woddo_user", JSON.stringify(data));
-                        $rootScope.ActiveUser = data;
-                        $rootScope.isAuthenticated = $rootScope.ActiveUser != null;
-                        $location.path("/home");
+                        $location.path("/login");
                     }
                 });
             }
