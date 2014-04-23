@@ -1,92 +1,128 @@
 <h2>Create new workout</h2>
 
-<ul class="nav nav-tabs" >
-    <li class="active">
-        <a href="#week_one" target="_self" data-toggle="tab">Week One</a>
-    </li>
-    <li>
-        <a href="#week_minus" target="_self" data-toggle="tab"><span class="glyphicon glyphicon-minus"></span></a>
-    </li>
-    <li>
-        <a href="#week_plus" target="_self" data-toggle="tab"><span class="glyphicon glyphicon-plus"></span> </a>
+<div class="form-horizontal">
+    <div class="form-group">
+        <label class="col-lg-2 control-label">Select Template</label>
+        <div class="col-lg-4">
+            <select class="form-control">
+                <option>Wendler 5/3/1 Standard</option>
+                <option>Wendler 5/3/1 Heavy</option>
+                <option>Wendler 5/3/1 Olympic</option>
+            </select>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-lg-6 text-center">
+            --- Or ---
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-lg-2 control-label">Number of Weeks</label>
+        <div class="col-lg-2">
+            <input class="form-control" type="number"/>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-lg-2 control-label">Days per Week</label>
+        <div class="col-lg-2">
+            <select class="form-control">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+            </select>
+        </div>
+    </div>
+</div>
+
+<!-- Show Weeks in a Tab format -->
+<ul class="nav nav-tabs" ng-show="Workout.Weeks.length > 0">
+    <li ng-repeat="week in Workout.Weeks" ng-class="{active: $index == 0}">
+        <a href="#week_{{week.Number}}" target="_self" data-toggle="tab">{{week.Name}}</a>
     </li>
 </ul>
 
-<div id="week_one" class="tab-pane fade col-sm-12 active">
-    <table class="table workout-table">
-        <tbody>
-            <tr>
-                <td class="col-lg-1">
-                    Day one
-                </td>
-                <td class="col-lg-3">
-                    <div class="input-group">
-                        <select name="uExerciseList" class="form-control" required
-                                ng-options="exercise as exercise.Name for exercise in exerciseList"
-                                ng-model="newPR.Exercise"
-                                ng-change="onExerciseSelect(this)"></select>
-                        <div class="input-group-btn btn-group">
-                            <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
-                                <span class="glyphicon glyphicon-cog"></span>
-                            </button>
-                            <ul class="dropdown-menu text-left" role="menu">
-                                <li><a href="#/workouts/weight" ng-click="addSet(this)"><span class="glyphicon glyphicon-plus-sign"></span> Add Set </a></li>
-                                <li><a href="#/workouts/weight" ng-click="moveSetUp(this, $index)"><span class="glyphicon glyphicon-arrow-up"></span> Move Up </a></li>
-                                <li><a href="#/workouts/weight" ng-click="moveSetDown(this, $index)"><span class="glyphicon glyphicon-arrow-down"></span> Move Down </a></li>
-                                <li><a href="#/workouts/weight" ng-click="removeSet(this, $index)"><span class="glyphicon glyphicon-remove-circle"></span> Delete Set </a></li>
-                            </ul>
-                        </div>
-                    </div>
-
-                </td>
-                <td class="col-lg-8">
-                    <table class="table workout-sub-table">
-                        <tbody>
-                            <tr>
-                                <td class="col-lg-1">
-                                    <div class="btn-group">
-                                        <button class="btn btn-sm btn-primary dropdown-toggle" data-toggle="dropdown">
-                                            Set One <span class="caret"></span>
-                                        </button>
-                                        <ul class="dropdown-menu text-left" role="menu">
-                                            <li><a href="#/workouts/weight" ng-click="addSet(this)"><span class="glyphicon glyphicon-plus-sign"></span> Add Set </a></li>
-                                            <li><a href="#/workouts/weight" ng-click="moveSetUp(this, $index)"><span class="glyphicon glyphicon-arrow-up"></span> Move Up </a></li>
-                                            <li><a href="#/workouts/weight" ng-click="moveSetDown(this, $index)"><span class="glyphicon glyphicon-arrow-down"></span> Move Down </a></li>
-                                            <li><a href="#/workouts/weight" ng-click="removeSet(this, $index)"><span class="glyphicon glyphicon-remove-circle"></span> Delete Set </a></li>
-                                        </ul>
-                                    </div>
-                                </td>
-                                <td class="col-lg-3">
-                                    <div class="input-group">
-                                        <input class="form-control" placeholder="Reps" type="number"/>
-                                        <span class="input-group-addon">Reps @</span>
-                                    </div>
-                                </td>
-                                <td class="col-lg-3">
-                                    <div class="input-group">
-                                        <input class="form-control" placeholder="Value" type="number"/>
-                                        <div class="input-group-btn btn-group">
-                                            <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
-                                                <span class="glyphicon glyphicon-cog"></span>
-                                            </button>
-                                            <ul class="dropdown-menu">
-                                                <li><a href="#">% of ME</a></li>
-                                                <li><a href="#">Calculate ME</a></li>
-                                            </ul>
+<!-- Tab contents i.e. workout days -->
+<div id="myTabContent" class="tab-content">
+    <div id="week_{{week.Number}}" ng-repeat="week in Workout.Weeks" ng-class="{active: $index == 0, in: $index == 0}" class="tab-pane fade col-sm-12"  style="padding-left: 0">
+        <div class="panel-group" id="accordion_{{week.Number}}">
+            <div class="panel panel-primary" ng-repeat="day in week.Days" style="overflow: visible;">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" onclick="return false;" data-parent="#accordion" href="#day_{{week.Number}}_{{day.DayNumber}}">{{day.Name}}</a>
+                    </h4>
+                </div>
+                <div id="day_{{week.Number}}_{{day.DayNumber}}" class="panel-collapse collapse in">
+                    <div class="panel-body">
+                        <div class="form-horizontal">
+                            <div ng-repeat="exercise in day.Exercises">
+                                <div class="form-group">
+                                    <label class="col-lg-2 control-label" for="exerciseList_{{exercise.ExerciseId}}">Exercise</label>
+                                    <div class="col-lg-4">
+                                        <div class="input-group">
+                                            <select class="form-control"
+                                                    id="exerciseList_{{exercise.ExerciseId}}"
+                                                    ng-options="exercise as exercise.Name for exercise in exercises"
+                                                    ng-model="exercise.SelectedExercise" ng-change="onExerciseSelect(this)"></select>
+                                            <div class="input-group-btn">
+                                                <div class="btn-group">
+                                                    <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                                                        <span class="">Actions </span>
+                                                        <span class="caret"></span>
+                                                    </button>
+                                                    <ul class="dropdown-menu" role="menu">
+                                                        <li><a href="#" onclick="return false;" ng-click="addExercise(this)"><span class="glyphicon glyphicon-plus-sign"></span> Add Exercise </a></li>
+                                                        <li><a href="#" onclick="return false;" ng-click="moveExerciseUp(this, $index)"><span class="glyphicon glyphicon-arrow-up"></span> Move Up </a></li>
+                                                        <li><a href="#" onclick="return false;" ng-click="moveExerciseDown(this, $index)"><span class="glyphicon glyphicon-arrow-down"></span> Move Down </a></li>
+                                                        <li><a href="#" onclick="return false;" ng-click="removeExercise(this, $index)"><span class="glyphicon glyphicon-remove-circle"></span> Delete Exercise </a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
-                                </td>
-                                <td>
-                                    <select class="form-control">
-                                        <option>Lbs</option>
-                                        <option>Kgs</option>
-                                    </select>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </td>
-            </tr>
-        </tbody>
-    </table>
+                                </div>
+
+                                <div class="col-lg-12 col-lg-push-1">
+                                    <div class="form-group" ng-repeat="set in exercise.Sets">
+                                        <label class="col-lg-2 control-label"></label>
+                                        <div class="col-lg-4">
+                                            <div class="input-group">
+                                                <span class="input-group-btn">
+                                                    <div class="btn-group">
+                                                        <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                                                            <span class="">Actions </span>
+                                                            <span class="caret"></span>
+                                                        </button>
+                                                        <ul class="dropdown-menu" role="menu">
+                                                            <li><a href="#" onclick="return false;" ng-click="addSet(this)"><span class="glyphicon glyphicon-plus-sign"></span> Add Set </a></li>
+                                                            <li><a href="#" onclick="return false;" ng-click="moveSetUp(this, $index)"><span class="glyphicon glyphicon-arrow-up"></span> Move Up </a></li>
+                                                            <li><a href="#" onclick="return false;" ng-click="moveSetDown(this, $index)"><span class="glyphicon glyphicon-arrow-down"></span> Move Down </a></li>
+                                                            <li><a href="#" onclick="return false;" ng-click="removeSet(this, $index)"><span class="glyphicon glyphicon-remove-circle"></span> Delete Set </a></li>
+                                                        </ul>
+                                                    </div>
+                                                </span>
+                                                <input class="form-control" type="number" placeholder="Reps" ng-model="set.Reps"/>
+                                                <span class="input-group-addon">X</span>
+                                                <input class="form-control" type="number" placeholder="Weight" ng-model="set.Value"/>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-1">
+                                            <select name="uUnits"
+                                                    ng-model="newPR.Unit"
+                                                    ng-options="unit as unit.Name for unit in unitsList"
+                                                    ng-change="onUnitSelected(this)"
+                                                    class="form-control ng-pristine ng-invalid ng-invalid-required">
+                                            </select>
+                                        </div>
+                                        <div class="col-lg-1">
+                                            <button type="button" class="btn btn-primary" ng-show="!set.IsMaxEffort" title="Click to indicate Max Effort" ng-click="setMaxError(this)">Rx</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

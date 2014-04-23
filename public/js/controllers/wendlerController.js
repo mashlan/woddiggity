@@ -7,7 +7,8 @@ myControllers.controller('WendlerCtrl', ['$scope', 'WendlerWorkout', 'Exercise',
             Weeks: [],
             ProgramType: '',
             Name: '',
-            Description: ''
+            Description: '',
+            Option: 0
         };
 
         $scope.existingWorkouts = [];
@@ -16,6 +17,11 @@ myControllers.controller('WendlerCtrl', ['$scope', 'WendlerWorkout', 'Exercise',
             {name: 2},
             {name: 3},
             {name: 4}
+        ];
+
+        $scope.options = [
+            {name: 'Standard', id: 0},
+            {name: 'Heavier', id: 1}
         ];
 
         $scope.programTypes = [
@@ -49,29 +55,92 @@ myControllers.controller('WendlerCtrl', ['$scope', 'WendlerWorkout', 'Exercise',
             $("#days").removeAttr('disabled');
         };
 
+        $scope.setPercentOption = function(scope){
+          $scope.wendlerRecord.Option = scope.Option.id;
+        };
+
         $scope.setWorkoutDay = function(scope){
             $.each($scope.wendlerRecord.Weeks, function(index, value){
                 var days = [];
                 for(var i = 1; i < scope.NumberOfDays.name + 1; i++){
-                    var day = {Name: 'Day ' + i, DayNumber: i, Exercises: [{ExerciseId: '', Sets: startingSets() }]};
+                    var day = {Name: 'Day ' + i, DayNumber: i, Exercises: [{ExerciseId: '', Sets: startingSets(index) }]};
                     days.push(day);
                 }
                 $scope.wendlerRecord.Weeks[index].Days = days;
             });
         };
 
-        function startingSets(){
+        function startingSets(weekNumber){
             var sets = [];
+            var option = $scope.wendlerRecord.Option;
 
-            for(var i = 1; i < 4; i++){
-                sets.push(getNewSet(i));
+            //add six sets
+            for(var i = 1; i < 7; i++){
+                sets.push(getNewSet(i, weekNumber, option));
             }
 
             return sets;
         }
 
-        function getNewSet(setNumber){
-            return {NumberOf: setNumber, Reps: 5, PercentMax: 50, IsMaxEffort: false};
+        function getNewSet(setNumber, weekNumber, option){
+            var percent = getPercent(weekNumber, setNumber, option);
+            var repititions = getReps(weekNumber, setNumber);
+            return {NumberOf: setNumber, Reps: repititions, PercentMax: percent, IsMaxEffort: (setNumber == 6)};
+        }
+
+        function getReps(weekNumber, setNumber){
+            //warm up sets
+            if(setNumber == 1) return 5;
+            if(setNumber == 2) return 5;
+            if(setNumber == 3) return 3;
+
+            switch(weekNumber){
+                case 0:
+                    if(setNumber == 4) return 5;
+                    if(setNumber == 5) return 5;
+                    if(setNumber == 6) return 5;
+                case 1:
+                    if(setNumber == 4) return 3;
+                    if(setNumber == 5) return 3;
+                    if(setNumber == 6) return 3;
+                case 2:
+                    if(setNumber == 4) return 5;
+                    if(setNumber == 5) return 3;
+                    if(setNumber == 6) return 1;
+                case 3:
+                case 4:
+                case 5:
+                    return 5;
+            }
+        };
+
+        function getPercent(weekNumber, setNumber, option){
+            //warm up sets
+            if(setNumber == 1) return 40;
+            if(setNumber == 2) return 50;
+            if(setNumber == 3) return 60;
+
+            switch(weekNumber){
+                case 0:
+                    if(setNumber == 4) return option == 0 ? 65: 75;
+                    if(setNumber == 5) return option == 0 ? 75: 80;
+                    if(setNumber == 6) return 85;
+                case 1:
+                    if(setNumber == 4) return option == 0 ? 70: 80;
+                    if(setNumber == 5) return option == 0 ? 80: 85;
+                    if(setNumber == 6) return 90;
+                case 2:
+                    if(setNumber == 4) return 75;
+                    if(setNumber == 5) return 85;
+                    if(setNumber == 6) return 95;
+                case 3:
+                    if(setNumber == 4) return 40;
+                    if(setNumber == 5) return 50;
+                    if(setNumber == 6) return 60;
+                case 4:
+                case 5:
+                    return 0;
+            }
         }
 
         $scope.setMaxError = function(scope){

@@ -55,8 +55,18 @@
                         ng-model="ProgramType" ng-change="setProgramType(this)"></select>
             </div>
         </div>
-        <label class="control-label" for="days">Days</label>
-        <div class="">
+
+        <div class="col-sm-3">
+            <label class="control-label" for="options">Options</label>
+            <div class="input-group">
+                <select class="form-control input-sm"
+                        id="options"
+                        ng-options="option as option.name for option in options"
+                        ng-model="Option" ng-change="setPercentOption(this)"></select>
+            </div>
+        </div>
+        <div>
+            <label class="control-label" for="days">Days</label>
             <div class="input-group">
                 <select class="form-control input-sm"
                         disabled="disabled"
@@ -172,5 +182,9 @@
                 </div>
             </div>
         </div>
+    </div>
+
+    <div class="form-group">
+        <button id="saveWorkout" type="button" class="btn btn-xs btn-primary">Save</button>
     </div>
 </div>
