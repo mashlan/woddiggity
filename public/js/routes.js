@@ -10,10 +10,13 @@ angular.module('myApp.routes', ['ngRoute'])
         $routeProvider.when('/home', { templateUrl: 'partials/home.html', controller: 'HomeCtrl' });
         $routeProvider.when('/WOD', { authenticate: true, templateUrl: 'partials/WOD.html', controller: 'WodCtrl' });
 
-        //Workout templates
+/*        //Workout templates
         $routeProvider.when('/weightLifting/calendar', { authenticate: true, templateUrl: 'partials/weightLifting/weightLiftingCalendar.html', controller: 'WeightLiftingCtrl' });
         $routeProvider.when('/weightLifting/create', { authenticate: true, templateUrl: 'partials/weightLifting/weightLiftingCreate.html', controller: 'WeightLiftingCtrl' });
-        $routeProvider.when('/weightLifting/edit', { authenticate: true, templateUrl: 'partials/weightLifting/weightLiftingEdit.html', controller: 'WeightLiftingCtrl' });
+        $routeProvider.when('/weightLifting/edit', { authenticate: true, templateUrl: 'partials/weightLifting/weightLiftingEdit.html', controller: 'WeightLiftingCtrl' });*/
+
+        //Wendler templates
+        $routeProvider.when('/wendler/create', { authenticate: true, templateUrl: 'partials/wendler/create.html', controller: 'WendlerCtrl' });
 
         $routeProvider.when('/admin/exercises', {authenticate: true, templateUrl: 'partials/admin/manageExercises.html', controller: 'ExerciseCtrl' });
         $routeProvider.when('/admin/girls', {authenticate: true, templateUrl: 'partials/admin/manageGirls.html', controller: 'ExerciseCtrl' });

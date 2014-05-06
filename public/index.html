@@ -38,12 +38,18 @@
                 <div class="collapse navbar-collapse" id="diggity-collapse-1">
                     <ul class="nav navbar-nav">
                         <li><a ng-show="isAuthenticated" href="#/WOD">WODs</a></li>
-                        <li ng-show="isAuthenticated">
+                       <!-- <li ng-show="isAuthenticated">
                             <a href="#/weightLifting" target="_self" class="dropdown-toggle" data-toggle="dropdown">Weight Lifting <span class="caret"></span></a>
                             <ul class="dropdown-menu">
                                 <li><a href="#/weightLifting/calendar">Calendar</a></li>
                                 <li><a href="#/weightLifting/create">Create</a></li>
                                 <li><a href="#/weightLifting/edit">Edit</a></li>
+                            </ul>
+                        </li>-->
+                        <li ng-show="isAuthenticated">
+                            <a href="#/wendler" target="_self" class="dropdown-toggle" data-toggle="dropdown">Wendlers <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#/wendler/create">Create</a></li>
                             </ul>
                         </li>
                     </ul>

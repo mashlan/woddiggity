@@ -2,6 +2,7 @@
 myControllers.controller('WendlerCtrl', ['$scope', 'WendlerWorkout', 'Exercise',
     function($scope, WendlerWorkout, Exercise) {
         'use strict';
+        $scope.startDate = null;
 
         $scope.wendlerRecord = {
             Weeks: [],
