@@ -1,31 +1,33 @@
-<div class="alert alert-danger">
-    <h2>Under Construction</h2>
 
-    <P style="font-size: 1.2em;">
-        Warning! This site is currently under development. Access is open to anyone who wishes to register, however, there are
-        no guaranties. Data and page layouts may change during development.
-    </P>
-</div>
-
-<h1>WOD Diggity</h1>
-<br/>
-
-
-<h4><b>WOD</b></h4>
-<div class="diggity-callout diggity-callout-info">
-    <h4>Workout of the day.</h4>
-</div>
-
-<h4><b>Diggity</b></h4>
-
-<div class="diggity-callout diggity-callout-info">
-    According to the <a href="http://www.urbandictionary.com/define.php?term=diggity" target="_blank">Urban Dictionary</a><br/><br/>
-    <i>
-        Often doesn't have it's own definition. Only when placed with other words it really has a meaning <br/>
-        <div style="margin: 10px;">
-            1. No diggity = no doubt, for sure <br/>
-            2. Bomb diggity = great, awesome, the best, etc
+<div id="homeForm" style="background-color: #ebebeb">
+    <div class="container">
+        <h4><b>WOD</b></h4>
+        <div class="">
+            <h4>Workout of the day.</h4>
         </div>
-    </i>
+
+        <h4><b>Diggity</b></h4>
+
+        <div class="">
+            According to the <a href="http://www.urbandictionary.com/define.php?term=diggity" target="_blank">Urban Dictionary</a><br/><br/>
+            <i>
+                Often doesn't have it's own definition. Only when placed with other words it really has a meaning <br/>
+                <div style="margin: 10px;">
+                    1. No diggity = no doubt, for sure <br/>
+                    2. Bomb diggity = great, awesome, the best, etc
+                </div>
+            </i>
+        </div>
+    </div>
 </div>
+
+<script type="text/javascript">
+    $(document).ready(function(){
+        $("#homeForm").css("height", window.innerHeight - 320);
+        $(window).on("resize", function(){
+            $("#homeForm").css("height", window.innerHeight - 320);
+        })
+    })
+</script>
+
 

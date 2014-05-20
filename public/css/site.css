@@ -1,6 +1,44 @@
 
-body{
-    padding-top: 70px !important;
+
+.home-header{
+    background-image: url("../img/chalkbg.jpg");
+    height: 320px;
+    /*font-family: 'Gloria Hallelujah', cursive !important;*/
+    font-family: 'Fredericka the Great', cursive !important;
+    font-size: 3.5em;
+    color: #ffffff;
+}
+
+.home-header p{
+    font-size: .5em !important;
+    color: #ffff00;
+    margin-top: 20px;
+}
+.navbar-chalkboard{
+    background-color: transparent;
+    padding-top: 270px;
+}
+
+.navbar-chalkboard-scroll{
+    background-image: url("../img/chalkbg.jpg");
+    padding-top: 0;
+}
+
+.navbar-chalkboard a{
+    color: #ffffff;
+    font-family: 'Fredericka the Great', cursive !important;
+}
+
+.navbar-chalkboard a:hover, .active-link{
+    color: #ffff00 !important;
+}
+
+.navbar-chalkboard li a:hover{
+    background-color: transparent;
+}
+
+.navbar-chalkboard li:active{
+    background-color: transparent;
 }
 
 .diggity-text{

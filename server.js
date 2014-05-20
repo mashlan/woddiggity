@@ -12,7 +12,7 @@ var localStrategy   = require('passport-local').Strategy;
 var userRepo        = require('./data_access/repositories/userRepository.js')(mongoose, db, "users", schema.User);
 
 if(debug){
-    process.env.PORT = 5000;
+    process.env.PORT = 5050;
 }
 else{
     process.env.PORT = 80;
