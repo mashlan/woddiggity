@@ -29,90 +29,92 @@
 
 </head>
     <body>
-        <div class="home-header">
-            <div class="container">
-                <div>Welcome to WOD Diggity</div>
-                <p>
-                    Warning! This site is currently under development. Access is open to anyone who wishes to register,
-                    however, there are no guaranties. Data and page layouts may change during development.
-                </p>
+        <div id="cloud-container">
+            <div class="home-header">
+                <div class="container">
+                    <div class="home"></div>
+                    <div class="underline"> Welcome to WOD Diggity</div>
+                    <div class="header-text">
+                        Warning! This site is currently under development. Access is open to anyone who wishes to register,
+                        however, there are no guaranties. Data and page layouts may change during development.
+                    </div>
+                </div>
             </div>
+            <nav class="navbar navbar-chalkboard navbar-fixed-top" role="navigation">
+                <div class="container">
+                    <div class="navbar-header">
+                        <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#diggity-collapse-1">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" ng-show="isAuthenticated" href="#/account">{{ActiveUser.FirstName}} {{ActiveUser.LastName}}</a>
+                        <a ng-show="!isAuthenticated" class="navbar-brand" href="#">Home</a>
+                    </div>
+
+                    <div class="collapse navbar-collapse" id="diggity-collapse-1">
+                        <ul class="nav navbar-nav">
+                            <li><a ng-show="isAuthenticated" href="#/WOD">WODs</a></li>
+                           <!-- <li ng-show="isAuthenticated">
+                                <a href="#/weightLifting" target="_self" class="dropdown-toggle" data-toggle="dropdown">Weight Lifting <span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#/weightLifting/calendar">Calendar</a></li>
+                                    <li><a href="#/weightLifting/create">Create</a></li>
+                                    <li><a href="#/weightLifting/edit">Edit</a></li>
+                                </ul>
+                            </li>-->
+                            <li ng-show="isAuthenticated">
+                                <a href="#/wendler" target="_self" class="dropdown-toggle" data-toggle="dropdown">Wendlers <span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#/wendler/create">Create</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <ul class="nav navbar-nav navbar-right">
+                            <li ng-show="isAuthenticated && ActiveUser.IsAdmin">
+                                <a href="#/admin" target="_self" class="dropdown-toggle" data-toggle="dropdown">Admin<b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#/admin/exercises">Exercises</a></li>
+                                    <li><a href="#/admin/wendler">Weightlifting Template</a></li>
+                                    <li class="divider"></li>
+                                    <li><a href="#/admin/girls">Girls</a></li>
+                                    <li><a href="#/admin/heroes">Heroes</a></li>
+                                </ul>
+                            </li>
+                            <li ng-show="isAuthenticated && ActiveUser.IsCoach">
+                                <a href="#/admin" target="_self" class="dropdown-toggle" data-toggle="dropdown">Coach<b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#/coach/recordWod">Record WOD</a></li>
+                                    <li class="divider"></li>
+                                    <li><a href="#/coach/createWod">Create WOD</a></li>
+                                    <li><a href="#/coach/createLifting">Create Lifting Workout</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#/settings" ng-show="isAuthenticated">Settings</span></a></li>
+                            <li><a ng-show="!isAuthenticated" href="#/login">Login</a></li>
+                            <li><a ng-show="!isAuthenticated" href="#/register" class="navbar-btn btn-xs btn-danger" style="margin: 5px">Register</a></li>
+                            <li><a ng-show="isAuthenticated" href="#/logout">Logout</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+
+            <div ng-view></div>
+
+            <script src="/js/app.js"></script>
+            <script src="/js/config.js"></script>
+            <script src="/js/directives.js"></script>
+            <script src="/js/filters.js"></script>
+            <script src="/js/routes.js"></script>
+
+            <!-- all services and controllers are concatenated to this script -->
+            <script src="js/appFiles.js"></script>
+
+
+            <!-- angular grid -->
+            <script src="/js/angularGrid.js"></script>
         </div>
-        <nav class="navbar navbar-chalkboard navbar-fixed-top" role="navigation">
-            <div class="container">
-                <div class="navbar-header">
-                    <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#diggity-collapse-1">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" ng-show="isAuthenticated" href="#/account">{{ActiveUser.FirstName}} {{ActiveUser.LastName}}</a>
-                    <a ng-show="!isAuthenticated" class="navbar-brand" href="#">Home</a>
-                </div>
-
-                <div class="collapse navbar-collapse" id="diggity-collapse-1">
-                    <ul class="nav navbar-nav">
-                        <li><a ng-show="isAuthenticated" href="#/WOD">WODs</a></li>
-                       <!-- <li ng-show="isAuthenticated">
-                            <a href="#/weightLifting" target="_self" class="dropdown-toggle" data-toggle="dropdown">Weight Lifting <span class="caret"></span></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="#/weightLifting/calendar">Calendar</a></li>
-                                <li><a href="#/weightLifting/create">Create</a></li>
-                                <li><a href="#/weightLifting/edit">Edit</a></li>
-                            </ul>
-                        </li>-->
-                        <li ng-show="isAuthenticated">
-                            <a href="#/wendler" target="_self" class="dropdown-toggle" data-toggle="dropdown">Wendlers <span class="caret"></span></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="#/wendler/create">Create</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                    <ul class="nav navbar-nav navbar-right">
-                        <li ng-show="isAuthenticated && ActiveUser.IsAdmin">
-                            <a href="#/admin" target="_self" class="dropdown-toggle" data-toggle="dropdown">Admin<b class="caret"></b></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="#/admin/exercises">Exercises</a></li>
-                                <li><a href="#/admin/wendler">Weightlifting Template</a></li>
-                                <li class="divider"></li>
-                                <li><a href="#/admin/girls">Girls</a></li>
-                                <li><a href="#/admin/heroes">Heroes</a></li>
-                            </ul>
-                        </li>
-                        <li ng-show="isAuthenticated && ActiveUser.IsCoach">
-                            <a href="#/admin" target="_self" class="dropdown-toggle" data-toggle="dropdown">Coach<b class="caret"></b></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="#/coach/recordWod">Record WOD</a></li>
-                                <li class="divider"></li>
-                                <li><a href="#/coach/createWod">Create WOD</a></li>
-                                <li><a href="#/coach/createLifting">Create Lifting Workout</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="#/settings" ng-show="isAuthenticated">Settings</span></a></li>
-                        <li><a ng-show="!isAuthenticated" href="#/login">Login</a></li>
-                        <li><a ng-show="!isAuthenticated" href="#/register" class="navbar-btn btn-xs btn-danger" style="margin: 5px">Register</a></li>
-                        <li><a ng-show="isAuthenticated" href="#/logout">Logout</a></li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-
-        <div ng-view></div>
-
-        <script src="/js/app.js"></script>
-        <script src="/js/config.js"></script>
-        <script src="/js/directives.js"></script>
-        <script src="/js/filters.js"></script>
-        <script src="/js/routes.js"></script>
-
-        <!-- all services and controllers are concatenated to this script -->
-        <script src="js/appFiles.js"></script>
-
-
-        <!-- angular grid -->
-        <script src="/js/angularGrid.js"></script>
-
     </body>
 
     <script type="text/javascript">
