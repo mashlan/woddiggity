@@ -1,14 +1,14 @@
 
-
+<div id="homeForm" style="background-color: #ebebeb">
     <div class="container">
-        <h4><b style="color: #3a87ad">WOD:</b> </h4>
-        <p style="padding-left: 20px;"> Workout of the day.</p>
+        <h4><b>WOD</b></h4>
+        <div class="">
+            <h4>Workout of the day.</h4>
+        </div>
 
-        <br/>
+        <h4><b>Diggity</b></h4>
 
-        <h4><b style="color: #3a87ad">Diggity</b></h4>
-
-        <div style="padding-left: 20px">
+        <div class="">
             According to the <a href="http://www.urbandictionary.com/define.php?term=diggity" target="_blank">Urban Dictionary</a><br/><br/>
             <i>
                 Often doesn't have it's own definition. Only when placed with other words it really has a meaning <br/>
@@ -19,3 +19,15 @@
             </i>
         </div>
     </div>
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function(){
+        $("#homeForm").css("height", window.innerHeight - 320);
+        $(window).on("resize", function(){
+            $("#homeForm").css("height", window.innerHeight - 320);
+        })
+    })
+</script>
+
+
